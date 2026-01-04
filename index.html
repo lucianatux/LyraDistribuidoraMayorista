@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="lyr2.png" type="image/x-icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LK3VW8R612"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LK3VW8R612");
+    </script>
+    <title>Lyra</title>
+  </head>
+  <body>
+    <!----------------------MENU---------------------->
+
+    <div id="menu">
+      <a class="item-menu" href="#home">
+        <img class="rubro-icon" src="./assets/house.png" alt="" />
+        <p class="rubro-title">Inicio</p>
+        <p class="rubro-title-small">Inicio</p>
+      </a>
+      <a class="item-menu" href="#promos">
+        <img class="rubro-icon" src="./assets/promo.png" alt="" />
+        <p class="rubro-title">Promociones</p>
+        <p class="rubro-title-small">Promos</p>
+      </a>
+      <a class="item-menu" href="#libreria">
+        <img class="rubro-icon" src="./assets/libreria.png" alt="" />
+        <p class="rubro-title">Librería y Juguetería</p>
+        <p class="rubro-title-small">Librería</p>
+      </a>
+      <a class="item-menu" href="#hebillas">
+        <img class="rubro-icon" src="./assets/pelo.png" alt="" />
+        <p class="rubro-title">Accesorios para el pelo</p>
+        <p class="rubro-title-small">Hebillas</p>
+      </a>
+      <a class="item-menu" href="#tinturas">
+        <img class="rubro-icon" src="./assets/tinturas.png" alt="" />
+        <p class="rubro-title">Tinturas y tratamientos</p>
+        <p class="rubro-title-small">Tinturas</p>
+      </a>
+      <a class="item-menu" href="#carteras">
+        <img class="rubro-icon" src="./assets/carteras.png" alt="" />
+        <p class="rubro-title">Carteras y afines</p>
+        <p class="rubro-title-small">Carteras</p>
+      </a>
+      <a class="item-menu" href="#sublimados">
+        <img class="rubro-icon" src="./assets/sublim.png" alt="" />
+        <p class="rubro-title">Sublimados</p>
+        <p class="rubro-title-small">Sublimados</p>
+      </a>
+      <a class="item-menu" href="https://wa.me/543512309375" target="_blank">
+        <img class="rubro-icon whats" src="./assets/whatsapp.png" alt="" />
+        <p class="rubro-title">Chat de whatsapp</p>
+      </a>
+    </div>
+
+    <div id="content">
+      <!----------------------HOME---------------------->
+
+      <section class="menu-section" id="home">
+        <div class="div-lyra">
+          <img class="logo invert" src="lyr2.png" alt="" id="logo" />
+          <div id="lyramayorista">
+            <span class="lyra">LYRA </span>
+            <p id="mayorista">Distribuidora mayorista</p>
+          </div>
+          <div></div>
+        </div>
+        <div id="order">
+          <p id="order-btn-text"><span class="cart-icon">🛒</span></p>
+        </div>
+        <div class="div-collage">
+          <img class="collage" src="./assets/col3.png" alt="" />
+          <img class="mirror" src="./assets/col3.png" alt="" />
+          <img class="collage2" src="./assets/col3.png" alt="" />
+          <img class="mirror2" src="./assets/col3.png" alt="" />
+        </div>
+
+        <p class="slogan">Un universo de productos para tu negocio</p>
+        <div class="icons-div" id="icons-div">
+          <div>
+            <a href="#promos"><img src="./assets/promo2.png" alt="" /></a>
+          </div>
+          <div>
+            <a href="#libreria"><img src="./assets/libreria2.png" alt="" /></a>
+          </div>
+          <div>
+            <a href="#hebillas"><img src="./assets/pelo2.png" alt="" /></a>
+          </div>
+          <div>
+            <a href="#tinturas"><img src="./assets/tinturas2.png" alt="" /></a>
+          </div>
+          <div>
+            <a href="#carteras"><img src="./assets/carteras2.png" alt="" /></a>
+          </div>
+          <div>
+            <a href="#sublimados"><img src="./assets/sublim2.png" alt="" /></a>
+          </div>
+        </div>
+        <div id="text-display"></div>
+
+        <div id="my-order">
+          <button type="button" id="close-form" class="close-btn">×</button>
+          <form
+            id="order-form"
+            action="https://formspree.io/f/xeqbkoww"
+            method="post"
+          >
+          <div class="header-form">
+<h5><span class="cart-icon">🛒</span> Carrito de compras</h5>
+            <div>
+              <button
+                id="send-button"
+                type="submit"
+                class="btn text-dark"
+              >
+                Enviar vía <i class="bi bi-whatsapp"></i>
+              </button>
+            </div>
+          </div>
+            
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <p class="form-elem">
+                  Selecciona en nuestra página web los productos requeridos y
+                  envíanos tu pedido.
+                  <br />
+                  Muchas Gracias ♡ Distribuidora Lyra. Córdoba Capital
+                </p>
+
+                <div class="form-elem">
+                  <label for="name">Nombre</label>
+                  <input
+                    type="input"
+                    class="form-control"
+                    id="name"
+                    name="name"
+                    placeholder="Tu nombre"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="message-order-list"></div>
+            <div class="form-elem form-control" id="all-products-i-want"></div>
+
+            <div class="form-elem">
+              <textarea
+                class="form-control"
+                name="message"
+                id="message"
+                rows="4"
+                placeholder="Escribe aquí los comentarios que consideres necesarios"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="delivery">
+          <img
+            id="briseida"
+            class="car invert"
+            src="./assets/car1.png"
+            alt=""
+          />
+          <p>
+            Te ahorramos tiempo y esfuerzo <br />
+            con nuestro servicio de envío a domicilio.<br />
+          </p>
+          <p>MÍNIMO DE COMPRA $40.000</p>
+        </div>
+      </section>
+      <!----------------------PROMOS---------------------->
+      <section class="menu-section" id="promos">
+        <hr class="m-5" />
+        <h3 class="text-center m-5">
+          PROMOCIONES
+          <img class="rubro-icon" src="./assets/promo.png" alt="" />
+        </h3>
+        <div id="carouselFade1" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./promos/cartu.jpeg" alt="..." />
+                  <p class="product-text">
+                    PROMO CARTULINAS<br />
+                    50 cartulinas (10 colores a elección. 5 unidades por color)
+                    $23.940
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./promos/bolsas.jpeg" alt="..." />
+                  <p class="product-text">
+                    PROMO BOLSAS<br />
+                    70 bolsas (5 de cada tamaño y estilo + 20 de cotillon)
+                    $31.300
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./promos/libritos.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO LIBRITOS PARA COLOREAR<br />
+                    50 libritos surtidos $14.600
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./promos/papelafiche.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO PAPEL AFICHE<br />
+                    50 papeles afiche color $38.900<br />
+                    5 colores a elección. 10 unidades por color
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./promos/papelderegalo.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO PAPEL DE REGALO<br />
+                    50 papeles de regalo surtidos $39.900
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./promos/crepe2.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO PAPEL CREPÉ $36.760<br />
+                    10 colores , 10 unidades por color
+
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./promos/vinchas.jpeg" alt="..." />
+                  <p class="product-text">
+                    PROMO ACCESORIOS PELO<br />
+                    10 vinchas infantiles <br />
+                    10 scrunchis y 10 moños de gasa $35.200
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./promos/hebillas3.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO ACCESORIOS PELO 2<br />
+                    30 hebillas infantiles<br />
+                    30 hebillas adulto $47300
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./promos/cartus.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO CARTUCHERAS<br />
+                    10 cartucheras de neoprene sublimadas $45600<br />
+                    Diseños a elección
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./promos/kit.jpg" alt="..." />
+                  <p class="product-text">
+                    PROMO TINTURAS<br />
+                    20 tinturas kit EstereoColor<br />
+                    Y 10 funky surtidas $66300
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade1"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade1"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!----------------------LIBRERÍA Y JUGUETERÍA---------------------->
+      <section class="menu-section" id="libreria">
+        <hr class="m-5" />
+        <h3 class="text-center m-5">
+          LIBRERÍA Y JUGUETERÍA
+          <img class="rubro-icon" src="./assets/libreria.png" alt="" />
+        </h3>
+        <div id="carouselFade2" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./libreria/colorescartulinas.jpg" alt="..." />
+                  <p class="info-product">
+                    CARTULINAS<br />
+                    Blanca $363 Color $498 Flúor $915<br />
+                    Mínimo 5 unidades por color<br />Medidas: 45x64cm
+                  </p>
+                  <p class="product-input">
+                    Cartulinas<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./libreria/gomaeva.jpg" alt="..." />
+                  <p class="info-product">
+                    Goma eva $659<br />
+                    Goma eva con brillo $1278
+                  </p>
+                  <p class="product-input">
+                    Goma eva<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="2"
+                      min="2"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./libreria/papelafiche.jpg" alt="..." />
+                  <div class="info-product">
+                    Papel afiche Blanco $594 Color $819<br />
+                    Mínimo 10 unidades por color
+
+                    <button class="info-btn">ver colores</button>
+                    <div class="info-div">
+                      verde claro, verde medio, verde pastel, amarillo, naranja,
+                      rojo, rosa, rosa pastel, fucsia, lila, celeste, celeste
+                      pastel, azul, marrón claro, marrón oscuro, negro, gris,
+                      blanco
+                    </div>
+                  </div>
+                  <p class="product-input">
+                    Papel afiche<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="10"
+                      min="10"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./libreria/crepe2.jpg" alt="..." />
+                  <div class="info-product">
+                    Papel crepé $393<br />
+                    Mínimo 10 unidades por color
+                    <button class="info-btn">ver colores</button>
+                    <div class="info-div">
+                      verde claro, verde, amarillo, naranja, rojo, rosa, fucsia,
+                      lila, celeste, azul, marrón claro, marrón oscuro, negro,
+                      gris, blanco, bandera
+                    </div>
+                  </div>
+                  <p class="product-input">
+                    Papel crepé<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="10"
+                      min="10"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./libreria/papelderegalo.jpg" alt="..." />
+                  <p class="info-product">
+                    Papel de regalo $850<br />
+                    Medidas: 70cm x 100cm <br />ilustración 90gr<br />
+                    Mínimo 5 unidades por diseño<br />
+                  </p>
+                  <p class="product-input">
+                    Papel de regalo<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="pinceladas">pinceladas</option>
+                      <option value="love">love</option>
+                      <option value="unicornios">unicornios</option>
+                      <option value="corazones">corazones</option>
+                       
+                      <option value="trama">trama multicolor</option>
+                      <option value="corbatas">corbatas</option>
+                      <option value="mandalas">mandalas</option>
+                      <option value="juguetes">juguetes</option>
+                       
+                      <option value="llamas">llamas</option>
+                      <option value="aviones">aviones</option>
+                      <option value="surtido">surtido</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./libreria/sobres.jpeg" alt="..." />
+                  <p class="info-product">
+                    Sobres de colores<br />
+                    Chico $95 | 7,5cm X 10,5cm<br />
+                    Mediano $139 | 11,4cm X 16,2cm<br />
+                    Grande $178 | 12,5cm X 19cm
+                  </p>
+                  <p class="product-input">
+                    Sobres de colores<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="chico">chico</option>
+                      <option value="mediano">mediano</option>
+                      <option value="grande">grande</option>
+                      <option value="surtido">surtido</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./libreria/bolsaskraft.jpg" alt="..." />
+                  <p class="info-product">
+                    Bolsas kraft<br />
+                    14cmx20cm $337 | 22cmx30cm $389 | 30cmx41cm $515 | 14cmx40cm
+                    $395
+                  </p>
+                  <p class="product-input">
+                    Bolsas kraft<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="14cmx20cm">14cmx20cm</option>
+                      <option value="22cmx30cm">22cmx30cm</option>
+                      <option value="30cmx41cm">30cmx41cm</option>
+                      <option value="14cmx40cmVino">14cmx40cm(vino)</option>
+                      <option value="surtido">surtido</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./libreria/bolsasacuario.jpg" alt="..." />
+                  <p class="info-product">
+                    Bolsas Acuario (lisas de colores)<br />
+                    14cmx20cm $424 | 22cmx30cm $541 | 30cmx41cm $768
+                  </p>
+                  <p class="product-input">
+                    Bolsas Acuario<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="medida y color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./libreria/bolsasfantasia.jpeg" alt="..." />
+                  <p class="info-product">
+                    Bolsas Fantasía<br />
+                    14cmx20cm $551 | 22cmx30cm $753 | 30cmx41cm $1043
+                  </p>
+                  <p class="product-input">
+                    Bolsas fantasía<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="14cmx20cm">14cmx20cm</option>
+                      <option value="22cmx30cm">22cmx30cm</option>
+                      <option value="30cmx41cm">30cmx41cm</option>
+                      <option value="surtido">surtido</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./libreria/libritos.jpg" alt="..." />
+                  <p class="info-product">
+                    Libritos para colorear $292<br />
+                    Tamaño A4 | Clásicos | Cuentos | Didácticos
+                  </p>
+                  <p class="product-input">
+                    Libritos<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="detalle"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="5"
+                      min="5"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade2"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade2"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <div class="extra-div">
+          <h6 class="mt-5">
+            Haz click para ver nuestros catálogos completos de Librería y
+            Juguetería 🔽
+          </h6>
+          <div class="catalogo">
+            <div>
+              <a
+                href="https://drive.google.com/file/d/12OL81Su9TTdMRCPDKlFEWtAPneWsRCF8/view?usp=drive_link
+"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h5>Catálogo de Librería</h5>
+                <img src="./libreria/catalogolibreria2.jpeg" alt="" />
+              </a>
+            </div>
+            <div>
+              <a
+                href="https://drive.google.com/file/d/14f-_VqSr0uba1kuA8ABZRrS8Hc61bo-N/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <h5>Catálogo de Juguetería</h5>
+                <img src="./libreria/catalogojuguetes.jpeg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!----------------------ACCESORIOS PARA EL PELO---------------------->
+      <section class="menu-section" id="hebillas">
+        <hr class="m-5" />
+
+        <h3 class="text-center m-5">
+          HEBILLAS | ACCESORIOS PARA EL PELO
+          <img class="rubro-icon" src="./assets/pelo.png" alt="" />
+        </h3>
+        <div id="carouselFade3" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./hebillas/broches.jpg" alt="..." />
+                  <p class="product-text">
+                    Hebillas clásicas de adulto<br />
+                    $12450 las 15 unidades<br />
+                    ($830 c/u)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./hebillas/hebinfantiles.jpeg" alt="..." />
+                  <p class="product-text">
+                    Hebillas infantiles<br />
+                    $12450 los 15 blister<br />
+                    ($830 c/par)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./hebillas/vinchasinfantiles.jpg" alt="..." />
+                  <p class="product-text">
+                    Vinchas infantiles<br />
+                    $17900 las 10 unidades surtidas ($1790 c/u)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./hebillas/fiesta.jpg" alt="..." />
+                  <p class="product-text">
+                    Vinchas de fiesta <br />
+                    $14500 las 5 unidades surtidas ($2900 c/u)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./hebillas/monosgas.jpeg" alt="..." />
+                  <p class="product-text">
+                    Moños de gasa grandes <br />
+                    $9600 las 10 unidades surtidas<br />
+                    ($960 c/u)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./hebillas/scrunch.jpeg" alt="..." />
+                  <p class="product-text">
+                    Scrunchis <br />
+                    $9600 las 10 unidades surtidas<br />
+                    ($960 c/u)
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade3"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade3"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <!----------------------TINTURAS---------------------->
+      <section class="menu-section" id="tinturas">
+        <hr class="m-5" />
+
+        <h3 class="text-center m-5">
+          TINTURAS Y TRATAMIENTOS
+          <img class="rubro-icon" src="./assets/tinturas.png" alt="" />
+        </h3>
+        <div class="extra-div">
+          <h5>Carta de tonos</h5>
+          <a
+            href="./tinturas/carta.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button class="download-btn">
+              Descargar carta
+              <img class="icon-img" src="./assets/descargar.png" alt="" />
+            </button>
+          </a>
+          <div class="carta-img-div">
+            <img src="./tinturas/carta.jpg" alt="" />
+            <img src="./tinturas/cartafunky.jpg" alt="" />
+          </div>
+        </div>
+        <div id="carouselFade4" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./tinturas/kit.jpg" alt="..." />
+                  <p class="info-product">
+                    Kit EstereoColor<br />
+                    $2610 c/u<br />
+                    (Tintura + oxidante + guantes + post-coloración)
+                  </p>
+                  <p class="product-input">
+                    Tinturas kit
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="tono"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="1"
+                      min="1"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./tinturas/sachet.jpg" alt="..." />
+                  <p class="info-product">
+                    Sachet tintura + oxidante<br />
+                    $1730<br />
+                    (Sólo tonos 93 y 562)
+                  </p>
+                  <p class="product-input">
+                    Sachet EstereoColor<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="tono93">tono 93</option>
+                      <option value="tono562">tono 562</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="1"
+                      min="1"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./tinturas/funky4.jpg" alt="..." />
+                  <p class="info-product">
+                    Funky color<br />
+                    $1760<br />
+                    Tintura semipermanente. Dura 12 lavados
+                  </p>
+                  <p class="product-input">
+                    Funky
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./tinturas/funkyneon.jpg" alt="..." />
+                  <p class="info-product">
+                    Funky neón <br />
+                    $1760<br />
+                    Tintura semipermanente
+                  </p>
+                  <p class="product-input">
+                    Funky neón<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="amarillo">amarillo neón</option>
+                      <option value="fucsia">fucsia neón</option>
+                      <option value="verde">verde neón</option>
+                      <option value="naranja">naranja neón</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="1"
+                      min="1"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./tinturas/shock.jpg" alt="..." />
+                  <div class="info-product">
+                    Shock capilar $1730<br />
+                    47gr.
+                    <button class="info-btn">ver tratamientos</button>
+                    <div class="info-div">
+                      Argán, keratina, macadamia, coco, bótox, colágeno,
+                      blindaje, minuto express, rubios luminosos, carbón detox,
+                      oro 24k, silver y co-wash
+                    </div>
+                  </div>
+                  <p class="product-input">
+                    Shock capilar
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="tratamiento"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./tinturas/oleo.jpg" alt="..." />
+                  <p class="info-product">
+                    Óleo capilar <br />
+                    $6200 las 10 unidades
+                  </p>
+                  <p class="product-input">
+                    Óleo capilar<br />
+                    <select class="type-product" name="type-product" required>
+                      <option value=""></option>
+                      <option value="argan">argán</option>
+                      <option value="macadamia">macadamia</option>
+                      <option value="coco">coco</option>
+                      <option value="almendras">almendras</option>
+                    </select>
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      step="10"
+                      min="10"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade4"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade4"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <!----------------------CARTERAS Y AFINES---------------------->
+      <section class="menu-section" id="carteras">
+        <hr class="m-5" />
+
+        <h3 class="text-center m-5">
+          CARTERAS Y AFINES
+          <img class="rubro-icon" src="./assets/carteras.png" alt="" />
+        </h3>
+        <div class="extra-div">
+          <h5>Ver galería de imágenes de:</h5>
+          <select id="carteras-select" name="carteras_select">
+            <option value="carouselFade5">Carteras</option>
+            <option value="carouselFade6">Bandoleras</option>
+            <option value="carouselFade7">Mochilas</option>
+            <option value="carouselFade8">Accesorios</option>
+            <option value="carouselFade9">Handbags-Sobres</option>
+          </select>
+        </div>
+        <div id="carouselFade5" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/pilares.jpg" alt="..." />
+                  <p class="info-product">
+                    Pilar<br />
+                    $16.100
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/pilar.jpeg" alt="..." />
+                  <p class="info-product">
+                    Pilar negra<br />
+                    $16.100
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/otras/vero.jpeg" alt="..." />
+                  <p class="info-product">
+                    Vero negra<br />
+                    $20.600
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/antohebilla.jpg" alt="..." />
+                  <p class="info-product">
+                    Anto hebilla<br />
+                    $16.100
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/tiziana.jpg" alt="..." />
+                  <p class="info-product">
+                    Tiziana <br />
+                    $17.900
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/abrilnegra.jpg" alt="..." />
+                  <p class="info-product">
+                    Abril<br />
+                    $17.300
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/totebag.jpg" alt="..." />
+                  <p class="info-product">
+                    Bolso totebag camel<br />
+                    $13.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/claranegra.jpg" alt="..." />
+                  <p class="info-product">
+                    Clara negra<br />
+                    $16.500
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade5"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade5"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div id="carouselFade6" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/paznegralisa.jpg" alt="..." />
+                  <p class="info-product">
+                    Paz negra<br />
+                    $15.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/pazcamel.jpg" alt="..." />
+                  <p class="info-product">
+                    Paz camel<br />
+                    $15.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/lucianegra.jpg" alt="..." />
+                  <p class="info-product">
+                    Lucía negra<br />
+                    $13.600
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/luzcroconegra.jpeg" alt="..." />
+                  <p class="info-product">
+                    Luz croco negra<br />
+                    $10.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/romipuffer.jpg" alt="..." />
+                  <p class="info-product">
+                    Romi puffer negra<br />
+                    $10.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/lucianegra.jpg" alt="..." />
+                  <p class="info-product">
+                    Lucía negra<br />
+                    $12.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/luzbando.jpg" alt="..." />
+                  <p class="info-product">
+                    Luz pink<br />
+                    $10.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/luznegra.jpeg" alt="..." />
+                  <p class="info-product">
+                    Luz negra<br />
+                    $10.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/morea.jpg" alt="..." />
+                  <p class="info-product">
+                    Morea negra <br />
+                    $14.500
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/marti.jpg" alt="..." />
+                  <p class="info-product">
+                    Martina negra <br />
+                    $13.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade6"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade6"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div id="carouselFade7" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/2025/melimoch.jpg" alt="..." />
+                  <p class="info-product">
+                    Meli <br />
+                    $17.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/cotymoch.jpg" alt="..." />
+                  <p class="info-product">
+                    Coti <br />
+                    $17.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/luisa.jpeg" alt="..." />
+                  <p class="info-product">
+                    Luisa negra<br />
+                    $17.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/solereptil.jpeg" alt="..." />
+                  <p class="info-product">
+                    Sole <br />
+                    $17.800
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade7"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade7"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div id="carouselFade8" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/pechera.jpeg" alt="..." />
+                  <p class="info-product">
+                    Pechera<br />
+                    $15400
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/rinonera.jpeg" alt="..." />
+                  <p class="info-product">
+                    Riñonera<br />
+                    $13900
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/billeteras2.jpeg" alt="..." />
+                  <p class="info-product-small">
+                    Billeteras para dama<br />
+                    $5.300
+                  </p>
+                  <p class="product-input">
+                    Billeteras
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/billeterasdama3.jpg" alt="..." />
+                  <p class="info-product-small">
+                    Otras billeteras de dama<br />
+                    $5.300
+                  </p>
+                  <p class="product-input">
+                    Billeteras
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color/diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/setporta.jpg" alt="..." />
+                  <p class="info-product-small">
+                    Set portacosméticos<br />
+                    $6000
+                  </p>
+                  <p class="product-input">
+                    Set portacosméticos
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/2025/tarjeteros.jpg" alt="..." />
+                  <p class="info-product-small">
+                    Tarjeteros de dama<br />
+                    $4.700
+                  </p>
+                  <p class="product-input">
+                    Tarjeteros
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color/diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/hombre.jpeg" alt="..." />
+                  <p class="info-product">
+                    Morral para hombre<br />
+                    $14900
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/tabaquera.jpeg" alt="..." />
+                  <p class="info-product">
+                    Tabaquera<br />
+                    $9700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./cuero/cintohombre.jpg" alt="..." />
+                  <p class="info-product">
+                    Cintos de hombre<br />
+                    $13.500
+                  </p>
+                  <p class="product-input">
+                    Cintos de hombre
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="talle y color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./cuero/cintodama.jpg" alt="..." />
+                  <p class="info-product">
+                    Cintos de dama<br />
+                    $12.000
+                  </p>
+                  <p class="product-input">
+                    Cintos de dama<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="talle y color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./cuero/llaveros.jpg" alt="..." />
+                  <p class="info-product">
+                    Llaveros de cuero<br />
+                    $8.100
+                  </p>
+                  <p class="product-input">
+                    Llaveros de cuero
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/tarjeteros.jpeg" alt="..." />
+                  <p class="info-product">
+                    Tarjeteros de hombre<br />
+                    $4.500
+                  </p>
+                  <p class="product-input">
+                    Tarjeteros de hombre
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade8"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade8"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div id="carouselFade9" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/pariscrocoplata.jpg" alt="..." />
+                  <p class="info-product">
+                    Handbag paris croco plata<br />
+                    $11.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/pariscrocodorado.jpg" alt="..." />
+                  <p class="info-product">
+                    Handbag Paris croco dorado<br />
+                    $11.700
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/xaranegra.jpg" alt="..." />
+                  <p class="info-product">
+                    Handbag Xara negra<br />
+                    $7.600
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/xarafucsia.jpg" alt="..." />
+                  <p class="info-product">
+                    Handbag Xara fucsia<br />
+                    $7.600
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./carteras/paris2.jpg" alt="..." />
+                  <p class="info-product">
+                    Otras handbag Paris<br />
+                    $11.700
+                  </p>
+                  <p class="product-input">
+                    Paris
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./carteras/handbag xara.jpg" alt="..." />
+                  <p class="info-product">
+                    Otras handbag Xara<br />
+                    $7.600
+                  </p>
+                  <p class="product-input">
+                    Xara<br />
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="color"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade9"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade9"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+      <!----------------------SUBLIMADOS---------------------->
+      <section class="menu-section" id="sublimados">
+        <hr class="m-5" />
+
+        <h3 class="text-center m-5">
+          PRODUCTOS SUBLIMADOS
+          <img class="rubro-icon" src="./assets/sublim.png" alt="" />
+        </h3>
+        <div id="carouselFade10" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./sublimados/cartucheras.jpg" alt="..." />
+                  <p class="info-product">
+                    Cartucheras<br />
+                    $4.800<br />
+                    Medidas: 23cmx12cm
+                  </p>
+                  <p class="product-input">
+                    Cartucheras
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./sublimados/portacosmeticos.jpeg" alt="..." />
+                  <p class="info-product">
+                    Portacosméticos<br />
+                    $4.800<br />
+                    Medidas: 19cmx13cm
+                  </p>
+                  <p class="product-input">
+                    Portacosméticos
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./sublimados/luncheras.jpg" alt="..." />
+                  <p class="info-product">
+                    Luncheras<br />
+                    $6.800<br />
+                    Medidas: 18cmx23cm
+                  </p>
+                  <p class="product-input">
+                    Luncheras
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./sublimados/rinoneras.jpeg" alt="..." />
+                  <p class="info-product">
+                    Riñoneras infantiles<br />
+                    $5900
+                  </p>
+                  <p class="product-input">
+                    Riñoneras
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="slides">
+                <div class="img-and-text first">
+                  <img src="./sublimados/bandoleras.jpeg" alt="..." />
+                  <p class="info-product">
+                    Bandoleras infantiles <br />
+                    $7.800<br />
+                    Medidas: 21cmx14cmx7cm
+                  </p>
+                  <p class="product-input">
+                    Bandoleras infantiles
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+                <div class="img-and-text second">
+                  <img src="./sublimados/bolsilloauto.jpg" alt="..." />
+                  <p class="info-product">
+                    Bolsillo para el auto <br />
+                    $5.200<br />
+                    Medidas: 21cmx23cm
+                  </p>
+                  <p class="product-input">
+                    Bolsillo para el auto
+                    <input
+                      type="text"
+                      class="type-product"
+                      name="type-product"
+                      placeholder="diseño"
+                      required
+                    />
+                    <input
+                      type="number"
+                      class="number-product"
+                      name="number-product"
+                      placeholder="cantidad"
+                      required
+                    />
+                    <button class="want-btn">Agregar al pedido</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselFade10"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselFade10"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="extra-div my-5">
+          <h5 class="mt-5">Elige aquí tus diseños preferidos para sublimar:</h5>
+          <div class="pdf-viewer">
+            <iframe src="./sublimados/sublim2025.pdf"></iframe>
+          </div>
+          <div class="btn-div">
+            <a
+              href="./sublimados/sublim2025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button class="download-btn">
+                Ver catálogo en una pestaña nueva
+                <img class="icon-img" src="./assets/openicon.png" alt="" />
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!----------------------FOOTER---------------------->
+
+      <footer>
+        <div class="footer-div">
+          <div>
+            <img class="logo invert" src="lyr2.png" alt="" />
+            <p class="fs-5 m-2">
+              <span class="lyra">LYRA </span>
+              Distribuidora
+            </p>
+          </div>
+          <div>
+            <p>&copy; 2026 Lyra. Todos los derechos reservados.</p>
+            <p>Córdoba Capital, Argentina</p>
+            <div id="iconos">
+              <a href="https://wa.me/543512309375" target="_blank"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+              <!--
+              <a
+                href="https://www.facebook.com/profile.php?id=100064069295797"
+                target="_blank"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/lyra_distribuidora/"
+                target="_blank"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              -->
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
