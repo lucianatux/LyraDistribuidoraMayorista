@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // AGREGAR AL PEDIDO
+  // Agregar al 🛒
   document.querySelectorAll(".want-btn").forEach((button) => {
     button.addEventListener("click", function () {
       // Limpiar mensaje
@@ -240,12 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
           )
           .map((node) => node.textContent.trim())
           .join(" ")
-          .replace("Agregar al pedido", "")
+          .replace("Agregar al 🛒", "")
           .trim();
       } else {
         // Si no hay select, obtener todo el texto del contenedor como antes
         productText = parentElement.textContent
-          .replace("Agregar al pedido", "")
+          .replace("Agregar al 🛒", "")
           .trim();
       }
 
