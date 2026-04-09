@@ -424,39 +424,71 @@ form {
 }
 
 /*****************CAROUSEL*****************/
+
+/* ── Slide: contenedor de 1 o 2 cards ── */
 .slides {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  overflow: hidden;
+  align-items: stretch;   /* cards misma altura */
+  gap: 16px;
+  padding: 10px 40px;     /* espacio para flechas */
 }
+
+/* ── Card individual ── */
 .img-and-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   background: #ffffffcc;
   border-radius: 10px;
-  padding: 10px;
-  margin: 3px;
-  max-width: 100%;
+  padding: 12px;
   box-sizing: border-box;
+  flex: 1 1 0;            /* ambas cards mismo ancho */
+  max-width: 340px;
 }
-.img-and-text img {
-  max-width: 100%;
-  width: 280px;
-  padding: 0 10px;
+
+/* ── Contenedor de imagen (normaliza cualquier tamaño) ── */
+.card-img-container {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: var(--first-color); /* fondo blanco por defecto */
 }
+.card-img-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+  padding: 4px;
+}
+
+/* ── Variante: fondo blur ── */
+.card-img-container.bg-blur-mode .bg-blur {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) brightness(0.75) saturate(1.2);
+  transform: scale(1.08);
+  z-index: 0;
+}
+
+/* ── Textos dentro de la card ── */
 .img-and-text p,
 .img-and-text .info-product,
 .img-and-text .info-product-small,
 .img-and-text .product-input,
 .img-and-text .product-text {
-  width: 300px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 300px;
   height: auto;
   padding: 10px;
   position: relative;
@@ -468,17 +500,20 @@ form {
   gap: 6px;
 }
 
+/* ── Flechas del carrusel — centradas respecto a la imagen ── */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
 }
 .carousel-control-next,
 .carousel-control-prev {
-  height: 200px !important;
-  top: 250px !important;
+  top: 0 !important;
+  height: 100% !important;
+  width: 40px;
+  align-items: center;
 }
 
 /*****************agregar pedido CAROUSEL*****************/
@@ -653,45 +688,15 @@ footer p {
 
 /*****************RESPONSIVE*****************/
 
-/* ── Imagen con fondo difuminado ── */
-.img-wrapper {
-  position: relative;
-  width: 300px;
-  max-width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-.img-wrapper .bg-blur {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(14px) brightness(0.75) saturate(1.2);
-  transform: scale(1.08);
-}
-.img-wrapper img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-  z-index: 1;
-  padding: 6px;
-}
-
-/*****************RESPONSIVE*****************/
-
 /* Tablet grande */
 @media (max-width: 968px) and (min-width: 869px) {
+  .img-and-text { max-width: 280px; }
+  .card-img-container { max-width: 260px; }
   .img-and-text p,
   .img-and-text .info-product,
   .img-and-text .info-product-small,
   .img-and-text .product-input,
-  .img-and-text .product-text { width: 260px; font-size: 15px; }
-  .img-wrapper { width: 260px; }
+  .img-and-text .product-text { max-width: 260px; font-size: 15px; }
   .info-div { padding: 5px 50px !important; }
 }
 
@@ -721,12 +726,16 @@ footer p {
   #logo { width: 70px; }
   .collage, .mirror { width: 50%; }
   .collage2, .mirror2 { display: none; }
+
+  /* Carousel: 1 card por slide en tablet */
+  .slides { padding: 10px 50px; }
+  .img-and-text { max-width: 320px; }
+  .card-img-container { max-width: 280px; }
   .img-and-text p,
   .img-and-text .info-product,
   .img-and-text .info-product-small,
   .img-and-text .product-input,
-  .img-and-text .product-text { width: 220px; font-size: 14px; }
-  .img-wrapper { width: 220px; }
+  .img-and-text .product-text { max-width: 280px; font-size: 14px; }
   #my-order { padding: 20px; }
 }
 
@@ -744,14 +753,15 @@ footer p {
   .mirror, .collage2, .mirror2 { display: none; }
   .catalogo img { width: 100% !important; max-width: 250px; padding: 5px; }
 
-  .slides { flex-direction: column; align-items: center; }
-  .img-and-text { width: 100%; max-width: 280px; }
+  /* Carousel: 1 card centrada */
+  .slides { padding: 10px 40px; }
+  .img-and-text { max-width: 280px; width: 100%; }
+  .card-img-container { max-width: 260px; width: 100%; }
   .img-and-text p,
   .img-and-text .info-product,
   .img-and-text .info-product-small,
   .img-and-text .product-input,
   .img-and-text .product-text { width: 100%; max-width: 260px; font-size: 13px; }
-  .img-wrapper { width: 100%; max-width: 280px; }
 
   .carta-img-div { flex-direction: column; }
   .download-btn { font-size: 10px; }

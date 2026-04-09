@@ -4,7 +4,6 @@
 
 export function initAnimations() {
   _initBriseida();
-  _initResponsiveCarousels();
 }
 
 // ── Auto de delivery (Briseida) ───────────────────────────
@@ -26,34 +25,9 @@ function _initBriseida() {
   });
 }
 
-// ── Carrusel responsive: convierte pares en slides simples ─
+// ── initResponsiveCarousels ya no es necesaria ────────────
+//  catalog.js ahora maneja el chunking responsive directamente.
+//  Exportamos stub vacío por compatibilidad con script.js
 export function initResponsiveCarousels() {
-  if (window.innerWidth > 868) return;
-
-  document.querySelectorAll('[id^="carousel-"]').forEach((carousel) => {
-    const inner = carousel.querySelector(".carousel-inner");
-    if (!inner) return;
-
-    const extraSlides = [];
-    carousel.querySelectorAll(".carousel-item").forEach((slide) => {
-      const second = slide.querySelector(".img-and-text:nth-child(2)");
-      if (!second) return;
-
-      const newSlide = document.createElement("div");
-      newSlide.className = "carousel-item";
-      const newSlides = document.createElement("div");
-      newSlides.className = "slides";
-      const clone = second.cloneNode(true);
-      newSlides.appendChild(clone);
-      newSlide.appendChild(newSlides);
-      extraSlides.push(newSlide);
-    });
-
-    extraSlides.forEach((s) => inner.appendChild(s));
-  });
-}
-
-// Exportar alias para compatibilidad
-function _initResponsiveCarousels() {
-  initResponsiveCarousels();
+  // No-op: el renderizado responsive se hace en catalog.js
 }

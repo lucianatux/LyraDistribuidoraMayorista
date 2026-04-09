@@ -5,23 +5,27 @@
 // ============================================================
 
 import { initCart } from "./cart.js";
-import { renderAllCatalogs } from "./catalog.js";
+import { renderAllCatalogs, handleResize } from "./catalogProducts.js";
 import { initNavigation } from "./navigation.js";
-import { initAnimations, initResponsiveCarousels } from "./animations.js";
+import { initAnimations } from "./animations.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Renderizar catálogo desde datos (products.js)
   renderAllCatalogs();
 
-  // 2. Carrusel responsive (debe ir luego del render)
-  initResponsiveCarousels();
-
-  // 3. Carrito (inicializa estado y eventos)
+  // 2. Carrito (inicializa estado y eventos)
   initCart();
 
-  // 4. Navegación y menú
+  // 3. Navegación y menú
   initNavigation();
 
-  // 5. Animaciones
+  // 4. Animaciones
   initAnimations();
+
+  // 5. Re-render carruseles si cambia el breakpoint (1↔2 cards)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(handleResize, 250);
+  });
 });

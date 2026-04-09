@@ -7,6 +7,11 @@
 import { PRODUCTOS, CATEGORIAS } from "./products.js";
 import { addToCart } from "./cart.js";
 
+// ── Breakpoint: ≤868px = 1 card por slide, >868px = 2 ────
+function _getCardsPerSlide() {
+  return window.innerWidth > 868 ? 2 : 1;
+}
+
 // ── Entrada pública ───────────────────────────────────────
 export function renderAllCatalogs() {
   Object.keys(CATEGORIAS).forEach((catId) => {
@@ -34,15 +39,27 @@ export function renderAllCatalogs() {
   _bindAllInfoButtons();
 }
 
+// ── Rebuild en resize (cambia de 1↔2 cards por slide) ─────
+let _lastCardsPerSlide = _getCardsPerSlide();
+
+export function handleResize() {
+  const newVal = _getCardsPerSlide();
+  if (newVal !== _lastCardsPerSlide) {
+    _lastCardsPerSlide = newVal;
+    renderAllCatalogs();
+  }
+}
+
 // ── Carruseles generales ──────────────────────────────────
-function _buildCarousel(id, productos, useBlur = false) {
+function _buildCarousel(id, productos) {
   if (productos.length === 0) return "";
 
-  const pairs = _chunkArray(productos, 2);
+  const perSlide = _getCardsPerSlide();
+  const chunks = _chunkArray(productos, perSlide);
 
-  const items = pairs
-    .map((pair, i) => {
-      const slides = pair.map((p) => _buildCard(p, useBlur)).join("");
+  const items = chunks
+    .map((chunk, i) => {
+      const slides = chunk.map((p) => _buildCard(p)).join("");
       return `
         <div class="carousel-item ${i === 0 ? "active" : ""}">
           <div class="slides">${slides}</div>
@@ -67,18 +84,28 @@ function _buildCarousel(id, productos, useBlur = false) {
 }
 
 // ── Tarjeta individual ────────────────────────────────────
-function _buildCard(p, useBlur = false) {
+//  Todas las imágenes usan .card-img-container (aspect-ratio 1:1).
+//  Si el producto tiene fondoBlur: true → fondo blur.
+//  Si no → fondo blanco (por defecto).
+function _buildCard(p) {
+  const useBlur = !!p.fondoBlur;
+
   const infoExtra = p.infoExtra
     ? `<button class="info-btn">${p.infoExtraLabel || "ver más"}</button>
        <div class="info-div" style="display:none">${p.infoExtra.join("<br>")}</div>`
     : "";
 
-  const imgHtml = useBlur
-    ? `<div class="img-wrapper">
-         <div class="bg-blur" style="background-image: url('${p.imagen}')"></div>
-         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
-       </div>`
-    : `<img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />`;
+  // Contenedor de imagen unificado
+  const blurBg = useBlur
+    ? `<div class="bg-blur" style="background-image: url('${p.imagen}')"></div>`
+    : "";
+  const containerClass = useBlur ? "card-img-container bg-blur-mode" : "card-img-container";
+
+  const imgHtml = `
+    <div class="${containerClass}">
+      ${blurBg}
+      <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
+    </div>`;
 
   if (p.tipo === "simple") {
     return `
@@ -125,6 +152,7 @@ function _buildCard(p, useBlur = false) {
 }
 
 // ── Carteras con subcategorías ────────────────────────────
+//  Carteras siempre usa fondoBlur por defecto (a menos que el producto diga fondoBlur: false)
 function _renderCarterasConSubcategorias(mountPoint) {
   const cat = CATEGORIAS.carteras;
   const subcats = cat.subcategorias;
@@ -146,9 +174,13 @@ function _renderCarterasConSubcategorias(mountPoint) {
     .map((sub, i) => {
       const prods = PRODUCTOS.filter(
         (p) => p.categoria === "carteras" && p.subcategoria === sub
-      );
+      ).map((p) => {
+        // Carteras usan blur por defecto, salvo que el producto diga fondoBlur: false
+        if (p.fondoBlur === undefined) return { ...p, fondoBlur: true };
+        return p;
+      });
       const carouselId = `carousel-carteras-${i}`;
-      const html = _buildCarousel(carouselId, prods, true); // blur solo en carteras
+      const html = _buildCarousel(carouselId, prods);
       return `<div class="subcat-carousel" id="wrap-${carouselId}"
         style="display:${i === 0 ? "block" : "none"}">${html}</div>`;
     })
