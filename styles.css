@@ -12,6 +12,11 @@
   --sixth-color: #a47fc0;
   --seventh-color: #56606b8f;
   --eighth-color: #c83169;
+
+  /* Breakpoints de referencia (no los cambies sin revisar todo el responsive) */
+  /* mobile:  < 568px  */
+  /* tablet:  568px – 868px */
+  /* desktop: > 868px */
 }
 
 /************ Default Css ************/
@@ -269,6 +274,7 @@ a {
 }
 #order-btn-text {
   margin: 0px;
+  position: relative;
 }
 .remove-btn {
   border: 1px solid lightgrey;
@@ -291,6 +297,55 @@ input {
   margin: 5px 0 !important;
   padding: 5px !important;
   border-radius: 5px !important;
+}
+
+/* ── Badge contador del carrito ── */
+#cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--eighth-color);
+  color: var(--first-color);
+  font-size: 11px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  animation: badge-pop 0.2s ease;
+}
+@keyframes badge-pop {
+  0%   { transform: scale(0.5); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* ── Barra de mínimo de compra ── */
+.minimum-bar {
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 10px 0;
+  font-size: 14px;
+  text-align: center;
+  transition: background 0.4s, color 0.4s;
+}
+.minimum-empty {
+  background: #f5f5f5;
+  color: var(--fifth-color);
+  border: 1px solid #ddd;
+}
+.minimum-warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+}
+.minimum-ok {
+  background: #d1e7dd;
+  color: #0a3622;
+  border: 1px solid #a3cfbb;
 }
 
 /*****************SEARCH*****************/
@@ -583,6 +638,8 @@ footer p {
 }
 
 /*****************RESPONSIVE*****************/
+
+/* Tablet grande */
 @media (max-width: 968px) and (min-width: 869px) {
   .img-and-text p {
     width: 260px;
@@ -594,165 +651,55 @@ footer p {
   }
 }
 
+/* Tablet */
 @media (max-width: 868px) and (min-width: 569px) {
-  .lyra {
-    font-size: 24px;
-  }
-  #mayorista {
-    font-size: 14px;
-  }
-  #order {
-    font-size: 12px;
-    padding: 5px;
-  }
-  #logo {
-    width: 70px;
-  }
-  .collage,
-  .mirror {
-    width: 50%;
-  }
-  .collage2,
-  .mirror2 {
-    display: none;
-  }
-
-  .img-and-text p {
-    width: 360px;
-    height: 140px;
-    font-size: 15px;
-  }
-
-  #my-order {
-    padding: 20px;
-  }
+  .lyra { font-size: 24px; }
+  #mayorista { font-size: 14px; }
+  #order { font-size: 12px; padding: 5px; }
+  #logo { width: 70px; }
+  .collage, .mirror { width: 50%; }
+  .collage2, .mirror2 { display: none; }
+  .img-and-text p { width: 360px; height: 140px; font-size: 15px; }
+  #my-order { padding: 20px; }
 }
 
+/* Mobile */
 @media (max-width: 568px) {
-  .menu-section {
-    margin: 0px;
-  }
-  .lyra {
-    font-size: 22px;
-  }
-  .div-lyra {
-    font-size: 16px;
-    padding: 6px;
-  }
-  .logo {
-    width: 50px;
-    margin: 5px;
-  }
-  #mayorista {
-    display: none;
-  }
-  .icons-div {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  #order {
-    font-size: 10px;
-    padding: 5px;
-    margin-left: 10px;
-  }
-  #my-order {
-    padding: 20px;
-  }
-  .collage {
-    width: 100%;
-  }
-  .mirror,
-  .collage2,
-  .mirror2 {
-    display: none;
-  }
-  .catalogo img {
-    width: 250px !important;
-    padding: 5px;
-  }
-  .img-and-text img {
-    max-width: 280px;
-    padding: 10px 0;
-  }
-  .img-and-text p {
-    width: 260px;
-    height: 160px;
-    font-size: 14px;
-  }
-  .carta-img-div {
-    flex-direction: column;
-  }
-  .download-btn {
-    font-size: 10px;
-  }
-  .icon-img {
-    width: 20px;
-  }
-  .info-div {
-    padding: 5px 35px !important;
-  }
-  footer {
-    padding: 10px;
-  }
-  .footer-div {
-    flex-direction: column;
-    justify-content: center;
-  }
+  .menu-section { margin: 0px; }
+  .lyra { font-size: 22px; }
+  .div-lyra { font-size: 16px; padding: 6px; }
+  .logo { width: 50px; margin: 5px; }
+  #mayorista { display: none; }
+  .icons-div { grid-template-columns: repeat(3, 1fr); }
+  #order { font-size: 10px; padding: 5px; margin-left: 10px; }
+  #my-order { padding: 20px; }
+  .collage { width: 100%; }
+  .mirror, .collage2, .mirror2 { display: none; }
+  .catalogo img { width: 250px !important; padding: 5px; }
+  .img-and-text img { max-width: 280px; padding: 10px 0; }
+  .img-and-text p { width: 260px; height: 160px; font-size: 14px; }
+  .carta-img-div { flex-direction: column; }
+  .download-btn { font-size: 10px; }
+  .icon-img { width: 20px; }
+  .info-div { padding: 5px 35px !important; }
+  footer { padding: 10px; }
+  .footer-div { flex-direction: column; justify-content: center; }
 }
 
+/* Sidebar reducida (tablet + mobile) */
 @media (max-width: 868px) {
-  #content {
-    margin-left: 70px;
-  }
-  #menu {
-    width: 68px;
-    font-size: 12px;
-    padding-bottom: 10px;
-  }
-  .rubro-title {
-    display: none;
-  }
-  .rubro-title-small {
-    display: block;
-    font-size: 11px;
-    margin: 5px;
-  }
-  .cart-icon {
-  font-size: 1.3rem;
-}
-.order{
-  position: fixed;
-  top: 2rem;
-  right: 2rem;
-}
-  .car {
-    width: 50px;
-  }
-  .delivery {
-    max-width: 250px;
-    font-size: 14px;
-  }
-  #search-input {
-    font-size: 12px;
-    margin-bottom: 15px;
-  }
-  #search-button {
-    font-size: 12px;
-  }
-  .slogan {
-    padding: 30px;
-    font-size: 20px;
-  }
-  .second {
-    display: none;
-  }
-  #contenedor-formulario {
-    padding: 10px;
-    margin: 5px;
-  }
-  #titulo-formulario {
-    flex-direction: column;
-  }
-  .catalogo {
-    flex-direction: column;
-  }
+  #content { margin-left: 70px; }
+  #menu { width: 68px; font-size: 12px; padding-bottom: 10px; }
+  .rubro-title { display: none; }
+  .rubro-title-small { display: block; font-size: 11px; margin: 5px; }
+  .cart-icon { font-size: 1.3rem; }
+  .car { width: 50px; }
+  .delivery { max-width: 250px; font-size: 14px; }
+  #search-input { font-size: 12px; margin-bottom: 15px; }
+  #search-button { font-size: 12px; }
+  .slogan { padding: 30px; font-size: 20px; }
+  .second { display: none; }
+  #contenedor-formulario { padding: 10px; margin: 5px; }
+  #titulo-formulario { flex-direction: column; }
+  .catalogo { flex-direction: column; }
 }
