@@ -77,7 +77,10 @@ function _buildCard(p) {
   if (p.tipo === "simple") {
     return `
       <div class="img-and-text">
-        <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
+        <div class="img-wrapper">
+          <div class="bg-blur" style="background-image: url('${p.imagen}')"></div>
+          <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
+        </div>
         <p class="product-text">
           ${p.nombre}<br/>
           ${p.info}
@@ -128,10 +131,7 @@ function _renderCarterasConSubcategorias(mountPoint) {
       <h5>Ver galería de imágenes de:</h5>
       <select id="carteras-select" name="carteras_select">
         ${subcats
-          .map(
-            (s, i) =>
-              `<option value="carousel-carteras-${i}">${s}</option>`
-          )
+          .map((s, i) => `<option value="carousel-carteras-${i}">${s}</option>`)
           .join("")}
       </select>
     </div>`;
@@ -139,7 +139,7 @@ function _renderCarterasConSubcategorias(mountPoint) {
   const carouselHtml = subcats
     .map((sub, i) => {
       const prods = PRODUCTOS.filter(
-        (p) => p.categoria === "carteras" && p.subcategoria === sub
+        (p) => p.categoria === "carteras" && p.subcategoria === sub,
       );
       const carouselId = `carousel-carteras-${i}`;
       const html = _buildCarousel(carouselId, prods);
@@ -182,7 +182,7 @@ function _renderExtras(cat, section) {
                 <h5>${c.titulo}</h5>
                 <img src="${c.imagen}" alt="${c.titulo}" />
               </a>
-            </div>`
+            </div>`,
             )
             .join("")}
         </div>
@@ -248,7 +248,8 @@ function _bindAllWantButtons() {
     // Producto con inputs
     const typeInput = parent.querySelector(".type-product");
     const qtyInput = parent.querySelector(".number-product");
-    const productName = parent.dataset.productName || parent.textContent.split("\n")[0].trim();
+    const productName =
+      parent.dataset.productName || parent.textContent.split("\n")[0].trim();
 
     let detail = "";
     if (typeInput?.tagName === "SELECT") {
