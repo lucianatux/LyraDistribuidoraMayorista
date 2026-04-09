@@ -35,15 +35,14 @@ export function renderAllCatalogs() {
 }
 
 // ── Carruseles generales ──────────────────────────────────
-function _buildCarousel(id, productos) {
+function _buildCarousel(id, productos, useBlur = false) {
   if (productos.length === 0) return "";
 
-  // Agrupar en pares (2 por slide como el original)
   const pairs = _chunkArray(productos, 2);
 
   const items = pairs
     .map((pair, i) => {
-      const slides = pair.map((p) => _buildCard(p)).join("");
+      const slides = pair.map((p) => _buildCard(p, useBlur)).join("");
       return `
         <div class="carousel-item ${i === 0 ? "active" : ""}">
           <div class="slides">${slides}</div>
@@ -68,19 +67,23 @@ function _buildCarousel(id, productos) {
 }
 
 // ── Tarjeta individual ────────────────────────────────────
-function _buildCard(p) {
+function _buildCard(p, useBlur = false) {
   const infoExtra = p.infoExtra
     ? `<button class="info-btn">${p.infoExtraLabel || "ver más"}</button>
        <div class="info-div" style="display:none">${p.infoExtra.join("<br>")}</div>`
     : "";
 
+  const imgHtml = useBlur
+    ? `<div class="img-wrapper">
+         <div class="bg-blur" style="background-image: url('${p.imagen}')"></div>
+         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
+       </div>`
+    : `<img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />`;
+
   if (p.tipo === "simple") {
     return `
       <div class="img-and-text">
-        <div class="img-wrapper">
-          <div class="bg-blur" style="background-image: url('${p.imagen}')"></div>
-          <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
-        </div>
+        ${imgHtml}
         <p class="product-text">
           ${p.nombre}<br/>
           ${p.info}
@@ -106,7 +109,7 @@ function _buildCard(p) {
 
   return `
     <div class="img-and-text">
-      <img src="${p.imagen}" alt="${p.nombre}" loading="lazy" />
+      ${imgHtml}
       <p class="info-product">
         ${p.nombre}<br/>${p.info}
         ${infoExtra}
@@ -131,7 +134,10 @@ function _renderCarterasConSubcategorias(mountPoint) {
       <h5>Ver galería de imágenes de:</h5>
       <select id="carteras-select" name="carteras_select">
         ${subcats
-          .map((s, i) => `<option value="carousel-carteras-${i}">${s}</option>`)
+          .map(
+            (s, i) =>
+              `<option value="carousel-carteras-${i}">${s}</option>`
+          )
           .join("")}
       </select>
     </div>`;
@@ -139,10 +145,10 @@ function _renderCarterasConSubcategorias(mountPoint) {
   const carouselHtml = subcats
     .map((sub, i) => {
       const prods = PRODUCTOS.filter(
-        (p) => p.categoria === "carteras" && p.subcategoria === sub,
+        (p) => p.categoria === "carteras" && p.subcategoria === sub
       );
       const carouselId = `carousel-carteras-${i}`;
-      const html = _buildCarousel(carouselId, prods);
+      const html = _buildCarousel(carouselId, prods, true); // blur solo en carteras
       return `<div class="subcat-carousel" id="wrap-${carouselId}"
         style="display:${i === 0 ? "block" : "none"}">${html}</div>`;
     })
@@ -182,7 +188,7 @@ function _renderExtras(cat, section) {
                 <h5>${c.titulo}</h5>
                 <img src="${c.imagen}" alt="${c.titulo}" />
               </a>
-            </div>`,
+            </div>`
             )
             .join("")}
         </div>
@@ -248,8 +254,7 @@ function _bindAllWantButtons() {
     // Producto con inputs
     const typeInput = parent.querySelector(".type-product");
     const qtyInput = parent.querySelector(".number-product");
-    const productName =
-      parent.dataset.productName || parent.textContent.split("\n")[0].trim();
+    const productName = parent.dataset.productName || parent.textContent.split("\n")[0].trim();
 
     let detail = "";
     if (typeInput?.tagName === "SELECT") {

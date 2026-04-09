@@ -451,17 +451,21 @@ form {
   padding: 0 10px;
 }
 .img-and-text p,
-.img-and-text div {
-  width: 280px;
+.img-and-text .info-product,
+.img-and-text .info-product-small,
+.img-and-text .product-input,
+.img-and-text .product-text {
+  width: 300px;
   max-width: 100%;
-  height: 140px;
+  height: auto;
   padding: 10px;
   position: relative;
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 6px;
 }
 
 .carousel-control-prev-icon,
@@ -479,16 +483,19 @@ form {
 
 /*****************agregar pedido CAROUSEL*****************/
 .info-product {
-  height: 100px !important;
+  height: auto !important;
+  min-height: 60px;
   position: relative;
   overflow: visible;
 }
 .info-product-small {
-  height: 60px !important;
+  height: auto !important;
+  min-height: 40px;
   position: relative;
 }
 .product-input {
-  height: 180px !important;
+  height: auto !important;
+  min-height: 120px;
   position: relative;
 }
 .want-btn {
@@ -649,11 +656,12 @@ footer p {
 /* ── Imagen con fondo difuminado ── */
 .img-wrapper {
   position: relative;
-  width: 100%;
-  max-width: 280px;
-  height: 260px;
+  width: 300px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
+  flex-shrink: 0;
 }
 .img-wrapper .bg-blur {
   position: absolute;
@@ -678,13 +686,12 @@ footer p {
 
 /* Tablet grande */
 @media (max-width: 968px) and (min-width: 869px) {
-  .img-and-text p, .img-and-text div {
-    width: 260px;
-    height: 160px;
-    font-size: 15px;
-  }
-  .img-and-text img { max-width: 260px; }
-  .img-wrapper { max-width: 260px; }
+  .img-and-text p,
+  .img-and-text .info-product,
+  .img-and-text .info-product-small,
+  .img-and-text .product-input,
+  .img-and-text .product-text { width: 260px; font-size: 15px; }
+  .img-wrapper { width: 260px; }
   .info-div { padding: 5px 50px !important; }
 }
 
@@ -714,9 +721,12 @@ footer p {
   #logo { width: 70px; }
   .collage, .mirror { width: 50%; }
   .collage2, .mirror2 { display: none; }
-  .img-and-text p, .img-and-text div { width: 220px; height: 140px; font-size: 14px; }
-  .img-and-text img { max-width: 220px; }
-  .img-wrapper { max-width: 220px; height: 220px; }
+  .img-and-text p,
+  .img-and-text .info-product,
+  .img-and-text .info-product-small,
+  .img-and-text .product-input,
+  .img-and-text .product-text { width: 220px; font-size: 14px; }
+  .img-wrapper { width: 220px; }
   #my-order { padding: 20px; }
 }
 
@@ -734,17 +744,19 @@ footer p {
   .mirror, .collage2, .mirror2 { display: none; }
   .catalogo img { width: 100% !important; max-width: 250px; padding: 5px; }
 
-  /* Carrusel: una sola tarjeta centrada, ancho fluido */
   .slides { flex-direction: column; align-items: center; }
-  .img-and-text { width: 100%; max-width: 260px; }
-  .img-and-text p, .img-and-text div { width: 100%; max-width: 240px; height: auto; min-height: 100px; font-size: 13px; }
-  .img-and-text img { max-width: 100%; padding: 6px 0; }
-  .img-wrapper { max-width: 100%; width: 100%; height: 200px; }
+  .img-and-text { width: 100%; max-width: 280px; }
+  .img-and-text p,
+  .img-and-text .info-product,
+  .img-and-text .info-product-small,
+  .img-and-text .product-input,
+  .img-and-text .product-text { width: 100%; max-width: 260px; font-size: 13px; }
+  .img-wrapper { width: 100%; max-width: 280px; }
 
   .carta-img-div { flex-direction: column; }
   .download-btn { font-size: 10px; }
   .icon-img { width: 20px; }
-  .info-div { padding: 5px 35px !important; }
+  .info-div { padding: 5px 20px !important; }
   footer { padding: 10px; }
   .footer-div { flex-direction: column; justify-content: center; }
 }
