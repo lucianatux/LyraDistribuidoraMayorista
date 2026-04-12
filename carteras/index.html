@@ -1,0 +1,1886 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catálogo de Carteras | Distribuidora Lyra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-main: #faf7f2;
+        --bg-card: #ffffff;
+        --bg-hero: #1a1a1a;
+        --text-primary: #1a1a1a;
+        --text-secondary: #6b6560;
+        --text-light: #9b9590;
+        --accent: #c4956a;
+        --accent-hover: #b0845d;
+        --accent-soft: #ede4da;
+        --border: #e8e2da;
+        --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.06);
+        --shadow-md: 0 8px 30px rgba(26, 26, 26, 0.08);
+        --shadow-lg: 0 20px 60px rgba(26, 26, 26, 0.12);
+        --radius: 12px;
+        --font-display: "Playfair Display", Georgia, serif;
+        --font-body: "DM Sans", -apple-system, sans-serif;
+        --nav-height: 64px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--bg-main);
+        color: var(--text-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* === NAV === */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(250, 247, 242, 0.92);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        height: var(--nav-height);
+        display: flex;
+        align-items: center;
+        padding: 0 clamp(1rem, 4vw, 3rem);
+      }
+      .nav-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-brand {
+        font-family: var(--font-display);
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+      .nav-brand span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent);
+      }
+
+      /* === HERO === */
+      .hero {
+        background: var(--bg-hero);
+        color: #fff;
+        padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 20% 50%,
+            rgba(196, 149, 106, 0.15) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 50%,
+            rgba(196, 149, 106, 0.1) 0%,
+            transparent 60%
+          );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .hero-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1.2rem;
+        padding: 0.4rem 1.2rem;
+        border: 1px solid rgba(196, 149, 106, 0.4);
+        border-radius: 100px;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+      .hero p {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 300;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      /* === FILTERS === */
+      .filters-bar {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem clamp(1rem, 4vw, 3rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .filters-bar h2 {
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .filter-pills {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .filter-pill {
+        padding: 0.45rem 1.1rem;
+        border-radius: 100px;
+        border: 1px solid var(--border);
+        background: transparent;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-pill:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .filter-pill.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      /* === GRID === */
+      .catalog-grid {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 clamp(1rem, 4vw, 3rem) 4rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      /* === SECTION HEADERS === */
+      .section-header {
+        grid-column: 1 / -1;
+        padding: 2.5rem 0 0.5rem;
+        border-bottom: 2px solid var(--text-primary);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+      .section-header h3 {
+        font-family: var(--font-display);
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .section-header .count {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        font-weight: 400;
+      }
+
+      /* === PRODUCT CARD === */
+      .product-card {
+        background: var(--bg-card);
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        animation: fadeUp 0.5s ease both;
+      }
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .product-card[data-hidden="true"] {
+        display: none;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card-image {
+        position: relative;
+        aspect-ratio: 4/3;
+        overflow: hidden;
+        background: #f0ebe5;
+      }
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+      .product-card:hover .card-image img {
+        transform: scale(1.05);
+      }
+      .card-badge {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.7rem;
+        border-radius: 6px;
+      }
+
+      .card-body {
+        padding: 1.2rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-name {
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.2rem;
+        letter-spacing: -0.01em;
+      }
+      .card-desc {
+        font-size: 0.82rem;
+        color: var(--text-light);
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
+      }
+      .card-colors {
+        display: flex;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+      .color-tag {
+        font-size: 0.72rem;
+        font-weight: 500;
+        padding: 0.25rem 0.6rem;
+        border-radius: 100px;
+        background: var(--accent-soft);
+        color: var(--accent-hover);
+      }
+      .card-footer {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-price {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+      }
+      .card-price small {
+        display: block;
+        font-size: 0.68rem;
+        font-weight: 400;
+        color: var(--text-light);
+        letter-spacing: 0;
+      }
+
+      /* === VARIANT SELECTOR === */
+      .variant-select {
+        width: 100%;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        color: var(--text-primary);
+        background: var(--bg-main);
+        margin-bottom: 0.8rem;
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236B6560' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+      }
+
+      /* === ADD BUTTON === */
+      .btn-add {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.55rem 1.1rem;
+        border-radius: 8px;
+        border: none;
+        background: var(--text-primary);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+      }
+      .btn-add:hover {
+        background: var(--accent);
+      }
+      .btn-add:active {
+        transform: scale(0.96);
+      }
+      .btn-add svg {
+        width: 16px;
+        height: 16px;
+      }
+      .btn-add.added {
+        background: #4a9 !important;
+        pointer-events: none;
+      }
+
+      /* === FOOTER === */
+      .site-footer {
+        background: var(--bg-hero);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 3rem 1rem;
+        font-size: 0.82rem;
+      }
+      .site-footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .site-footer .footer-brand {
+        font-family: var(--font-display);
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 768px) {
+        .catalog-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding: 2.5rem 1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .catalog-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* === CART WIDGET HOOK (matches lyra-cart-widget.js) === */
+      #lyra-cart-fab {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-brand">Distribuidora <span>Lyra</span></a>
+        <ul class="nav-links">
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/libreria/">Librería</a></li>
+          <li><a href="/carteras/" class="active">Carteras</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-content">
+        <span class="hero-tag">Stock disponible</span>
+        <h1>Catálogo de Carteras</h1>
+        <p>
+          Precios por mayor &middot; Simil cuero &middot; Envíos a todo el país
+        </p>
+      </div>
+    </header>
+
+    <!-- FILTERS -->
+    <div class="filters-bar">
+      <h2>Nuestros modelos</h2>
+      <div class="filter-pills">
+        <button class="filter-pill active" data-filter="all">Todos</button>
+        <button class="filter-pill" data-filter="carteras">Carteras</button>
+        <button class="filter-pill" data-filter="mochilas">Mochilas</button>
+        <button class="filter-pill" data-filter="bandoleras">Bandoleras</button>
+        <button class="filter-pill" data-filter="accesorios">Accesorios</button>
+        <button class="filter-pill" data-filter="hombre">Línea Hombre</button>
+      </div>
+    </div>
+
+    <!-- CATALOG -->
+    <main class="catalog-grid" id="catalog">
+      <!-- ========== CARTERAS ========== -->
+      <div class="section-header" data-section="carteras">
+        <h3>Carteras</h3>
+        <span class="count">8 productos</span>
+      </div>
+
+      <!-- Modelo Vero -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.05s"
+      >
+        <div class="card-image">
+          <img src="./2026/vero1.png" alt="vero" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Modelo Vero</h4>
+          <p class="card-desc">
+            Cartera amplia simil cuero con correa camuflada desmontable y
+            cierre.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$20.600<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Modelo Vero"
+              data-price="20600"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Anto Hebilla -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.1s"
+      >
+       
+                    <img src="./2026/antohebilla1.png" alt="Anto Hebilla" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Anto Hebilla</h4>
+          <p class="card-desc">
+            Cartera hobo elegante con hebilla metálica decorativa.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$16.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Anto Hebilla"
+              data-price="16800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pilar -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.15s"
+      >
+        <div class="card-image">
+                   <img src="./2026/pilar1.png" alt="pilar" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Pilar</h4>
+          <p class="card-desc">
+            Cartera compacta con solapa, boca con cierre y correa desmontable
+            con mosquetón.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+            <span class="color-tag">Tierra</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro">Color: Negro</option>
+            <option value="Tierra">Color: Tierra</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$16.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Pilar - Negro"
+              data-price="16800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tiziana -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.2s"
+      >
+        <div class="card-image">
+                   <img src="./2026/tiziana1.jpg" alt="Tiziana" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Tiziana</h4>
+          <p class="card-desc">
+            Cartera tote con detalles metálicos y correa ajustable.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$17.900<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Tiziana"
+              data-price="17900"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Abril -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.25s"
+      >
+        <div class="card-image">
+                    <img src="./2026/abril1.png" alt="Abril" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Abril</h4>
+          <p class="card-desc">
+            Bolso tote amplio con tachas decorativas. Ideal para el día a día.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$17.900<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Abril"
+              data-price="17900"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bolso Totebag -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.3s"
+      >
+        <div class="card-image">
+                   <img src="./2026/totebag1.png" alt="Bolso totebag" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bolso Totebag</h4>
+          <p class="card-desc">
+            Tote bag forrado en su interior. Ideal para la facu.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Camel maíz</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$14.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bolso Totebag"
+              data-price="14800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Clara -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.35s"
+      >
+        <div class="card-image">
+                   <img src="./2026/clara1.jpg" alt="Clara" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Clara</h4>
+          <p class="card-desc">
+            Cartera compacta con asa superior y correa bandolera con tachas.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$16.900<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Clara"
+              data-price="16900"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Paz -->
+      <article
+        class="product-card"
+        data-category="carteras"
+        style="animation-delay: 0.4s"
+      >
+        <div class="card-image">
+                   <img src="./2026/paz1.png" alt="Paz" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Paz</h4>
+          <p class="card-desc">
+            Bandolera con correa estampada "LOVE" y cierre doble.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+            <span class="color-tag">Nude</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro">Color: Negro</option>
+            <option value="Nude">Color: Nude</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$16.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Paz - Negro"
+              data-price="16800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== MOCHILAS ========== -->
+      <div class="section-header" data-section="mochilas">
+        <h3>Mochilas</h3>
+        <span class="count">2 productos</span>
+      </div>
+
+      <!-- Mochila Lola -->
+      <article
+        class="product-card"
+        data-category="mochilas"
+        style="animation-delay: 0.05s"
+      >
+        <div class="card-image">
+                   <img src="./2026/lola1.png" alt="lola" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Mochila Lola</h4>
+          <p class="card-desc">
+            Mochila elegante con solapa y cierre giratorio metálico.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$20.600<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Mochila Lola"
+              data-price="20600"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mochila Matera Puff -->
+      <article
+        class="product-card"
+        data-category="mochilas"
+        style="animation-delay: 0.1s"
+      >
+        <div class="card-image">
+                   <img src="./2026/mochimatera.jpg" alt="mochila matera" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Mochila Matera Puff</h4>
+          <p class="card-desc">
+            Mochila acolchada ideal para el mate. Estilo puffer.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro brillante</span>
+            <span class="color-tag">Negro opaco</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro brillante">Negro brillante</option>
+            <option value="Negro opaco">Negro opaco</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$13.400<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Mochila Matera Puff - Negro brillante"
+              data-price="13400"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== BANDOLERAS ========== -->
+      <div class="section-header" data-section="bandoleras">
+        <h3>Bandoleras y Bolsos</h3>
+        <span class="count">5 productos</span>
+      </div>
+
+      <!-- Lucía -->
+      <article
+        class="product-card"
+        data-category="bandoleras"
+        style="animation-delay: 0.05s"
+      >
+        <div class="card-image">
+                    <img src="./2026/lucia1.png" alt="lucia" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Lucía</h4>
+          <p class="card-desc">Mini bolso portacelular con correa camuflada.</p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$14.600<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Lucía"
+              data-price="14600"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pechera Dama -->
+      <article
+        class="product-card"
+        data-category="bandoleras"
+        style="animation-delay: 0.1s"
+      >
+        <div class="card-image">
+                   <img src="./2026/pechera.jpg" alt="pechera dama" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Pechera Dama</h4>
+          <p class="card-desc">Pechera cruzada con múltiples compartimentos.</p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$15.500<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Pechera Dama"
+              data-price="15500"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bandolera Romi Puff -->
+      <article
+        class="product-card"
+        data-category="bandoleras"
+        style="animation-delay: 0.15s"
+      >
+        <div class="card-image">
+                   <img src="./2026/bandoleraromipuff.jpg" alt="bandolera romi puff" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bandolera Romi Puff</h4>
+          <p class="card-desc">Bandolera acolchada puffer con asa y correa.</p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$10.500<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bandolera Romi Puff"
+              data-price="10500"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bandolera Luz -->
+      <article
+        class="product-card"
+        data-category="bandoleras"
+        style="animation-delay: 0.2s"
+      >
+        <div class="card-image">
+                   <img src="./2026/bandoleraluz.jpg" alt="bandolera luz" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bandolera Luz</h4>
+          <p class="card-desc">
+            Bandolera con correa ancha estampada de estrellas.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+            <span class="color-tag">Azul marino</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro">Color: Negro</option>
+            <option value="Azul marino">Color: Azul marino</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$11.700<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bandolera Luz - Negro"
+              data-price="11700"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bolsito Bolichero -->
+      <article
+        class="product-card"
+        data-category="bandoleras"
+        style="animation-delay: 0.25s"
+      >
+        <div class="card-image">
+                    <img src="./2026/bolsitobolichero.jpg" alt="bolsito bolichero" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bolsito Bolichero</h4>
+          <p class="card-desc">
+            Mini bolso bucket con cadena. Ideal para salidas nocturnas.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Croco plata</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$13.500<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bolsito Bolichero"
+              data-price="13500"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== ACCESORIOS ========== -->
+      <div class="section-header" data-section="accesorios">
+        <h3>Accesorios</h3>
+        <span class="count">6 productos</span>
+      </div>
+
+      <!-- Luna -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.05s"
+      >
+        <div class="card-image">
+                  <img src="./2026/lunas.jpg" alt="lunas" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Luna (Portacelular)</h4>
+          <p class="card-desc">Carterita portacelular con correa bandolera.</p>
+          <div class="card-colors">
+            <span class="color-tag">Negro trenzado</span>
+            <span class="color-tag">Plata</span>
+            <span class="color-tag">Nude</span>
+            <span class="color-tag">Camel</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro trenzado">Negro trenzado</option>
+            <option value="Plata">Plata</option>
+            <option value="Nude">Nude</option>
+            <option value="Camel">Camel</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$11.400<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Luna - Negro trenzado"
+              data-price="11400"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sobres -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.1s"
+      >
+        <div class="card-image">
+                    <img src="./2026/sobres.jpg" alt="sobres" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Sobres</h4>
+          <p class="card-desc">
+            Sobre de mano elegante para eventos y salidas.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Oro suave</span>
+            <span class="color-tag">Plata suave</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Oro suave">Oro suave</option>
+            <option value="Plata suave">Plata suave</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$8.000<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Sobres - Oro suave"
+              data-price="8000"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Billeteras -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.15s"
+      >
+        <div class="card-image">
+                   <img src="./2026/billeteras.jpg" alt="billeteras" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Billeteras</h4>
+          <p class="card-desc">
+            Billeteras con diseños variados y cierre metálico.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Cuadros rosa</span>
+            <span class="color-tag">Plata quebrada</span>
+            <span class="color-tag">Estrellitas tornasol</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Cuadros rosa">Cuadros rosa</option>
+            <option value="Plata quebrada">Plata quebrada</option>
+            <option value="Estrellitas tornasol">Estrellitas tornasol</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$5.300<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Billeteras - Cuadros rosa"
+              data-price="5300"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Set Yerbera -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.2s"
+      >
+        <div class="card-image">
+                   <img src="./2026/setchaulataplateado.jpg" alt="set chau lata" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Set Yerbera + Azucarera</h4>
+          <p class="card-desc">
+            Set impermeable de yerbera y azucarera. Ideal para el mate.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Plateado</span>
+            <span class="color-tag">Rosa</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Plateado">Plateado</option>
+            <option value="Rosa">Rosa</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$9.000<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Set Yerbera Azucarera - Plateado"
+              data-price="9000"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Lunchera -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.25s"
+      >
+        <div class="card-image">
+                   <img src="./2026/lunchera.jpg" alt="lunchera" loading="lazy" />
+
+          <span class="card-badge">Infantil</span>
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Lunchera</h4>
+          <p class="card-desc">Lunchera infantil con diseños divertidos.</p>
+          <div class="card-colors">
+            <span class="color-tag">Hello Kitty</span>
+            <span class="color-tag">Barbie</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Hello Kitty">Hello Kitty</option>
+            <option value="Barbie">Barbie</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$6.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Lunchera - Hello Kitty"
+              data-price="6800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cartucheras -->
+      <article
+        class="product-card"
+        data-category="accesorios"
+        style="animation-delay: 0.3s"
+      >
+        <div class="card-image">
+                    <img src="./2026/cartucheras.jpg" alt="cartucheras" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Cartucheras de Neoprene</h4>
+          <p class="card-desc">
+            Cartucheras sublimadas con diseños variados. Solicitá catálogo de
+            diseños.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Medianas</span>
+            <span class="color-tag">Grandes</span>
+          </div>
+          <select class="variant-select" onchange="updateCartucheraPrice(this)">
+            <option value="Medianas" data-price="4290">
+              Medianas - $4.290
+            </option>
+            <option value="Grandes" data-price="6800">Grandes - $6.800</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price" id="cartuchera-price">
+              $4.290<small>precio por mayor</small>
+            </div>
+            <button
+              class="btn-add"
+              data-name="Cartucheras Neoprene - Medianas"
+              data-price="4290"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- ========== LÍNEA HOMBRE ========== -->
+      <div class="section-header" data-section="hombre">
+        <h3>Línea Hombre</h3>
+        <span class="count">6 productos</span>
+      </div>
+
+      <!-- Pechera Hombre -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.05s"
+      >
+        <div class="card-image">
+                   <img src="./2026/pecherahombre.jpg" alt="pechera hombre" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Pechera</h4>
+          <p class="card-desc">Pechera cruzada en simil cuero para hombre.</p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$15.500<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Pechera Hombre"
+              data-price="15500"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tabaquera -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.1s"
+      >
+        <div class="card-image">
+                    <img src="./2026/tabaquera1.jpg" alt="tabaquera" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Tabaquera</h4>
+          <p class="card-desc">
+            Tabaquera marca Septiembre con compartimentos internos y cierre.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negro</span>
+            <span class="color-tag">Madera nobuk</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negro">Negro</option>
+            <option value="Madera nobuk">Madera nobuk</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$9.300<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Tabaquera - Negro"
+              data-price="9300"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Yerbera Nobuk -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.15s"
+      >
+        <div class="card-image">
+                    <img src="./2026/yerberasnobuk.jpg" alt="yerberas nobuk" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Yerbera Nobuk</h4>
+          <p class="card-desc">Yerbero con portabombilla. Marca Septiembre.</p>
+          <div class="card-colors">
+            <span class="color-tag">Gris</span>
+            <span class="color-tag">Avellana</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Gris">Gris</option>
+            <option value="Avellana">Avellana</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$6.600<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Yerbera Nobuk - Gris"
+              data-price="6600"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tarjeteros -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.2s"
+      >
+        <div class="card-image">
+                   <img src="./2026/tarjeteros.jpg" alt="tarjeteros" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Tarjeteros</h4>
+          <p class="card-desc">
+            Tarjetero compacto marca Septiembre con detalle tejido.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Marrón</span>
+          </div>
+          <div class="card-footer">
+            <div class="card-price">$4.700<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Tarjeteros"
+              data-price="4700"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Riñonera Adulto -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.25s"
+      >
+        <div class="card-image">
+                   <img src="./2026/riñonera1.jpg" alt="riñonera" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Riñonera Adulto</h4>
+          <p class="card-desc">
+            Riñonera deportiva. Disponible lisa y con escudos de clubes.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">Negra lisa</span>
+            <span class="color-tag">Talleres</span>
+            <span class="color-tag">Belgrano</span>
+            <span class="color-tag">Boca</span>
+            <span class="color-tag">River</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Negra lisa">Negra lisa</option>
+            <option value="Talleres">Talleres</option>
+            <option value="Belgrano">Belgrano</option>
+            <option value="Boca">Boca</option>
+            <option value="River">River</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$7.800<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Riñonera Adulto - Negra lisa"
+              data-price="7800"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bolso Deportivo -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.3s"
+      >
+        <div class="card-image">
+                    <img src="./2026/bolsodeportivo.jpg" alt="bolso deportivo" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bolso Deportivo</h4>
+          <p class="card-desc">
+            Bolso tamaño botinera con escudos de clubes y AFA.
+          </p>
+          <div class="card-colors">
+            <span class="color-tag">AFA</span>
+            <span class="color-tag">Talleres</span>
+            <span class="color-tag">Belgrano</span>
+            <span class="color-tag">Boca</span>
+            <span class="color-tag">River</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="AFA">AFA</option>
+            <option value="Talleres">Talleres</option>
+            <option value="Belgrano">Belgrano</option>
+            <option value="Boca">Boca</option>
+            <option value="River">River</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$10.700<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bolso Deportivo - AFA"
+              data-price="10700"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bandolera Unisex -->
+      <article
+        class="product-card"
+        data-category="hombre"
+        style="animation-delay: 0.35s"
+      >
+        <div class="card-image">
+                  <img src="./2026/bandoleraunisex.jpg" alt="bandolera unisex" loading="lazy" />
+
+        </div>
+        <div class="card-body">
+          <h4 class="card-name">Bandolera Unisex</h4>
+          <p class="card-desc">Bandolera compacta unisex.</p>
+          <div class="card-colors">
+            <span class="color-tag">Gris tierra</span>
+            <span class="color-tag">Stitch</span>
+          </div>
+          <select class="variant-select" onchange="updateVariant(this)">
+            <option value="Gris tierra">Gris tierra</option>
+            <option value="Stitch">Stitch</option>
+          </select>
+          <div class="card-footer">
+            <div class="card-price">$7.100<small>precio por mayor</small></div>
+            <button
+              class="btn-add"
+              data-name="Bandolera Unisex - Gris tierra"
+              data-price="7100"
+              onclick="addToCart(this)"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"
+                />
+              </svg>
+              Agregar
+            </button>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" id="contacto">
+      <div class="footer-brand">Distribuidora Lyra</div>
+      <p>Precios por mayor &middot; Consultas por WhatsApp</p>
+      <p style="margin-top: 0.5rem">
+        &copy; 2025 Distribuidora Lyra &middot; Córdoba, Argentina
+      </p>
+    </footer>
+
+    <!-- CART WIDGET (external script for unified cart) -->
+    <div id="lyra-cart-fab"></div>
+    <script src="/lyra-cart-widget.js"></script>
+
+    <script>
+      // === FILTERS ===
+      document.querySelectorAll(".filter-pill").forEach((pill) => {
+        pill.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-pill")
+            .forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          const filter = pill.dataset.filter;
+
+          document.querySelectorAll(".product-card").forEach((card) => {
+            card.dataset.hidden =
+              filter !== "all" && card.dataset.category !== filter
+                ? "true"
+                : "false";
+          });
+          document.querySelectorAll(".section-header").forEach((header) => {
+            const section = header.dataset.section;
+            header.style.display =
+              filter !== "all" && section !== filter ? "none" : "";
+          });
+        });
+      });
+
+      // === VARIANT SELECT ===
+      function updateVariant(select) {
+        const card = select.closest(".product-card");
+        const btn = card.querySelector(".btn-add");
+        const baseName = card.querySelector(".card-name").textContent;
+        btn.dataset.name = baseName + " - " + select.value;
+        // Reset added state if variant changes
+        btn.classList.remove("added");
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg> Agregar';
+      }
+
+      // === CARTUCHERA PRICE SWITCH ===
+      function updateCartucheraPrice(select) {
+        const opt = select.options[select.selectedIndex];
+        const price = opt.dataset.price;
+        const card = select.closest(".product-card");
+        const priceEl = card.querySelector(".card-price");
+        const btn = card.querySelector(".btn-add");
+        priceEl.innerHTML =
+          "$" +
+          Number(price).toLocaleString("es-AR") +
+          "<small>precio por mayor</small>";
+        btn.dataset.price = price;
+        btn.dataset.name = "Cartucheras Neoprene - " + select.value;
+        btn.classList.remove("added");
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg> Agregar';
+      }
+
+      // === ADD TO CART (fallback if widget not loaded) ===
+      function addToCart(btn) {
+        const name = btn.dataset.name;
+        const price = parseInt(btn.dataset.price);
+
+        // Try unified cart widget
+        if (window.LyraCart && typeof window.LyraCart.addItem === "function") {
+          window.LyraCart.addItem({
+            name,
+            price,
+            qty: 1,
+            category: "carteras",
+          });
+        } else {
+          // Fallback: simple localStorage cart
+          let cart = JSON.parse(localStorage.getItem("lyra-cart") || "[]");
+          const existing = cart.find((i) => i.name === name);
+          if (existing) {
+            existing.qty++;
+          } else {
+            cart.push({ name, price, qty: 1, category: "carteras" });
+          }
+          localStorage.setItem("lyra-cart", JSON.stringify(cart));
+        }
+
+        btn.classList.add("added");
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Agregado';
+        setTimeout(() => {
+          btn.classList.remove("added");
+          btn.innerHTML =
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg> Agregar';
+        }, 1500);
+      }
+    </script>
+  </body>
+</html>
