@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lyra · Catálogo Librería</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f3ed;
+  --bg2: #fffdf8;
+  --text: #1a1815;
+  --text2: #6b6560;
+  --text3: #9e9890;
+  --accent: #2d5a27;
+  --accent-light: #e8f0e6;
+  --accent-mid: #4a8a42;
+  --border: #e4e0d8;
+  --card-bg: #fffdf8;
+  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  --radius: 10px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADER */
+header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.logo span {
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text3);
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid var(--border);
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 13px;
+}
+.header-right a {
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.wa-icon {
+  width: 18px; height: 18px;
+  fill: var(--accent);
+}
+.back-link {
+  color: var(--text3) !important;
+  font-size: 12px;
+}
+
+/* TOOLBAR */
+.toolbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-box {
+  flex: 1;
+  min-width: 200px;
+  position: relative;
+}
+.search-box input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--bg2);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-box input:focus { border-color: var(--accent-mid); }
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text3);
+  width: 16px; height: 16px;
+}
+.btn {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg2);
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--text2);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--accent-mid); color: var(--text); }
+.btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.product-count { font-size: 13px; color: var(--text3); margin-left: auto; white-space: nowrap; }
+
+/* GRID */
+.grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 12px;
+}
+
+/* CARD */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.card:hover { border-color: #ccc; box-shadow: var(--shadow); transform: translateY(-1px); }
+.card-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.card-body { padding: 12px 14px 14px; }
+.card-sku { font-size: 11px; color: var(--text3); letter-spacing: 0.3px; }
+.card-name {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 3px 0 6px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 35px;
+}
+.card-price { font-size: 19px; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
+.card-stock {
+  font-size: 11px;
+  margin-top: 5px;
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+.card-stock.ok { background: var(--accent-light); color: var(--accent); }
+.card-stock.out { background: #fce8e8; color: #a33; }
+
+/* MODAL */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-bg.show { display: flex; }
+.modal {
+  background: var(--bg2);
+  border-radius: 14px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  position: relative;
+}
+.modal-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  padding: 24px;
+  border-radius: 14px 14px 0 0;
+}
+.modal-body { padding: 20px 24px 24px; }
+.modal-sku { font-size: 12px; color: var(--text3); }
+.modal-name { font-size: 20px; font-weight: 600; margin: 4px 0 10px; line-height: 1.3; }
+.modal-price { font-size: 26px; font-weight: 700; color: var(--accent); }
+.modal-stock { margin-top: 8px; font-size: 13px; color: var(--text2); }
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.modal-wa:hover { background: #20bd5a; }
+
+/* FILE DROP */
+.file-drop {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  text-align: center;
+}
+.drop-zone {
+  border: 2px dashed var(--border);
+  border-radius: 14px;
+  padding: 48px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--bg2);
+}
+.drop-zone:hover { border-color: var(--accent-mid); background: var(--accent-light); }
+.drop-zone h2 { font-size: 18px; margin-bottom: 8px; color: var(--text); }
+.drop-zone p { font-size: 14px; color: var(--text3); }
+.drop-zone input { display: none; }
+
+.empty { text-align: center; padding: 60px 24px; color: var(--text3); font-size: 15px; }
+
+footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: var(--text3);
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+}
+
+.scroll-top {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--accent); color: #fff;
+  border: none; font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  align-items: center; justify-content: center;
+  z-index: 50;
+}
+.scroll-top.show { display: flex; }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .header-inner { height: 56px; }
+  .logo span { display: none; }
+  .toolbar { padding: 10px 16px; }
+  .grid-wrap { padding: 0 16px 40px; }
+  .card-body { padding: 10px; }
+  .card-price { font-size: 16px; }
+  .card-name { font-size: 12.5px; }
+  .back-link { display: none; }
+}
+
+.sentinel { height: 1px; }
+.updated { font-size: 12px; color: var(--text3); text-align: center; padding: 8px 24px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      Lyra <span>Catálogo Librería</span>
+    </div>
+    <div class="header-right">
+      <a class="back-link" href="https://distribuidoralyra.com">← Volver a Lyra</a>
+      <a href="https://wa.me/543512309375" target="_blank">
+        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.559 4.148 1.54 5.89L0 24l6.305-1.654A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.883 0-3.66-.502-5.197-1.402l-.363-.215-3.762.987 1.005-3.67-.236-.375A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar" id="toolbar" style="display:none">
+  <div class="search-box">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="search" placeholder="Buscar producto..." autocomplete="off">
+  </div>
+  <button class="btn" id="filterStock" onclick="toggleStock()">En stock</button>
+  <button class="btn" id="sortPrice" onclick="toggleSort()">Precio ↑</button>
+  <span class="product-count" id="count"></span>
+</div>
+
+<div class="updated" id="updated" style="display:none"></div>
+
+<div class="file-drop" id="fileDrop">
+  <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
+    <h2>Cargá tu archivo de productos</h2>
+    <p>Arrastrá o hacé click para subir el archivo <strong>productos_lyra.json</strong></p>
+    <input type="file" id="fileInput" accept=".json">
+    <p style="margin-top:14px;font-size:12px;color:var(--text3)">
+      Si el archivo <code>productos.json</code> está en la misma carpeta, se carga automáticamente
+    </p>
+  </div>
+</div>
+
+<div class="grid-wrap" id="gridWrap" style="display:none">
+  <div class="grid" id="grid"></div>
+  <div class="sentinel" id="sentinel"></div>
+</div>
+
+<div class="empty" id="empty" style="display:none">No se encontraron productos</div>
+
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <img class="modal-img" id="mImg" src="" alt="">
+    <div class="modal-body">
+      <div class="modal-sku" id="mSku"></div>
+      <div class="modal-name" id="mName"></div>
+      <div class="modal-price" id="mPrice"></div>
+      <div class="modal-stock" id="mStock"></div>
+      <a class="modal-wa" id="mWa" href="#" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.559 4.148 1.54 5.89L0 24l6.305-1.654A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.883 0-3.66-.502-5.197-1.402l-.363-.215-3.762.987 1.005-3.67-.236-.375A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
+        Consultar por WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<footer>
+  <p>Lyra Distribuidora Mayorista · Córdoba Capital · 2026</p>
+</footer>
+
+<script>
+var allProducts = [];
+var filtered = [];
+var stockOnly = false;
+var sortAsc = null;
+var shown = 0;
+var BATCH = 40;
+
+// ── Clean product data ──
+function cleanProduct(p) {
+  var nombre = (p.nombre || '').trim();
+  // Remove any text that looks like leaked field data
+  nombre = nombre.replace(/\$[\d.,]+/g, '').trim();
+  nombre = nombre.replace(/PRECIO SIN IMPUESTOS.*/i, '').trim();
+  nombre = nombre.replace(/STOCK:.*/i, '').trim();
+  nombre = nombre.replace(/AGREGAR.*/i, '').trim();
+  nombre = nombre.replace(/SKU:\s*\d+/gi, '').trim();
+  nombre = nombre.replace(/Tiene variantes/gi, '').trim();
+  nombre = nombre.replace(/\s{2,}/g, ' ').trim();
+
+  var sku = (p.sku || '').trim();
+  // If SKU got mixed with name text, extract just the number
+  if (sku.match(/\d+/)) {
+    sku = sku.match(/\d+/)[0];
+  }
+
+  var stock = (p.stock || '').trim();
+  stock = stock.replace(/AGREGAR.*/i, '').trim();
+  if (!stock) stock = 'Disponible';
+
+  return {
+    sku: sku,
+    nombre: nombre,
+    precio: p.precioLyra || 0,
+    precioOrig: p.precioOriginal || 0,
+    imagen: p.imagen || '',
+    stock: stock
+  };
+}
+
+// ── Format price ──
+function fmtPrice(n) {
+  return '$' + Math.round(n).toLocaleString('es-AR');
+}
+
+function escHtml(s) {
+  if (!s) return '';
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Load data ──
+var fileInput = document.getElementById('fileInput');
+var dropEl = document.getElementById('fileDrop');
+
+fetch('productos.json')
+  .then(function(r) { if (!r.ok) throw ''; return r.json(); })
+  .then(function(d) { loadData(d); })
+  .catch(function() {
+    // try dated filename
+    var today = new Date().toISOString().slice(0,10);
+    fetch('productos_lyra_' + today + '.json')
+      .then(function(r) { if (!r.ok) throw ''; return r.json(); })
+      .then(function(d) { loadData(d); })
+      .catch(function() { /* show file drop */ });
+  });
+
+fileInput.addEventListener('change', function(e) {
+  var file = e.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    try { loadData(JSON.parse(ev.target.result)); }
+    catch(err) { alert('Error al leer el archivo JSON.'); }
+  };
+  reader.readAsText(file);
+});
+
+dropEl.addEventListener('dragover', function(e) { e.preventDefault(); });
+dropEl.addEventListener('drop', function(e) {
+  e.preventDefault();
+  var file = e.dataTransfer.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function(ev) {
+    try { loadData(JSON.parse(ev.target.result)); }
+    catch(err) { alert('Error al leer el archivo.'); }
+  };
+  reader.readAsText(file);
+});
+
+function loadData(data) {
+  if (!Array.isArray(data) || !data.length) {
+    alert('El archivo no contiene productos.');
+    return;
+  }
+  allProducts = data.map(cleanProduct).filter(function(p) { return p.nombre && p.precio > 0; });
+  filtered = allProducts.slice();
+  document.getElementById('fileDrop').style.display = 'none';
+  document.getElementById('toolbar').style.display = 'flex';
+  document.getElementById('gridWrap').style.display = 'block';
+
+  // Show update date if present in filename
+  var upd = document.getElementById('updated');
+  upd.style.display = 'block';
+  upd.textContent = 'Actualizado · ' + allProducts.length + ' productos disponibles';
+
+  shown = BATCH;
+  render();
+  updateCount();
+}
+
+// ── Render ──
+function render() {
+  var grid = document.getElementById('grid');
+  var items = filtered.slice(0, shown);
+
+  grid.innerHTML = items.map(function(p, i) {
+    var isOut = p.stock.toLowerCase() === 'agotado';
+    var stockClass = isOut ? 'out' : 'ok';
+    var stockLabel = isOut ? 'Agotado' : (p.stock === 'Ilimitado' ? 'Disponible' : p.stock);
+    if (stockLabel.length > 20) stockLabel = 'Disponible';
+
+    return '<div class="card" onclick="openModal(' + i + ')">' +
+      '<img class="card-img" src="' + escHtml(p.imagen) + '" alt="' + escHtml(p.nombre) + '" loading="lazy" onerror="this.style.background=\'#f0ede6\';this.style.padding=\'40px\'">' +
+      '<div class="card-body">' +
+        '<div class="card-sku">SKU ' + escHtml(p.sku) + '</div>' +
+        '<div class="card-name">' + escHtml(p.nombre) + '</div>' +
+        '<div class="card-price">' + fmtPrice(p.precio) + '</div>' +
+        '<span class="card-stock ' + stockClass + '">' + escHtml(stockLabel) + '</span>' +
+      '</div></div>';
+  }).join('');
+
+  document.getElementById('empty').style.display = items.length === 0 ? 'block' : 'none';
+}
+
+function updateCount() {
+  var s = Math.min(shown, filtered.length);
+  document.getElementById('count').textContent = s + ' de ' + filtered.length;
+}
+
+// ── Search ──
+var searchTimer;
+document.getElementById('search').addEventListener('input', function() {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(applyFilters, 200);
+});
+
+function applyFilters() {
+  var q = document.getElementById('search').value.toLowerCase().trim();
+  filtered = allProducts.filter(function(p) {
+    var matchQ = !q || p.nombre.toLowerCase().includes(q) || p.sku.includes(q);
+    var matchStock = !stockOnly || p.stock.toLowerCase() !== 'agotado';
+    return matchQ && matchStock;
+  });
+  if (sortAsc !== null) {
+    filtered.sort(function(a, b) { return sortAsc ? a.precio - b.precio : b.precio - a.precio; });
+  }
+  shown = BATCH;
+  render();
+  updateCount();
+}
+
+function toggleStock() {
+  stockOnly = !stockOnly;
+  document.getElementById('filterStock').classList.toggle('active', stockOnly);
+  applyFilters();
+}
+function toggleSort() {
+  if (sortAsc === null) sortAsc = true;
+  else if (sortAsc) sortAsc = false;
+  else sortAsc = null;
+  var btn = document.getElementById('sortPrice');
+  btn.textContent = sortAsc === null ? 'Precio' : (sortAsc ? 'Precio ↑' : 'Precio ↓');
+  btn.classList.toggle('active', sortAsc !== null);
+  applyFilters();
+}
+
+// ── Modal ──
+function openModal(i) {
+  var p = filtered[i]; if (!p) return;
+  document.getElementById('mImg').src = p.imagen;
+  document.getElementById('mSku').textContent = 'SKU ' + p.sku;
+  document.getElementById('mName').textContent = p.nombre;
+  document.getElementById('mPrice').textContent = fmtPrice(p.precio);
+  document.getElementById('mStock').textContent = 'Stock: ' + (p.stock || 'Disponible');
+  var msg = encodeURIComponent('Hola! Vi en el catálogo: *' + p.nombre + '* (SKU ' + p.sku + ') a ' + fmtPrice(p.precio) + '. ¿Tienen disponibilidad?');
+  document.getElementById('mWa').href = 'https://wa.me/543512309375?text=' + msg;
+  document.getElementById('modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+
+// ── Infinite scroll ──
+var obs = new IntersectionObserver(function(entries) {
+  if (entries[0].isIntersecting && shown < filtered.length) {
+    shown += BATCH;
+    render();
+    updateCount();
+  }
+}, { rootMargin: '300px' });
+obs.observe(document.getElementById('sentinel'));
+
+// ── Scroll to top ──
+window.addEventListener('scroll', function() {
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+});
+</script>
+</body>
+</html>
