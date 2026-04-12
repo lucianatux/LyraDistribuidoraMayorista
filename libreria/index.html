@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lyra · Catálogo Librería</title>
+<title>Lyra · Catálogo Librería y Juguetería</title>
+<link rel="shortcut icon" href="../lyr2.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f6f3ed;
@@ -13,9 +14,10 @@
   --text: #1a1815;
   --text2: #6b6560;
   --text3: #9e9890;
-  --accent: #2d5a27;
-  --accent-light: #e8f0e6;
-  --accent-mid: #4a8a42;
+  --gold: #f0b913;
+  --gold-light: #fef8e0;
+  --dark: #3d444c;
+  --accent: #c83169;
   --border: #e4e0d8;
   --card-bg: #fffdf8;
   --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
@@ -29,10 +31,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
+/* ── HEADER ── */
 header {
-  background: var(--bg2);
-  border-bottom: 1px solid var(--border);
+  background: var(--dark);
+  color: #fff;
   padding: 0 24px;
   position: sticky;
   top: 0;
@@ -44,50 +46,66 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 60px;
+  gap: 12px;
 }
-.logo {
-  font-family: 'Playfair Display', serif;
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.logo-img {
+  width: 36px;
+  height: 36px;
+  filter: invert(1);
+}
+.logo-text {
+  font-family: 'Aclonica', sans-serif;
   font-size: 22px;
-  font-weight: 700;
-  color: var(--accent);
+  color: #fff;
+  letter-spacing: 0.5px;
 }
-.logo span {
-  font-family: 'Instrument Sans', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  color: var(--text3);
-  margin-left: 10px;
-  padding-left: 10px;
-  border-left: 1px solid var(--border);
+.header-subtitle {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  white-space: nowrap;
 }
 .header-right {
   display: flex;
   align-items: center;
-  gap: 16px;
-  font-size: 13px;
+  gap: 14px;
 }
 .header-right a {
-  color: var(--accent);
+  color: rgba(255,255,255,0.8);
   text-decoration: none;
+  font-size: 13px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  transition: color 0.15s;
 }
-.wa-icon {
-  width: 18px; height: 18px;
-  fill: var(--accent);
+.header-right a:hover { color: #fff; }
+.back-link { font-size: 12px; }
+.wa-btn {
+  background: #25d366;
+  color: #fff !important;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
 }
-.back-link {
-  color: var(--text3) !important;
-  font-size: 12px;
-}
+.wa-btn:hover { background: #20bd5a; }
 
-/* TOOLBAR */
+/* ── TOOLBAR ── */
 .toolbar {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 18px 24px;
+  padding: 16px 24px;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -110,7 +128,7 @@ header {
   outline: none;
   transition: border-color 0.2s;
 }
-.search-box input:focus { border-color: var(--accent-mid); }
+.search-box input:focus { border-color: var(--gold); }
 .search-icon {
   position: absolute;
   left: 12px;
@@ -131,67 +149,88 @@ header {
   transition: all 0.15s;
   white-space: nowrap;
 }
-.btn:hover { border-color: var(--accent-mid); color: var(--text); }
-.btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.btn:hover { border-color: var(--gold); color: var(--text); }
+.btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
 .product-count { font-size: 13px; color: var(--text3); margin-left: auto; white-space: nowrap; }
 
-/* GRID */
+/* ── GRID ── */
 .grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 12px;
 }
 
-/* CARD */
+/* ── CARD ── */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  cursor: pointer;
   transition: all 0.2s;
 }
 .card:hover { border-color: #ccc; box-shadow: var(--shadow); transform: translateY(-1px); }
-.card-img {
+.card-img-wrap {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: contain;
   background: #fff;
-  padding: 10px;
+  padding: 8px;
   border-bottom: 1px solid var(--border);
+  cursor: pointer;
 }
-.card-body { padding: 12px 14px 14px; }
-.card-sku { font-size: 11px; color: var(--text3); letter-spacing: 0.3px; }
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.card-body { padding: 10px 12px 12px; }
+.card-sku { font-size: 10px; color: var(--text3); letter-spacing: 0.3px; }
 .card-name {
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text);
-  margin: 3px 0 6px;
+  margin: 2px 0 6px;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 35px;
+  min-height: 34px;
+  cursor: pointer;
 }
-.card-price { font-size: 19px; font-weight: 700; color: var(--accent); letter-spacing: -0.3px; }
-.card-stock {
+.card-price { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.3px; }
+.card-add {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px;
+  background: var(--gold);
+  color: var(--dark);
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.card-add:hover { background: #e5ad0e; }
+.card-added {
   font-size: 11px;
-  margin-top: 5px;
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
+  color: #25d366;
+  text-align: center;
+  margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-.card-stock.ok { background: var(--accent-light); color: var(--accent); }
-.card-stock.out { background: #fce8e8; color: #a33; }
+.card-added.show { opacity: 1; }
 
-/* MODAL */
+/* ── MODAL ── */
 .modal-bg {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.45);
   z-index: 200;
   align-items: center;
   justify-content: center;
@@ -201,7 +240,7 @@ header {
 .modal {
   background: var(--bg2);
   border-radius: 14px;
-  max-width: 480px;
+  max-width: 460px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
@@ -216,44 +255,57 @@ header {
   padding: 24px;
   border-radius: 14px 14px 0 0;
 }
-.modal-body { padding: 20px 24px 24px; }
-.modal-sku { font-size: 12px; color: var(--text3); }
-.modal-name { font-size: 20px; font-weight: 600; margin: 4px 0 10px; line-height: 1.3; }
-.modal-price { font-size: 26px; font-weight: 700; color: var(--accent); }
-.modal-stock { margin-top: 8px; font-size: 13px; color: var(--text2); }
+.modal-body { padding: 18px 22px 22px; }
+.modal-sku { font-size: 11px; color: var(--text3); }
+.modal-name { font-size: 19px; font-weight: 600; margin: 4px 0 8px; line-height: 1.3; }
+.modal-price { font-size: 24px; font-weight: 700; color: var(--dark); }
 .modal-close {
   position: absolute;
-  top: 14px; right: 14px;
-  width: 34px; height: 34px;
+  top: 12px; right: 12px;
+  width: 32px; height: 32px;
   border-radius: 50%;
   border: none;
   background: rgba(0,0,0,0.5);
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.modal-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  padding: 10px 20px;
-  background: #25d366;
-  color: #fff;
+.modal-actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.modal-cart-btn {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--gold);
+  color: var(--dark);
   border: none;
   border-radius: 8px;
   font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  min-width: 140px;
+}
+.modal-cart-btn:hover { background: #e5ad0e; }
+.modal-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
   text-decoration: none;
 }
 .modal-wa:hover { background: #20bd5a; }
 
-/* FILE DROP */
+/* ── FILE DROP ── */
 .file-drop {
   max-width: 1200px;
   margin: 0 auto;
@@ -268,13 +320,13 @@ header {
   transition: all 0.2s;
   background: var(--bg2);
 }
-.drop-zone:hover { border-color: var(--accent-mid); background: var(--accent-light); }
-.drop-zone h2 { font-size: 18px; margin-bottom: 8px; color: var(--text); }
+.drop-zone:hover { border-color: var(--gold); background: var(--gold-light); }
+.drop-zone h2 { font-size: 18px; margin-bottom: 8px; }
 .drop-zone p { font-size: 14px; color: var(--text3); }
 .drop-zone input { display: none; }
+.empty { text-align: center; padding: 60px 24px; color: var(--text3); }
 
-.empty { text-align: center; padding: 60px 24px; color: var(--text3); font-size: 15px; }
-
+/* ── FOOTER ── */
 footer {
   text-align: center;
   padding: 24px;
@@ -286,47 +338,52 @@ footer {
 
 .scroll-top {
   position: fixed; bottom: 24px; right: 24px;
-  width: 42px; height: 42px;
-  border-radius: 50%;
-  background: var(--accent); color: #fff;
-  border: none; font-size: 18px;
-  cursor: pointer;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--dark); color: #fff;
+  border: none; font-size: 18px; cursor: pointer;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  display: none;
-  align-items: center; justify-content: center;
+  display: none; align-items: center; justify-content: center;
   z-index: 50;
 }
 .scroll-top.show { display: flex; }
 
 @media (max-width: 600px) {
   .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .header-inner { height: 56px; }
-  .logo span { display: none; }
-  .toolbar { padding: 10px 16px; }
-  .grid-wrap { padding: 0 16px 40px; }
-  .card-body { padding: 10px; }
-  .card-price { font-size: 16px; }
-  .card-name { font-size: 12.5px; }
+  .header-inner { height: 52px; }
+  .header-subtitle { display: none; }
   .back-link { display: none; }
+  .toolbar { padding: 10px 16px; }
+  .grid-wrap { padding: 0 12px 40px; }
+  .card-body { padding: 8px 10px 10px; }
+  .card-price { font-size: 16px; }
+  .card-name { font-size: 12px; min-height: 30px; }
+  .logo-text { font-size: 18px; }
+  .logo-img { width: 28px; height: 28px; }
 }
 
 .sentinel { height: 1px; }
-.updated { font-size: 12px; color: var(--text3); text-align: center; padding: 8px 24px 0; }
+.info-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6px 24px;
+  font-size: 12px;
+  color: var(--text3);
+  text-align: center;
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="logo">
-      Lyra <span>Catálogo Librería</span>
-    </div>
+    <a class="logo-area" href="../index.html">
+      <img class="logo-img" src="../lyr2.png" alt="Lyra" onerror="this.style.display='none'">
+      <span class="logo-text">LYRA</span>
+      <span class="header-subtitle">Catálogo Librería y Juguetería</span>
+    </a>
     <div class="header-right">
-      <a class="back-link" href="https://distribuidoralyra.com">← Volver a Lyra</a>
-      <a href="https://wa.me/543512309375" target="_blank">
-        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.559 4.148 1.54 5.89L0 24l6.305-1.654A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.883 0-3.66-.502-5.197-1.402l-.363-.215-3.762.987 1.005-3.67-.236-.375A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
-        WhatsApp
-      </a>
+      <a class="back-link" href="../index.html">← Volver</a>
+      <a class="wa-btn" href="https://wa.me/543512309375" target="_blank">WhatsApp</a>
     </div>
   </div>
 </header>
@@ -336,20 +393,19 @@ footer {
     <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
     <input type="text" id="search" placeholder="Buscar producto..." autocomplete="off">
   </div>
-  <button class="btn" id="filterStock" onclick="toggleStock()">En stock</button>
   <button class="btn" id="sortPrice" onclick="toggleSort()">Precio ↑</button>
   <span class="product-count" id="count"></span>
 </div>
 
-<div class="updated" id="updated" style="display:none"></div>
+<div class="info-bar" id="infoBar" style="display:none"></div>
 
 <div class="file-drop" id="fileDrop">
   <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
     <h2>Cargá tu archivo de productos</h2>
-    <p>Arrastrá o hacé click para subir el archivo <strong>productos_lyra.json</strong></p>
+    <p>Arrastrá o hacé click para subir <strong>productos.json</strong></p>
     <input type="file" id="fileInput" accept=".json">
     <p style="margin-top:14px;font-size:12px;color:var(--text3)">
-      Si el archivo <code>productos.json</code> está en la misma carpeta, se carga automáticamente
+      Si <code>productos.json</code> está en la misma carpeta, se carga automáticamente
     </p>
   </div>
 </div>
@@ -359,7 +415,7 @@ footer {
   <div class="sentinel" id="sentinel"></div>
 </div>
 
-<div class="empty" id="empty" style="display:none">No se encontraron productos</div>
+<div class="empty" id="empty" style="display:none">No se encontraron productos con esa búsqueda</div>
 
 <div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
@@ -369,11 +425,10 @@ footer {
       <div class="modal-sku" id="mSku"></div>
       <div class="modal-name" id="mName"></div>
       <div class="modal-price" id="mPrice"></div>
-      <div class="modal-stock" id="mStock"></div>
-      <a class="modal-wa" id="mWa" href="#" target="_blank">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.559 4.148 1.54 5.89L0 24l6.305-1.654A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.883 0-3.66-.502-5.197-1.402l-.363-.215-3.762.987 1.005-3.67-.236-.375A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
-        Consultar por WhatsApp
-      </a>
+      <div class="modal-actions">
+        <button class="modal-cart-btn" onclick="addFromModal()">Agregar al 🛒</button>
+        <a class="modal-wa" id="mWa" href="#" target="_blank">WhatsApp</a>
+      </div>
     </div>
   </div>
 </div>
@@ -387,15 +442,16 @@ footer {
 <script>
 var allProducts = [];
 var filtered = [];
-var stockOnly = false;
 var sortAsc = null;
 var shown = 0;
 var BATCH = 40;
+var currentModalProduct = null;
+
+// ── Cart is handled by lyra-cart-widget.js ──
 
 // ── Clean product data ──
 function cleanProduct(p) {
   var nombre = (p.nombre || '').trim();
-  // Remove any text that looks like leaked field data
   nombre = nombre.replace(/\$[\d.,]+/g, '').trim();
   nombre = nombre.replace(/PRECIO SIN IMPUESTOS.*/i, '').trim();
   nombre = nombre.replace(/STOCK:.*/i, '').trim();
@@ -405,33 +461,58 @@ function cleanProduct(p) {
   nombre = nombre.replace(/\s{2,}/g, ' ').trim();
 
   var sku = (p.sku || '').trim();
-  // If SKU got mixed with name text, extract just the number
-  if (sku.match(/\d+/)) {
-    sku = sku.match(/\d+/)[0];
-  }
-
-  var stock = (p.stock || '').trim();
-  stock = stock.replace(/AGREGAR.*/i, '').trim();
-  if (!stock) stock = 'Disponible';
+  if (sku.match(/\d+/)) sku = sku.match(/\d+/)[0];
 
   return {
     sku: sku,
     nombre: nombre,
     precio: p.precioLyra || 0,
-    precioOrig: p.precioOriginal || 0,
     imagen: p.imagen || '',
-    stock: stock
+    categoria: p.categoria || ''
   };
 }
 
-// ── Format price ──
 function fmtPrice(n) {
   return '$' + Math.round(n).toLocaleString('es-AR');
 }
-
 function escHtml(s) {
   if (!s) return '';
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Search with priority: starts-with first, then contains ──
+function searchFilter(products, query) {
+  if (!query) return products;
+  var q = query.toLowerCase().trim();
+  var words = q.split(/\s+/);
+
+  var startsWith = [];
+  var contains = [];
+
+  products.forEach(function(p) {
+    var name = p.nombre.toLowerCase();
+    var nameWords = name.split(/\s+/);
+
+    // Check if any word in the product name STARTS with the first query word
+    var anyWordStarts = nameWords.some(function(w) {
+      return w.startsWith(words[0]);
+    });
+
+    // Check all query words are present
+    var allMatch = words.every(function(w) {
+      return name.includes(w) || p.sku.includes(w);
+    });
+
+    if (!allMatch) return;
+
+    if (anyWordStarts) {
+      startsWith.push(p);
+    } else {
+      contains.push(p);
+    }
+  });
+
+  return startsWith.concat(contains);
 }
 
 // ── Load data ──
@@ -442,12 +523,11 @@ fetch('productos.json')
   .then(function(r) { if (!r.ok) throw ''; return r.json(); })
   .then(function(d) { loadData(d); })
   .catch(function() {
-    // try dated filename
     var today = new Date().toISOString().slice(0,10);
     fetch('productos_lyra_' + today + '.json')
       .then(function(r) { if (!r.ok) throw ''; return r.json(); })
       .then(function(d) { loadData(d); })
-      .catch(function() { /* show file drop */ });
+      .catch(function() {});
   });
 
 fileInput.addEventListener('change', function(e) {
@@ -475,20 +555,16 @@ dropEl.addEventListener('drop', function(e) {
 });
 
 function loadData(data) {
-  if (!Array.isArray(data) || !data.length) {
-    alert('El archivo no contiene productos.');
-    return;
-  }
+  if (!Array.isArray(data) || !data.length) return;
   allProducts = data.map(cleanProduct).filter(function(p) { return p.nombre && p.precio > 0; });
   filtered = allProducts.slice();
   document.getElementById('fileDrop').style.display = 'none';
   document.getElementById('toolbar').style.display = 'flex';
   document.getElementById('gridWrap').style.display = 'block';
 
-  // Show update date if present in filename
-  var upd = document.getElementById('updated');
-  upd.style.display = 'block';
-  upd.textContent = 'Actualizado · ' + allProducts.length + ' productos disponibles';
+  var info = document.getElementById('infoBar');
+  info.style.display = 'block';
+  info.textContent = allProducts.length + ' productos disponibles · Precios actualizados';
 
   shown = BATCH;
   render();
@@ -501,18 +577,16 @@ function render() {
   var items = filtered.slice(0, shown);
 
   grid.innerHTML = items.map(function(p, i) {
-    var isOut = p.stock.toLowerCase() === 'agotado';
-    var stockClass = isOut ? 'out' : 'ok';
-    var stockLabel = isOut ? 'Agotado' : (p.stock === 'Ilimitado' ? 'Disponible' : p.stock);
-    if (stockLabel.length > 20) stockLabel = 'Disponible';
-
-    return '<div class="card" onclick="openModal(' + i + ')">' +
-      '<img class="card-img" src="' + escHtml(p.imagen) + '" alt="' + escHtml(p.nombre) + '" loading="lazy" onerror="this.style.background=\'#f0ede6\';this.style.padding=\'40px\'">' +
+    return '<div class="card">' +
+      '<div class="card-img-wrap" onclick="openModal(' + i + ')">' +
+        '<img class="card-img" src="' + escHtml(p.imagen) + '" alt="' + escHtml(p.nombre) + '" loading="lazy" onerror="this.style.background=\'#f0ede6\';this.style.padding=\'30px\'">' +
+      '</div>' +
       '<div class="card-body">' +
         '<div class="card-sku">SKU ' + escHtml(p.sku) + '</div>' +
-        '<div class="card-name">' + escHtml(p.nombre) + '</div>' +
+        '<div class="card-name" onclick="openModal(' + i + ')">' + escHtml(p.nombre) + '</div>' +
         '<div class="card-price">' + fmtPrice(p.precio) + '</div>' +
-        '<span class="card-stock ' + stockClass + '">' + escHtml(stockLabel) + '</span>' +
+        '<button class="card-add" onclick="addToCartFromCard(' + i + ', this)">Agregar al 🛒</button>' +
+        '<div class="card-added" id="added-' + i + '">Producto añadido ✓</div>' +
       '</div></div>';
   }).join('');
 
@@ -524,6 +598,24 @@ function updateCount() {
   document.getElementById('count').textContent = s + ' de ' + filtered.length;
 }
 
+// ── Cart actions ──
+function addToCartFromCard(i, btn) {
+  var p = filtered[i];
+  if (!p) return;
+  if (window.lyraCart) {
+    window.lyraCart.add(p.nombre, p.precio, 1);
+  }
+}
+
+function addFromModal() {
+  if (!currentModalProduct) return;
+  var p = currentModalProduct;
+  if (window.lyraCart) {
+    window.lyraCart.add(p.nombre, p.precio, 1);
+  }
+  closeModal();
+}
+
 // ── Search ──
 var searchTimer;
 document.getElementById('search').addEventListener('input', function() {
@@ -532,12 +624,8 @@ document.getElementById('search').addEventListener('input', function() {
 });
 
 function applyFilters() {
-  var q = document.getElementById('search').value.toLowerCase().trim();
-  filtered = allProducts.filter(function(p) {
-    var matchQ = !q || p.nombre.toLowerCase().includes(q) || p.sku.includes(q);
-    var matchStock = !stockOnly || p.stock.toLowerCase() !== 'agotado';
-    return matchQ && matchStock;
-  });
+  var q = document.getElementById('search').value;
+  filtered = searchFilter(allProducts, q);
   if (sortAsc !== null) {
     filtered.sort(function(a, b) { return sortAsc ? a.precio - b.precio : b.precio - a.precio; });
   }
@@ -546,11 +634,6 @@ function applyFilters() {
   updateCount();
 }
 
-function toggleStock() {
-  stockOnly = !stockOnly;
-  document.getElementById('filterStock').classList.toggle('active', stockOnly);
-  applyFilters();
-}
 function toggleSort() {
   if (sortAsc === null) sortAsc = true;
   else if (sortAsc) sortAsc = false;
@@ -564,11 +647,11 @@ function toggleSort() {
 // ── Modal ──
 function openModal(i) {
   var p = filtered[i]; if (!p) return;
+  currentModalProduct = p;
   document.getElementById('mImg').src = p.imagen;
   document.getElementById('mSku').textContent = 'SKU ' + p.sku;
   document.getElementById('mName').textContent = p.nombre;
   document.getElementById('mPrice').textContent = fmtPrice(p.precio);
-  document.getElementById('mStock').textContent = 'Stock: ' + (p.stock || 'Disponible');
   var msg = encodeURIComponent('Hola! Vi en el catálogo: *' + p.nombre + '* (SKU ' + p.sku + ') a ' + fmtPrice(p.precio) + '. ¿Tienen disponibilidad?');
   document.getElementById('mWa').href = 'https://wa.me/543512309375?text=' + msg;
   document.getElementById('modal').classList.add('show');
@@ -577,6 +660,7 @@ function openModal(i) {
 function closeModal() {
   document.getElementById('modal').classList.remove('show');
   document.body.style.overflow = '';
+  currentModalProduct = null;
 }
 document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
@@ -595,5 +679,6 @@ window.addEventListener('scroll', function() {
   document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
 });
 </script>
+<script src="../lyra-cart-widget.js"></script>
 </body>
 </html>

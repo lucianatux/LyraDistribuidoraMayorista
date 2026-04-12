@@ -4,7 +4,6 @@
 //  No contiene lógica de negocio.
 // ============================================================
 
-import { initCart } from "./cart.js";
 import { renderAllCatalogs, handleResize } from "./catalogProducts.js";
 import { initNavigation } from "./navigation.js";
 import { initAnimations } from "./animations.js";
@@ -12,9 +11,6 @@ import { initAnimations } from "./animations.js";
 document.addEventListener("DOMContentLoaded", () => {
   // 1. Renderizar catálogo desde datos (products.js)
   renderAllCatalogs();
-
-  // 2. Carrito (inicializa estado y eventos)
-  initCart();
 
   // 3. Navegación y menú
   initNavigation();

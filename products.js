@@ -17,18 +17,13 @@ export const CATEGORIAS = {
     icono: "./assets/libreria.png",
     tipo: "inputs",
     extras: {
-      catalogos: [
-        {
-          titulo: "Catálogo de Librería",
-          imagen: "./libreria/catalogolibreria2.jpeg",
-          url: "https://drive.google.com/file/d/1hE02hLA0NKKbeNq_BPxyLHgOmGjhtzsF/view?usp=sharing",
-        },
-        {
-          titulo: "Catálogo de Juguetería",
-          imagen: "./libreria/catalogojuguetes.jpeg",
-          url: "https://drive.google.com/file/d/14f-_VqSr0uba1kuA8ABZRrS8Hc61bo-N/view?usp=sharing",
-        },
-      ],
+      catalogoWeb: {
+        url: "./libreria/",
+        titulo: "Catálogo completo de Librería y Juguetería",
+        descripcion:
+          "Explorá nuestro catálogo online con más de 2.700 productos. Buscá por nombre, filtrá por precio y agregá directo al carrito.",
+        boton: "Ver catálogo completo →",
+      },
     },
   },
   hebillas: {
@@ -54,7 +49,13 @@ export const CATEGORIAS = {
     titulo: "CARTERAS Y AFINES",
     icono: "./assets/carteras.png",
     tipo: "mixto",
-    subcategorias: ["Carteras", "Bandoleras", "Mochilas", "Accesorios", "Handbags-Sobres"],
+    subcategorias: [
+      "Carteras",
+      "Bandoleras",
+      "Mochilas",
+      "Accesorios",
+      "Handbags-Sobres",
+    ],
   },
   sublimados: {
     id: "sublimados",
@@ -229,9 +230,17 @@ export const PRODUCTOS = [
     tipo: "input-select",
     labelTipo: "diseño",
     opciones: [
-      "pinceladas", "love", "unicornios", "corazones",
-      "trama multicolor", "corbatas", "mandalas", "juguetes",
-      "llamas", "aviones", "surtido",
+      "pinceladas",
+      "love",
+      "unicornios",
+      "corazones",
+      "trama multicolor",
+      "corbatas",
+      "mandalas",
+      "juguetes",
+      "llamas",
+      "aviones",
+      "surtido",
     ],
     step: 5,
     min: 5,
@@ -256,7 +265,13 @@ export const PRODUCTOS = [
     info: "14x20cm $337 · 22x30cm $389 · 30x41cm $515 · 14x40cm $395",
     tipo: "input-select",
     labelTipo: "medida",
-    opciones: ["14cmx20cm", "22cmx30cm", "30cmx41cm", "14cmx40cm(vino)", "surtido"],
+    opciones: [
+      "14cmx20cm",
+      "22cmx30cm",
+      "30cmx41cm",
+      "14cmx40cm(vino)",
+      "surtido",
+    ],
     step: 5,
     min: 5,
   },

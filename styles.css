@@ -770,3 +770,92 @@ footer p {
   footer { padding: 10px; }
   .footer-div { flex-direction: column; justify-content: center; }
 }
+/* ── Bloque catálogo web (sección librería) ── */
+.catalogo-web-block {
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+}
+.catalogo-web-inner {
+  background: linear-gradient(135deg, var(--fifth-color) 0%, #56606b 100%);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  color: var(--first-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.catalogo-web-text {
+  flex: 1;
+}
+.catalogo-web-text h4 {
+  font-family: 'Aclonica', Arial, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--third-color);
+}
+.catalogo-web-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 16px;
+}
+.catalogo-web-text p strong {
+  color: #fff;
+}
+.catalogo-web-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--third-color);
+  color: var(--second-color);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none !important;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.15s;
+}
+.catalogo-web-btn:hover {
+  background: var(--fourth-color);
+  transform: translateY(-1px);
+}
+.catalogo-web-preview {
+  flex-shrink: 0;
+}
+.preview-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.preview-card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: center;
+  min-width: 85px;
+  transition: background 0.2s;
+}
+.preview-card:hover {
+  background: rgba(255,255,255,0.2);
+}
+.preview-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.preview-card span {
+  font-size: 11px;
+  color: rgba(255,255,255,0.8);
+}
+@media (max-width: 600px) {
+  .catalogo-web-inner {
+    flex-direction: column;
+    padding: 24px;
+    text-align: center;
+  }
+  .catalogo-web-text h4 { font-size: 18px; }
+  .preview-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .preview-card { padding: 10px 8px; min-width: 60px; }
+}

@@ -5,11 +5,23 @@
 // ============================================================
 
 import { PRODUCTOS, CATEGORIAS } from "./products.js";
-import { addToCart } from "./cart.js";
 
 // ── Breakpoint: ≤868px = 1 card por slide, >868px = 2 ────
 function _getCardsPerSlide() {
   return window.innerWidth > 868 ? 2 : 1;
+}
+
+function addToCart(productDetails) {
+  if (window.lyraCart) {
+    // Parse price from the text if possible
+    var match = productDetails.match(/\$[\d.,]+/);
+    var precio = 0;
+    if (match) {
+      precio = parseFloat(match[0].replace("$", "").replace(/\./g, "").replace(",", ".")) || 0;
+    }
+    var nombre = productDetails.replace(/\s*—\s*\$[\d.,]+/, "").trim();
+    window.lyraCart.add(nombre, precio, 1);
+  }
 }
 
 // ── Entrada pública ───────────────────────────────────────
@@ -99,7 +111,9 @@ function _buildCard(p) {
   const blurBg = useBlur
     ? `<div class="bg-blur" style="background-image: url('${p.imagen}')"></div>`
     : "";
-  const containerClass = useBlur ? "card-img-container bg-blur-mode" : "card-img-container";
+  const containerClass = useBlur
+    ? "card-img-container bg-blur-mode"
+    : "card-img-container";
 
   const imgHtml = `
     <div class="${containerClass}">
@@ -162,10 +176,7 @@ function _renderCarterasConSubcategorias(mountPoint) {
       <h5>Ver galería de imágenes de:</h5>
       <select id="carteras-select" name="carteras_select">
         ${subcats
-          .map(
-            (s, i) =>
-              `<option value="carousel-carteras-${i}">${s}</option>`
-          )
+          .map((s, i) => `<option value="carousel-carteras-${i}">${s}</option>`)
           .join("")}
       </select>
     </div>`;
@@ -173,7 +184,7 @@ function _renderCarterasConSubcategorias(mountPoint) {
   const carouselHtml = subcats
     .map((sub, i) => {
       const prods = PRODUCTOS.filter(
-        (p) => p.categoria === "carteras" && p.subcategoria === sub
+        (p) => p.categoria === "carteras" && p.subcategoria === sub,
       ).map((p) => {
         // Carteras usan blur por defecto, salvo que el producto diga fondoBlur: false
         if (p.fondoBlur === undefined) return { ...p, fondoBlur: true };
@@ -220,7 +231,7 @@ function _renderExtras(cat, section) {
                 <h5>${c.titulo}</h5>
                 <img src="${c.imagen}" alt="${c.titulo}" />
               </a>
-            </div>`
+            </div>`,
             )
             .join("")}
         </div>
@@ -264,7 +275,28 @@ function _renderExtras(cat, section) {
         </div>
       </div>`;
   }
-
+  // Catálogo web (librería)
+  if (cat.extras.catalogoWeb) {
+    const cw = cat.extras.catalogoWeb;
+    html += `
+      <div class="catalogo-web-block">
+        <div class="catalogo-web-inner">
+          <div class="catalogo-web-text">
+            <h4>${cw.titulo}</h4>
+            <p>${cw.descripcion}</p>
+            <a href="${cw.url}" class="catalogo-web-btn">${cw.boton}</a>
+          </div>
+          <div class="catalogo-web-preview">
+            <div class="preview-cards">
+              <div class="preview-card"><div class="preview-icon">📚</div><span>Cuadernos</span></div>
+              <div class="preview-card"><div class="preview-icon">✏️</div><span>Útiles</span></div>
+              <div class="preview-card"><div class="preview-icon">🎨</div><span>Arte</span></div>
+              <div class="preview-card"><div class="preview-icon">🧸</div><span>Juguetes</span></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }
   extrasMount.innerHTML = html;
 }
 
@@ -286,7 +318,8 @@ function _bindAllWantButtons() {
     // Producto con inputs
     const typeInput = parent.querySelector(".type-product");
     const qtyInput = parent.querySelector(".number-product");
-    const productName = parent.dataset.productName || parent.textContent.split("\n")[0].trim();
+    const productName =
+      parent.dataset.productName || parent.textContent.split("\n")[0].trim();
 
     let detail = "";
     if (typeInput?.tagName === "SELECT") {
