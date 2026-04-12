@@ -1,684 +1,937 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lyra · Catálogo Librería y Juguetería</title>
-<link rel="shortcut icon" href="../lyr2.png" type="image/x-icon">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #f6f3ed;
-  --bg2: #fffdf8;
-  --text: #1a1815;
-  --text2: #6b6560;
-  --text3: #9e9890;
-  --gold: #f0b913;
-  --gold-light: #fef8e0;
-  --dark: #3d444c;
-  --accent: #c83169;
-  --border: #e4e0d8;
-  --card-bg: #fffdf8;
-  --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-  --radius: 10px;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Instrument Sans', system-ui, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lyra · Catálogo Librería y Juguetería</title>
+    <link rel="shortcut icon" href="../lyr2.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f3ed;
+        --bg2: #fffdf8;
+        --text: #1a1815;
+        --text2: #6b6560;
+        --text3: #9e9890;
+        --gold: #f0b913;
+        --gold-light: #fef8e0;
+        --dark: #3d444c;
+        --accent: #c83169;
+        --border: #e4e0d8;
+        --card-bg: #fffdf8;
+        --shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+        --radius: 10px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Instrument Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+      }
 
-/* ── HEADER ── */
-header {
-  background: var(--dark);
-  color: #fff;
-  padding: 0 24px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  gap: 12px;
-}
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #fff;
-}
-.logo-img {
-  width: 36px;
-  height: 36px;
-  filter: invert(1);
-}
-.logo-text {
-  font-family: 'Aclonica', sans-serif;
-  font-size: 22px;
-  color: #fff;
-  letter-spacing: 0.5px;
-}
-.header-subtitle {
-  font-size: 12px;
-  color: rgba(255,255,255,0.6);
-  margin-left: 12px;
-  padding-left: 12px;
-  border-left: 1px solid rgba(255,255,255,0.2);
-  white-space: nowrap;
-}
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.header-right a {
-  color: rgba(255,255,255,0.8);
-  text-decoration: none;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: color 0.15s;
-}
-.header-right a:hover { color: #fff; }
-.back-link { font-size: 12px; }
-.wa-btn {
-  background: #25d366;
-  color: #fff !important;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 13px;
-}
-.wa-btn:hover { background: #20bd5a; }
+      /* ── HEADER ── */
+      header {
+        background: var(--dark);
+        color: #fff;
+        padding: 0 24px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .header-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        gap: 12px;
+      }
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #fff;
+      }
+      .logo-img {
+        width: 36px;
+        height: 36px;
+        filter: invert(1);
+      }
+      .logo-text {
+        font-family: "Aclonica", sans-serif;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: 0.5px;
+      }
+      .header-subtitle {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        white-space: nowrap;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .header-right a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.15s;
+      }
+      .header-right a:hover {
+        color: #fff;
+      }
+      .back-link {
+        font-size: 12px;
+      }
+      .wa-btn {
+        background: #25d366;
+        color: #fff !important;
+        padding: 6px 14px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      .wa-btn:hover {
+        background: #20bd5a;
+      }
 
-/* ── TOOLBAR ── */
-.toolbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 16px 24px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.search-box {
-  flex: 1;
-  min-width: 200px;
-  position: relative;
-}
-.search-box input {
-  width: 100%;
-  padding: 10px 14px 10px 38px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-family: inherit;
-  font-size: 14px;
-  background: var(--bg2);
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.search-box input:focus { border-color: var(--gold); }
-.search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text3);
-  width: 16px; height: 16px;
-}
-.btn {
-  padding: 10px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg2);
-  font-family: inherit;
-  font-size: 13px;
-  color: var(--text2);
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-.btn:hover { border-color: var(--gold); color: var(--text); }
-.btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
-.product-count { font-size: 13px; color: var(--text3); margin-left: auto; white-space: nowrap; }
+      /* ── TOOLBAR ── */
+      .toolbar-wrap {
+        position: sticky;
+        top: 60px;
+        z-index: 99;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+      }
+      .toolbar {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .search-box {
+        flex: 1;
+        min-width: 200px;
+        position: relative;
+      }
+      .search-box input {
+        width: 100%;
+        padding: 10px 14px 10px 38px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        font-family: inherit;
+        font-size: 14px;
+        background: var(--bg2);
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .search-box input:focus {
+        border-color: var(--gold);
+      }
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text3);
+        width: 16px;
+        height: 16px;
+      }
+      .btn {
+        padding: 10px 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--bg2);
+        font-family: inherit;
+        font-size: 13px;
+        color: var(--text2);
+        cursor: pointer;
+        transition: all 0.15s;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        border-color: var(--gold);
+        color: var(--text);
+      }
+      .btn.active {
+        background: var(--dark);
+        color: #fff;
+        border-color: var(--dark);
+      }
+      .product-count {
+        font-size: 13px;
+        color: var(--text3);
+        margin-left: auto;
+        white-space: nowrap;
+      }
 
-/* ── GRID ── */
-.grid-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px 60px; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 12px;
-}
+      /* ── GRID ── */
+      .grid-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px 60px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+      }
 
-/* ── CARD ── */
-.card {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: all 0.2s;
-}
-.card:hover { border-color: #ccc; box-shadow: var(--shadow); transform: translateY(-1px); }
-.card-img-wrap {
-  width: 100%;
-  aspect-ratio: 1;
-  background: #fff;
-  padding: 8px;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-}
-.card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.card-body { padding: 10px 12px 12px; }
-.card-sku { font-size: 10px; color: var(--text3); letter-spacing: 0.3px; }
-.card-name {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
-  margin: 2px 0 6px;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 34px;
-  cursor: pointer;
-}
-.card-price { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.3px; }
-.card-add {
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  padding: 7px;
-  background: var(--gold);
-  color: var(--dark);
-  border: none;
-  border-radius: 6px;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-.card-add:hover { background: #e5ad0e; }
-.card-added {
-  font-size: 11px;
-  color: #25d366;
-  text-align: center;
-  margin-top: 4px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.card-added.show { opacity: 1; }
+      /* ── CARD ── */
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: all 0.2s;
+      }
+      .card:hover {
+        border-color: #ccc;
+        box-shadow: var(--shadow);
+        transform: translateY(-1px);
+      }
+      .card-img-wrap {
+        width: 100%;
+        aspect-ratio: 1;
+        background: #fff;
+        padding: 8px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+      }
+      .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .card-body {
+        padding: 10px 12px 12px;
+      }
+      .card-sku {
+        font-size: 10px;
+        color: var(--text3);
+        letter-spacing: 0.3px;
+      }
+      .card-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text);
+        margin: 2px 0 6px;
+        line-height: 1.3;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 34px;
+        cursor: pointer;
+      }
+      .card-price {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--dark);
+        letter-spacing: -0.3px;
+      }
+      .card-add {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 7px;
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .card-add:hover {
+        background: #e5ad0e;
+      }
+      .card-added {
+        font-size: 11px;
+        color: #25d366;
+        text-align: center;
+        margin-top: 4px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .card-added.show {
+        opacity: 1;
+      }
 
-/* ── MODAL ── */
-.modal-bg {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-.modal-bg.show { display: flex; }
-.modal {
-  background: var(--bg2);
-  border-radius: 14px;
-  max-width: 460px;
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-  position: relative;
-}
-.modal-img {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: contain;
-  background: #fff;
-  padding: 24px;
-  border-radius: 14px 14px 0 0;
-}
-.modal-body { padding: 18px 22px 22px; }
-.modal-sku { font-size: 11px; color: var(--text3); }
-.modal-name { font-size: 19px; font-weight: 600; margin: 4px 0 8px; line-height: 1.3; }
-.modal-price { font-size: 24px; font-weight: 700; color: var(--dark); }
-.modal-close {
-  position: absolute;
-  top: 12px; right: 12px;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.modal-actions { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
-.modal-cart-btn {
-  flex: 1;
-  padding: 10px 16px;
-  background: var(--gold);
-  color: var(--dark);
-  border: none;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  min-width: 140px;
-}
-.modal-cart-btn:hover { background: #e5ad0e; }
-.modal-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 16px;
-  background: #25d366;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-}
-.modal-wa:hover { background: #20bd5a; }
+      /* ── MODAL ── */
+      .modal-bg {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .modal-bg.show {
+        display: flex;
+      }
+      .modal {
+        background: var(--bg2);
+        border-radius: 14px;
+        max-width: 460px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        position: relative;
+      }
+      .modal-img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        background: #fff;
+        padding: 24px;
+        border-radius: 14px 14px 0 0;
+      }
+      .modal-body {
+        padding: 18px 22px 22px;
+      }
+      .modal-sku {
+        font-size: 11px;
+        color: var(--text3);
+      }
+      .modal-name {
+        font-size: 19px;
+        font-weight: 600;
+        margin: 4px 0 8px;
+        line-height: 1.3;
+      }
+      .modal-price {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--dark);
+      }
+      .modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .modal-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+        flex-wrap: wrap;
+      }
+      .modal-cart-btn {
+        flex: 1;
+        padding: 10px 16px;
+        background: var(--gold);
+        color: var(--dark);
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        min-width: 140px;
+      }
+      .modal-cart-btn:hover {
+        background: #e5ad0e;
+      }
+      .modal-wa {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        background: #25d366;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .modal-wa:hover {
+        background: #20bd5a;
+      }
 
-/* ── FILE DROP ── */
-.file-drop {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 24px;
-  text-align: center;
-}
-.drop-zone {
-  border: 2px dashed var(--border);
-  border-radius: 14px;
-  padding: 48px 24px;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: var(--bg2);
-}
-.drop-zone:hover { border-color: var(--gold); background: var(--gold-light); }
-.drop-zone h2 { font-size: 18px; margin-bottom: 8px; }
-.drop-zone p { font-size: 14px; color: var(--text3); }
-.drop-zone input { display: none; }
-.empty { text-align: center; padding: 60px 24px; color: var(--text3); }
+      /* ── FILE DROP ── */
+      .file-drop {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 24px;
+        text-align: center;
+      }
+      .drop-zone {
+        border: 2px dashed var(--border);
+        border-radius: 14px;
+        padding: 48px 24px;
+        cursor: pointer;
+        transition: all 0.2s;
+        background: var(--bg2);
+      }
+      .drop-zone:hover {
+        border-color: var(--gold);
+        background: var(--gold-light);
+      }
+      .drop-zone h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .drop-zone p {
+        font-size: 14px;
+        color: var(--text3);
+      }
+      .drop-zone input {
+        display: none;
+      }
+      .empty {
+        text-align: center;
+        padding: 60px 24px;
+        color: var(--text3);
+      }
 
-/* ── FOOTER ── */
-footer {
-  text-align: center;
-  padding: 24px;
-  font-size: 12px;
-  color: var(--text3);
-  border-top: 1px solid var(--border);
-  background: var(--bg2);
-}
+      /* ── FOOTER ── */
+      footer {
+        text-align: center;
+        padding: 24px;
+        font-size: 12px;
+        color: var(--text3);
+        border-top: 1px solid var(--border);
+        background: var(--bg2);
+      }
 
-.scroll-top {
-  position: fixed; bottom: 24px; right: 24px;
-  width: 42px; height: 42px; border-radius: 50%;
-  background: var(--dark); color: #fff;
-  border: none; font-size: 18px; cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  display: none; align-items: center; justify-content: center;
-  z-index: 50;
-}
-.scroll-top.show { display: flex; }
+      .scroll-top {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        background: var(--dark);
+        color: #fff;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+      }
+      .scroll-top.show {
+        display: flex;
+      }
 
-@media (max-width: 600px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .header-inner { height: 52px; }
-  .header-subtitle { display: none; }
-  .back-link { display: none; }
-  .toolbar { padding: 10px 16px; }
-  .grid-wrap { padding: 0 12px 40px; }
-  .card-body { padding: 8px 10px 10px; }
-  .card-price { font-size: 16px; }
-  .card-name { font-size: 12px; min-height: 30px; }
-  .logo-text { font-size: 18px; }
-  .logo-img { width: 28px; height: 28px; }
-}
+      @media (max-width: 600px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+        .header-inner {
+          height: 52px;
+        }
+        .header-subtitle {
+          display: none;
+        }
+        .back-link {
+          display: none;
+        }
+        .toolbar {
+          padding: 10px 16px;
+        }
+        .toolbar-wrap {
+          top: 52px;
+        }
+        .grid-wrap {
+          padding: 0 12px 40px;
+        }
+        .card-body {
+          padding: 8px 10px 10px;
+        }
+        .card-price {
+          font-size: 16px;
+        }
+        .card-name {
+          font-size: 12px;
+          min-height: 30px;
+        }
+        .logo-text {
+          font-size: 18px;
+        }
+        .logo-img {
+          width: 28px;
+          height: 28px;
+        }
+      }
 
-.sentinel { height: 1px; }
-.info-bar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 6px 24px;
-  font-size: 12px;
-  color: var(--text3);
-  text-align: center;
-}
-</style>
-</head>
-<body>
+      .sentinel {
+        height: 1px;
+      }
+      .info-bar {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 6px 24px;
+        font-size: 12px;
+        color: var(--text3);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <a class="logo-area" href="../index.html">
+          <img
+            class="logo-img"
+            src="../lyr2.png"
+            alt="Lyra"
+            onerror="this.style.display = 'none'"
+          />
+          <span class="logo-text">LYRA</span>
+          <span class="header-subtitle">Catálogo Librería y Juguetería</span>
+        </a>
+        <div class="header-right">
+          <a class="back-link" href="../index.html">← Volver</a>
+          <a class="wa-btn" href="https://wa.me/543512309375" target="_blank"
+            >WhatsApp</a
+          >
+        </div>
+      </div>
+    </header>
 
-<header>
-  <div class="header-inner">
-    <a class="logo-area" href="../index.html">
-      <img class="logo-img" src="../lyr2.png" alt="Lyra" onerror="this.style.display='none'">
-      <span class="logo-text">LYRA</span>
-      <span class="header-subtitle">Catálogo Librería y Juguetería</span>
-    </a>
-    <div class="header-right">
-      <a class="back-link" href="../index.html">← Volver</a>
-      <a class="wa-btn" href="https://wa.me/543512309375" target="_blank">WhatsApp</a>
+    <div class="toolbar-wrap" id="toolbar-wrap" style="display: none">
+    <div class="toolbar" id="toolbar">
+      <div class="search-box">
+        <svg
+          class="search-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input
+          type="text"
+          id="search"
+          placeholder="Buscar producto..."
+          autocomplete="off"
+        />
+      </div>
+      <button class="btn" id="sortPrice" onclick="toggleSort()">
+        Precio ↑
+      </button>
+      <span class="product-count" id="count"></span>
     </div>
-  </div>
-</header>
+    </div>
 
-<div class="toolbar" id="toolbar" style="display:none">
-  <div class="search-box">
-    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="text" id="search" placeholder="Buscar producto..." autocomplete="off">
-  </div>
-  <button class="btn" id="sortPrice" onclick="toggleSort()">Precio ↑</button>
-  <span class="product-count" id="count"></span>
-</div>
+    <div class="info-bar" id="infoBar" style="display: none"></div>
 
-<div class="info-bar" id="infoBar" style="display:none"></div>
-
-<div class="file-drop" id="fileDrop">
-  <div class="drop-zone" onclick="document.getElementById('fileInput').click()">
-    <h2>Cargá tu archivo de productos</h2>
-    <p>Arrastrá o hacé click para subir <strong>productos.json</strong></p>
-    <input type="file" id="fileInput" accept=".json">
-    <p style="margin-top:14px;font-size:12px;color:var(--text3)">
-      Si <code>productos.json</code> está en la misma carpeta, se carga automáticamente
-    </p>
-  </div>
-</div>
-
-<div class="grid-wrap" id="gridWrap" style="display:none">
-  <div class="grid" id="grid"></div>
-  <div class="sentinel" id="sentinel"></div>
-</div>
-
-<div class="empty" id="empty" style="display:none">No se encontraron productos con esa búsqueda</div>
-
-<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <img class="modal-img" id="mImg" src="" alt="">
-    <div class="modal-body">
-      <div class="modal-sku" id="mSku"></div>
-      <div class="modal-name" id="mName"></div>
-      <div class="modal-price" id="mPrice"></div>
-      <div class="modal-actions">
-        <button class="modal-cart-btn" onclick="addFromModal()">Agregar al 🛒</button>
-        <a class="modal-wa" id="mWa" href="#" target="_blank">WhatsApp</a>
+    <div class="file-drop" id="fileDrop">
+      <div
+        class="drop-zone"
+        onclick="document.getElementById('fileInput').click()"
+      >
+        <h2>Cargá tu archivo de productos</h2>
+        <p>Arrastrá o hacé click para subir <strong>productos.json</strong></p>
+        <input type="file" id="fileInput" accept=".json" />
+        <p style="margin-top: 14px; font-size: 12px; color: var(--text3)">
+          Si <code>productos.json</code> está en la misma carpeta, se carga
+          automáticamente
+        </p>
       </div>
     </div>
-  </div>
-</div>
 
-<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <div class="grid-wrap" id="gridWrap" style="display: none">
+      <div class="grid" id="grid"></div>
+      <div class="sentinel" id="sentinel"></div>
+    </div>
 
-<footer>
-  <p>Lyra Distribuidora Mayorista · Córdoba Capital · 2026</p>
-</footer>
+    <div class="empty" id="empty" style="display: none">
+      No se encontraron productos con esa búsqueda
+    </div>
 
-<script>
-var allProducts = [];
-var filtered = [];
-var sortAsc = null;
-var shown = 0;
-var BATCH = 40;
-var currentModalProduct = null;
+    <div
+      class="modal-bg"
+      id="modal"
+      onclick="if (event.target === this) closeModal();"
+    >
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <img class="modal-img" id="mImg" src="" alt="" />
+        <div class="modal-body">
+          <div class="modal-sku" id="mSku"></div>
+          <div class="modal-name" id="mName"></div>
+          <div class="modal-price" id="mPrice"></div>
+          <div class="modal-actions">
+            <button class="modal-cart-btn" onclick="addFromModal()">
+              Agregar al 🛒
+            </button>
+            <a class="modal-wa" id="mWa" href="#" target="_blank">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-// ── Cart is handled by lyra-cart-widget.js ──
+    <button
+      class="scroll-top"
+      id="scrollTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      ↑
+    </button>
 
-// ── Clean product data ──
-function cleanProduct(p) {
-  var nombre = (p.nombre || '').trim();
-  nombre = nombre.replace(/\$[\d.,]+/g, '').trim();
-  nombre = nombre.replace(/PRECIO SIN IMPUESTOS.*/i, '').trim();
-  nombre = nombre.replace(/STOCK:.*/i, '').trim();
-  nombre = nombre.replace(/AGREGAR.*/i, '').trim();
-  nombre = nombre.replace(/SKU:\s*\d+/gi, '').trim();
-  nombre = nombre.replace(/Tiene variantes/gi, '').trim();
-  nombre = nombre.replace(/\s{2,}/g, ' ').trim();
+    <footer>
+      <p>Lyra Distribuidora Mayorista · Córdoba Capital · 2026</p>
+    </footer>
 
-  var sku = (p.sku || '').trim();
-  if (sku.match(/\d+/)) sku = sku.match(/\d+/)[0];
+    <script>
+      var allProducts = [];
+      var filtered = [];
+      var sortAsc = null;
+      var shown = 0;
+      var BATCH = 40;
+      var currentModalProduct = null;
 
-  return {
-    sku: sku,
-    nombre: nombre,
-    precio: p.precioLyra || 0,
-    imagen: p.imagen || '',
-    categoria: p.categoria || ''
-  };
-}
+      // ── Cart is handled by lyra-cart-widget.js ──
 
-function fmtPrice(n) {
-  return '$' + Math.round(n).toLocaleString('es-AR');
-}
-function escHtml(s) {
-  if (!s) return '';
-  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+      // ── Clean product data ──
+      function cleanProduct(p) {
+        var nombre = (p.nombre || "").trim();
+        nombre = nombre.replace(/\$[\d.,]+/g, "").trim();
+        nombre = nombre.replace(/PRECIO SIN IMPUESTOS.*/i, "").trim();
+        nombre = nombre.replace(/STOCK:.*/i, "").trim();
+        nombre = nombre.replace(/AGREGAR.*/i, "").trim();
+        nombre = nombre.replace(/SKU:\s*\d+/gi, "").trim();
+        nombre = nombre.replace(/Tiene variantes/gi, "").trim();
+        nombre = nombre.replace(/\s{2,}/g, " ").trim();
 
-// ── Search with priority: starts-with first, then contains ──
-function searchFilter(products, query) {
-  if (!query) return products;
-  var q = query.toLowerCase().trim();
-  var words = q.split(/\s+/);
+        var sku = (p.sku || "").trim();
+        if (sku.match(/\d+/)) sku = sku.match(/\d+/)[0];
 
-  var startsWith = [];
-  var contains = [];
+        return {
+          sku: sku,
+          nombre: nombre,
+          precio: p.precioLyra || 0,
+          imagen: p.imagen || "",
+          categoria: p.categoria || "",
+        };
+      }
 
-  products.forEach(function(p) {
-    var name = p.nombre.toLowerCase();
-    var nameWords = name.split(/\s+/);
+      function fmtPrice(n) {
+        return "$" + Math.round(n).toLocaleString("es-AR");
+      }
+      function escHtml(s) {
+        if (!s) return "";
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
 
-    // Check if any word in the product name STARTS with the first query word
-    var anyWordStarts = nameWords.some(function(w) {
-      return w.startsWith(words[0]);
-    });
+      // ── Search with priority: starts-with first, then contains ──
+      function searchFilter(products, query) {
+        if (!query) return products;
+        var q = query.toLowerCase().trim();
+        var words = q.split(/\s+/);
 
-    // Check all query words are present
-    var allMatch = words.every(function(w) {
-      return name.includes(w) || p.sku.includes(w);
-    });
+        var startsWith = [];
+        var contains = [];
 
-    if (!allMatch) return;
+        products.forEach(function (p) {
+          var name = p.nombre.toLowerCase();
+          var nameWords = name.split(/\s+/);
 
-    if (anyWordStarts) {
-      startsWith.push(p);
-    } else {
-      contains.push(p);
-    }
-  });
+          // Check if any word in the product name STARTS with the first query word
+          var anyWordStarts = nameWords.some(function (w) {
+            return w.startsWith(words[0]);
+          });
 
-  return startsWith.concat(contains);
-}
+          // Check all query words are present
+          var allMatch = words.every(function (w) {
+            return name.includes(w) || p.sku.includes(w);
+          });
 
-// ── Load data ──
-var fileInput = document.getElementById('fileInput');
-var dropEl = document.getElementById('fileDrop');
+          if (!allMatch) return;
 
-fetch('productos.json')
-  .then(function(r) { if (!r.ok) throw ''; return r.json(); })
-  .then(function(d) { loadData(d); })
-  .catch(function() {
-    var today = new Date().toISOString().slice(0,10);
-    fetch('productos_lyra_' + today + '.json')
-      .then(function(r) { if (!r.ok) throw ''; return r.json(); })
-      .then(function(d) { loadData(d); })
-      .catch(function() {});
-  });
+          if (anyWordStarts) {
+            startsWith.push(p);
+          } else {
+            contains.push(p);
+          }
+        });
 
-fileInput.addEventListener('change', function(e) {
-  var file = e.target.files[0];
-  if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function(ev) {
-    try { loadData(JSON.parse(ev.target.result)); }
-    catch(err) { alert('Error al leer el archivo JSON.'); }
-  };
-  reader.readAsText(file);
-});
+        return startsWith.concat(contains);
+      }
 
-dropEl.addEventListener('dragover', function(e) { e.preventDefault(); });
-dropEl.addEventListener('drop', function(e) {
-  e.preventDefault();
-  var file = e.dataTransfer.files[0];
-  if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function(ev) {
-    try { loadData(JSON.parse(ev.target.result)); }
-    catch(err) { alert('Error al leer el archivo.'); }
-  };
-  reader.readAsText(file);
-});
+      // ── Load data ──
+      var fileInput = document.getElementById("fileInput");
+      var dropEl = document.getElementById("fileDrop");
 
-function loadData(data) {
-  if (!Array.isArray(data) || !data.length) return;
-  allProducts = data.map(cleanProduct).filter(function(p) { return p.nombre && p.precio > 0; });
-  filtered = allProducts.slice();
-  document.getElementById('fileDrop').style.display = 'none';
-  document.getElementById('toolbar').style.display = 'flex';
-  document.getElementById('gridWrap').style.display = 'block';
+      fetch("productos.json")
+        .then(function (r) {
+          if (!r.ok) throw "";
+          return r.json();
+        })
+        .then(function (d) {
+          loadData(d);
+        })
+        .catch(function () {
+          var today = new Date().toISOString().slice(0, 10);
+          fetch("productos_lyra_" + today + ".json")
+            .then(function (r) {
+              if (!r.ok) throw "";
+              return r.json();
+            })
+            .then(function (d) {
+              loadData(d);
+            })
+            .catch(function () {});
+        });
 
-  var info = document.getElementById('infoBar');
-  info.style.display = 'block';
-  info.textContent = allProducts.length + ' productos disponibles · Precios actualizados';
+      fileInput.addEventListener("change", function (e) {
+        var file = e.target.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          try {
+            loadData(JSON.parse(ev.target.result));
+          } catch (err) {
+            alert("Error al leer el archivo JSON.");
+          }
+        };
+        reader.readAsText(file);
+      });
 
-  shown = BATCH;
-  render();
-  updateCount();
-}
+      dropEl.addEventListener("dragover", function (e) {
+        e.preventDefault();
+      });
+      dropEl.addEventListener("drop", function (e) {
+        e.preventDefault();
+        var file = e.dataTransfer.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function (ev) {
+          try {
+            loadData(JSON.parse(ev.target.result));
+          } catch (err) {
+            alert("Error al leer el archivo.");
+          }
+        };
+        reader.readAsText(file);
+      });
 
-// ── Render ──
-function render() {
-  var grid = document.getElementById('grid');
-  var items = filtered.slice(0, shown);
+      function loadData(data) {
+        if (!Array.isArray(data) || !data.length) return;
+        allProducts = data.map(cleanProduct).filter(function (p) {
+          return p.nombre && p.precio > 0;
+        });
+        filtered = allProducts.slice();
+        document.getElementById("fileDrop").style.display = "none";
+        document.getElementById("toolbar-wrap").style.display = "block";
+        document.getElementById("toolbar").style.display = "flex";
+        document.getElementById("gridWrap").style.display = "block";
 
-  grid.innerHTML = items.map(function(p, i) {
-    return '<div class="card">' +
-      '<div class="card-img-wrap" onclick="openModal(' + i + ')">' +
-        '<img class="card-img" src="' + escHtml(p.imagen) + '" alt="' + escHtml(p.nombre) + '" loading="lazy" onerror="this.style.background=\'#f0ede6\';this.style.padding=\'30px\'">' +
-      '</div>' +
-      '<div class="card-body">' +
-        '<div class="card-sku">SKU ' + escHtml(p.sku) + '</div>' +
-        '<div class="card-name" onclick="openModal(' + i + ')">' + escHtml(p.nombre) + '</div>' +
-        '<div class="card-price">' + fmtPrice(p.precio) + '</div>' +
-        '<button class="card-add" onclick="addToCartFromCard(' + i + ', this)">Agregar al 🛒</button>' +
-        '<div class="card-added" id="added-' + i + '">Producto añadido ✓</div>' +
-      '</div></div>';
-  }).join('');
+        var info = document.getElementById("infoBar");
+        info.style.display = "block";
+        info.textContent =
+          allProducts.length + " productos disponibles · Precios actualizados";
 
-  document.getElementById('empty').style.display = items.length === 0 ? 'block' : 'none';
-}
+        shown = BATCH;
+        render();
+        updateCount();
+      }
 
-function updateCount() {
-  var s = Math.min(shown, filtered.length);
-  document.getElementById('count').textContent = s + ' de ' + filtered.length;
-}
+      // ── Render ──
+      function render() {
+        var grid = document.getElementById("grid");
+        var items = filtered.slice(0, shown);
 
-// ── Cart actions ──
-function addToCartFromCard(i, btn) {
-  var p = filtered[i];
-  if (!p) return;
-  if (window.lyraCart) {
-    window.lyraCart.add(p.nombre, p.precio, 1);
-  }
-}
+        grid.innerHTML = items
+          .map(function (p, i) {
+            return (
+              '<div class="card">' +
+              '<div class="card-img-wrap" onclick="openModal(' +
+              i +
+              ')">' +
+              '<img class="card-img" src="' +
+              escHtml(p.imagen) +
+              '" alt="' +
+              escHtml(p.nombre) +
+              '" loading="lazy" onerror="this.style.background=\'#f0ede6\';this.style.padding=\'30px\'">' +
+              "</div>" +
+              '<div class="card-body">' +
+              '<div class="card-sku">SKU ' +
+              escHtml(p.sku) +
+              "</div>" +
+              '<div class="card-name" onclick="openModal(' +
+              i +
+              ')">' +
+              escHtml(p.nombre) +
+              "</div>" +
+              '<div class="card-price">' +
+              fmtPrice(p.precio) +
+              "</div>" +
+              '<button class="card-add" onclick="addToCartFromCard(' +
+              i +
+              ', this)">Agregar al 🛒</button>' +
+              '<div class="card-added" id="added-' +
+              i +
+              '">Producto añadido ✓</div>' +
+              "</div></div>"
+            );
+          })
+          .join("");
 
-function addFromModal() {
-  if (!currentModalProduct) return;
-  var p = currentModalProduct;
-  if (window.lyraCart) {
-    window.lyraCart.add(p.nombre, p.precio, 1);
-  }
-  closeModal();
-}
+        document.getElementById("empty").style.display =
+          items.length === 0 ? "block" : "none";
+      }
 
-// ── Search ──
-var searchTimer;
-document.getElementById('search').addEventListener('input', function() {
-  clearTimeout(searchTimer);
-  searchTimer = setTimeout(applyFilters, 200);
-});
+      function updateCount() {
+        var s = Math.min(shown, filtered.length);
+        document.getElementById("count").textContent =
+          s + " de " + filtered.length;
+      }
 
-function applyFilters() {
-  var q = document.getElementById('search').value;
-  filtered = searchFilter(allProducts, q);
-  if (sortAsc !== null) {
-    filtered.sort(function(a, b) { return sortAsc ? a.precio - b.precio : b.precio - a.precio; });
-  }
-  shown = BATCH;
-  render();
-  updateCount();
-}
+      // ── Cart actions ──
+      function addToCartFromCard(i, btn) {
+        var p = filtered[i];
+        if (!p) return;
+        if (window.lyraCart) {
+          window.lyraCart.add(p.nombre, p.precio, 1);
+        }
+      }
 
-function toggleSort() {
-  if (sortAsc === null) sortAsc = true;
-  else if (sortAsc) sortAsc = false;
-  else sortAsc = null;
-  var btn = document.getElementById('sortPrice');
-  btn.textContent = sortAsc === null ? 'Precio' : (sortAsc ? 'Precio ↑' : 'Precio ↓');
-  btn.classList.toggle('active', sortAsc !== null);
-  applyFilters();
-}
+      function addFromModal() {
+        if (!currentModalProduct) return;
+        var p = currentModalProduct;
+        if (window.lyraCart) {
+          window.lyraCart.add(p.nombre, p.precio, 1);
+        }
+        closeModal();
+      }
 
-// ── Modal ──
-function openModal(i) {
-  var p = filtered[i]; if (!p) return;
-  currentModalProduct = p;
-  document.getElementById('mImg').src = p.imagen;
-  document.getElementById('mSku').textContent = 'SKU ' + p.sku;
-  document.getElementById('mName').textContent = p.nombre;
-  document.getElementById('mPrice').textContent = fmtPrice(p.precio);
-  var msg = encodeURIComponent('Hola! Vi en el catálogo: *' + p.nombre + '* (SKU ' + p.sku + ') a ' + fmtPrice(p.precio) + '. ¿Tienen disponibilidad?');
-  document.getElementById('mWa').href = 'https://wa.me/543512309375?text=' + msg;
-  document.getElementById('modal').classList.add('show');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal').classList.remove('show');
-  document.body.style.overflow = '';
-  currentModalProduct = null;
-}
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+      // ── Search ──
+      var searchTimer;
+      document.getElementById("search").addEventListener("input", function () {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(applyFilters, 200);
+      });
 
-// ── Infinite scroll ──
-var obs = new IntersectionObserver(function(entries) {
-  if (entries[0].isIntersecting && shown < filtered.length) {
-    shown += BATCH;
-    render();
-    updateCount();
-  }
-}, { rootMargin: '300px' });
-obs.observe(document.getElementById('sentinel'));
+      function applyFilters() {
+        var q = document.getElementById("search").value;
+        filtered = searchFilter(allProducts, q);
+        if (sortAsc !== null) {
+          filtered.sort(function (a, b) {
+            return sortAsc ? a.precio - b.precio : b.precio - a.precio;
+          });
+        }
+        shown = BATCH;
+        render();
+        updateCount();
+      }
 
-// ── Scroll to top ──
-window.addEventListener('scroll', function() {
-  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
-});
-</script>
-<script src="../lyra-cart-widget.js"></script>
-</body>
+      function toggleSort() {
+        if (sortAsc === null) sortAsc = true;
+        else if (sortAsc) sortAsc = false;
+        else sortAsc = null;
+        var btn = document.getElementById("sortPrice");
+        btn.textContent =
+          sortAsc === null ? "Precio" : sortAsc ? "Precio ↑" : "Precio ↓";
+        btn.classList.toggle("active", sortAsc !== null);
+        applyFilters();
+      }
+
+      // ── Modal ──
+      function openModal(i) {
+        var p = filtered[i];
+        if (!p) return;
+        currentModalProduct = p;
+        document.getElementById("mImg").src = p.imagen;
+        document.getElementById("mSku").textContent = "SKU " + p.sku;
+        document.getElementById("mName").textContent = p.nombre;
+        document.getElementById("mPrice").textContent = fmtPrice(p.precio);
+        var msg = encodeURIComponent(
+          "Hola! Vi en el catálogo: *" +
+            p.nombre +
+            "* (SKU " +
+            p.sku +
+            ") a " +
+            fmtPrice(p.precio) +
+            ". ¿Tienen disponibilidad?",
+        );
+        document.getElementById("mWa").href =
+          "https://wa.me/543512309375?text=" + msg;
+        document.getElementById("modal").classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+      function closeModal() {
+        document.getElementById("modal").classList.remove("show");
+        document.body.style.overflow = "";
+        currentModalProduct = null;
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // ── Infinite scroll ──
+      var obs = new IntersectionObserver(
+        function (entries) {
+          if (entries[0].isIntersecting && shown < filtered.length) {
+            shown += BATCH;
+            render();
+            updateCount();
+          }
+        },
+        { rootMargin: "300px" },
+      );
+      obs.observe(document.getElementById("sentinel"));
+
+      // ── Scroll to top ──
+      window.addEventListener("scroll", function () {
+        document
+          .getElementById("scrollTop")
+          .classList.toggle("show", window.scrollY > 400);
+      });
+    </script>
+    <script src="../lyra-cart-widget.js"></script>
+  </body>
 </html>

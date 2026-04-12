@@ -6,7 +6,7 @@
     <title>Catálogo de Carteras | Distribuidora Lyra</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -25,9 +25,7 @@
         --shadow-md: 0 8px 30px rgba(26, 26, 26, 0.08);
         --shadow-lg: 0 20px 60px rgba(26, 26, 26, 0.12);
         --radius: 12px;
-        --font-display: "Playfair Display", Georgia, serif;
         --font-body: "DM Sans", -apple-system, sans-serif;
-        --nav-height: 64px;
       }
 
       *,
@@ -50,117 +48,75 @@
         -webkit-font-smoothing: antialiased;
       }
 
-      /* === NAV === */
-      .nav {
+      /* === HEADER (same as /libreria/) === */
+      header {
+        background: var(--bg-hero);
+        color: #fff;
+        padding: 0 24px;
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(250, 247, 242, 0.92);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
-        height: var(--nav-height);
-        display: flex;
-        align-items: center;
-        padding: 0 clamp(1rem, 4vw, 3rem);
       }
-      .nav-inner {
-        max-width: 1400px;
+      .header-inner {
+        max-width: 1200px;
         margin: 0 auto;
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        height: 60px;
+        gap: 12px;
       }
-      .nav-brand {
-        font-family: var(--font-display);
-        font-size: 1.3rem;
-        font-weight: 600;
-        color: var(--text-primary);
-        text-decoration: none;
-        letter-spacing: -0.02em;
-      }
-      .nav-brand span {
-        color: var(--accent);
-      }
-      .nav-links {
+      .logo-area {
         display: flex;
-        gap: 2rem;
         align-items: center;
-        list-style: none;
-      }
-      .nav-links a {
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: var(--text-secondary);
+        gap: 10px;
         text-decoration: none;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        transition: color 0.2s;
-      }
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: var(--accent);
-      }
-
-      /* === HERO === */
-      .hero {
-        background: var(--bg-hero);
         color: #fff;
-        padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
-        text-align: center;
-        position: relative;
-        overflow: hidden;
       }
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          radial-gradient(
-            ellipse at 20% 50%,
-            rgba(196, 149, 106, 0.15) 0%,
-            transparent 60%
-          ),
-          radial-gradient(
-            ellipse at 80% 50%,
-            rgba(196, 149, 106, 0.1) 0%,
-            transparent 60%
-          );
+      .logo-img {
+        width: 36px;
+        height: 36px;
+        filter: invert(1);
       }
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        max-width: 700px;
-        margin: 0 auto;
+      .logo-text {
+        font-family: 'Aclonica', sans-serif;
+        font-size: 22px;
+        color: #fff;
+        letter-spacing: 0.5px;
       }
-      .hero-tag {
-        display: inline-block;
-        font-size: 0.75rem;
+      .header-subtitle {
+        font-size: 12px;
+        color: rgba(255,255,255,0.6);
+        margin-left: 12px;
+        padding-left: 12px;
+        border-left: 1px solid rgba(255,255,255,0.2);
+        white-space: nowrap;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .header-right a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: color 0.15s;
+      }
+      .header-right a:hover { color: #fff; }
+      .back-link { font-size: 12px; }
+      .wa-btn {
+        background: #25d366;
+        color: #fff !important;
+        padding: 6px 14px;
+        border-radius: 6px;
         font-weight: 600;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 1.2rem;
-        padding: 0.4rem 1.2rem;
-        border: 1px solid rgba(196, 149, 106, 0.4);
-        border-radius: 100px;
+        font-size: 13px;
       }
-      .hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(2.2rem, 5vw, 3.8rem);
-        font-weight: 700;
-        line-height: 1.15;
-        margin-bottom: 1rem;
-        letter-spacing: -0.02em;
-      }
-      .hero p {
-        font-size: 1.05rem;
-        color: rgba(255, 255, 255, 0.6);
-        font-weight: 300;
-        max-width: 500px;
-        margin: 0 auto;
-      }
+      .wa-btn:hover { background: #20bd5a; }
 
       /* === FILTERS === */
       .filters-bar {
@@ -174,7 +130,7 @@
         gap: 1rem;
       }
       .filters-bar h2 {
-        font-family: var(--font-display);
+        font-family: 'Instrument Sans', var(--font-body);
         font-size: 1.5rem;
         font-weight: 600;
       }
@@ -226,7 +182,7 @@
         gap: 1rem;
       }
       .section-header h3 {
-        font-family: var(--font-display);
+        font-family: 'Instrument Sans', var(--font-body);
         font-size: 1.6rem;
         font-weight: 700;
         letter-spacing: -0.01em;
@@ -305,7 +261,7 @@
         flex-direction: column;
       }
       .card-name {
-        font-family: var(--font-display);
+        font-family: 'Instrument Sans', var(--font-body);
         font-size: 1.15rem;
         font-weight: 600;
         margin-bottom: 0.2rem;
@@ -415,7 +371,7 @@
         text-decoration: none;
       }
       .site-footer .footer-brand {
-        font-family: var(--font-display);
+        font-family: 'Instrument Sans', var(--font-body);
         font-size: 1.2rem;
         color: #fff;
         margin-bottom: 0.5rem;
@@ -427,12 +383,7 @@
           grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
           gap: 1rem;
         }
-        .nav-links {
-          display: none;
-        }
-        .hero {
-          padding: 2.5rem 1rem;
-        }
+        .header-subtitle { display: none; }
       }
       @media (max-width: 480px) {
         .catalog-grid {
@@ -450,27 +401,18 @@
     </style>
   </head>
   <body>
-    <!-- NAV -->
-    <nav class="nav">
-      <div class="nav-inner">
-        <a href="/" class="nav-brand">Distribuidora <span>Lyra</span></a>
-        <ul class="nav-links">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/libreria/">Librería</a></li>
-          <li><a href="/carteras/" class="active">Carteras</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-content">
-        <span class="hero-tag">Stock disponible</span>
-        <h1>Catálogo de Carteras</h1>
-        <p>
-          Precios por mayor &middot; Simil cuero &middot; Envíos a todo el país
-        </p>
+    <!-- HEADER (same style as /libreria/) -->
+    <header>
+      <div class="header-inner">
+        <a class="logo-area" href="../index.html">
+          <img class="logo-img" src="../lyr2.png" alt="Lyra" onerror="this.style.display='none'">
+          <span class="logo-text">LYRA</span>
+          <span class="header-subtitle">Catálogo Carteras y Afines</span>
+        </a>
+        <div class="header-right">
+          <a class="back-link" href="../index.html">← Volver</a>
+          <a class="wa-btn" href="https://wa.me/543512309375" target="_blank">WhatsApp</a>
+        </div>
       </div>
     </header>
 
