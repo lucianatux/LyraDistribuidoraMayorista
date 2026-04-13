@@ -744,7 +744,7 @@ footer p {
   .lyra { font-size: 22px; }
   .div-lyra { font-size: 16px; padding: 6px; }
   .logo { width: 50px; margin: 5px; }
-  #mayorista { display: none; }
+  #mayorista { font-size: 11px; }
   .icons-div { grid-template-columns: repeat(3, 1fr); }
   #order { font-size: 10px; padding: 5px; margin-left: 10px; }
   #my-order { padding: 20px; }
