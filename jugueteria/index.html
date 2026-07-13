@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lyra · Catálogo Librería y Juguetería</title>
+    <title>Lyra · Catálogo Juguetería</title>
     <link rel="shortcut icon" href="../lyr4.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -524,7 +524,7 @@
             onerror="this.style.display = 'none'"
           />
           <span class="logo-text">LYRA</span>
-          <span class="header-subtitle">Catálogo de Librería</span>
+          <span class="header-subtitle">Catálogo de Juguetería</span>
         </a>
         <div class="header-right">
           <a class="back-link" href="../index.html">← Volver</a>
@@ -570,10 +570,10 @@
         onclick="document.getElementById('fileInput').click()"
       >
         <h2>Cargá tu archivo de productos</h2>
-        <p>Arrastrá o hacé click para subir <strong>productos.json</strong></p>
+        <p>Arrastrá o hacé click para subir <strong>juguetes.json</strong></p>
         <input type="file" id="fileInput" accept=".json" />
         <p style="margin-top: 14px; font-size: 12px; color: var(--text3)">
-          Si <code>productos.json</code> está en la misma carpeta, se carga
+          Si <code>juguetes.json</code> está en la misma carpeta, se carga
           automáticamente
         </p>
       </div>
@@ -706,7 +706,7 @@
       var fileInput = document.getElementById("fileInput");
       var dropEl = document.getElementById("fileDrop");
 
-      fetch("productos.json")
+      fetch("juguetes.json")
         .then(function (r) {
           if (!r.ok) throw "";
           return r.json();

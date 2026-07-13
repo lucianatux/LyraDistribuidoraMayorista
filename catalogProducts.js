@@ -275,10 +275,21 @@ function _renderExtras(cat, section) {
         </div>
       </div>`;
   }
-  // Catálogo web (librería)
+  // Catálogo web (uno o varios bloques). Acepta un objeto o un array.
   if (cat.extras.catalogoWeb) {
-    const cw = cat.extras.catalogoWeb;
-    html += `
+    const bloques = Array.isArray(cat.extras.catalogoWeb)
+      ? cat.extras.catalogoWeb
+      : [cat.extras.catalogoWeb];
+
+    bloques.forEach((cw) => {
+      const previewCards = (cw.preview || [])
+        .map(
+          (item) =>
+            `<div class="preview-card"><div class="preview-icon">${item.icon}</div><span>${item.label}</span></div>`,
+        )
+        .join("");
+
+      html += `
       <div class="catalogo-web-block">
         <div class="catalogo-web-inner">
           <div class="catalogo-web-text">
@@ -287,15 +298,11 @@ function _renderExtras(cat, section) {
             <a href="${cw.url}" class="catalogo-web-btn">${cw.boton}</a>
           </div>
           <div class="catalogo-web-preview">
-            <div class="preview-cards">
-              <div class="preview-card"><div class="preview-icon">📚</div><span>Cuadernos</span></div>
-              <div class="preview-card"><div class="preview-icon">✏️</div><span>Útiles</span></div>
-              <div class="preview-card"><div class="preview-icon">🎨</div><span>Arte</span></div>
-              <div class="preview-card"><div class="preview-icon">🧸</div><span>Juguetes</span></div>
-            </div>
+            <div class="preview-cards">${previewCards}</div>
           </div>
         </div>
       </div>`;
+    });
   }
   extrasMount.innerHTML = html;
 }
