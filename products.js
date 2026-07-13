@@ -471,7 +471,7 @@ export const PRODUCTOS = [
     nombre: "Pilar negra",
     info: "$16.800",
     tipo: "simple",
-  },
+  },/*
   {
     id: "car-veronegra",
     categoria: "carteras",
@@ -480,7 +480,7 @@ export const PRODUCTOS = [
     nombre: "Vero negra",
     info: "$20.600",
     tipo: "simple",
-  },
+  },*/
   {
     id: "car-antohebilla",
     categoria: "carteras",
@@ -489,7 +489,7 @@ export const PRODUCTOS = [
     nombre: "Anto hebilla",
     info: "$16.800",
     tipo: "simple",
-  },
+  },/*
   {
     id: "car-tiziana",
     categoria: "carteras",
@@ -498,7 +498,7 @@ export const PRODUCTOS = [
     nombre: "Tiziana",
     info: "$17.900",
     tipo: "simple",
-  },
+  },*/
   {
     id: "car-abril",
     categoria: "carteras",
