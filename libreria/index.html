@@ -836,7 +836,7 @@
         var p = filtered[i];
         if (!p) return;
         if (window.lyraCart) {
-          window.lyraCart.add(p.nombre, p.precio, 1);
+          window.lyraCart.add(p.nombre, p.precio, 1, p.sku);
         }
       }
 
@@ -844,7 +844,7 @@
         if (!currentModalProduct) return;
         var p = currentModalProduct;
         if (window.lyraCart) {
-          window.lyraCart.add(p.nombre, p.precio, 1);
+          window.lyraCart.add(p.nombre, p.precio, 1, p.sku);
         }
         closeModal();
       }

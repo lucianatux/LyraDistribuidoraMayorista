@@ -34,7 +34,7 @@
             precio = parseFloat(match[0].replace("$", "").replace(/\./g, "").replace(",", ".")) || 0;
           }
           var nombre = text.replace(/\s*—\s*\$[\d.,]+/, "").trim();
-          return { nombre: nombre, precio: precio, cantidad: 1 };
+          return { nombre: nombre, precio: precio, cantidad: 1, sku: "" };
         });
       }
       return data;
@@ -48,26 +48,32 @@
     syncLegacyBadge();
   }
 
-  function addItem(nombre, precio, cantidad) {
+  function addItem(nombre, precio, cantidad, sku) {
     var cart = getCart();
     cantidad = cantidad || 1;
-    precio = precio || 0;
+    // Redondeamos el precio al entrar: de acá en adelante el carrito solo
+    // maneja enteros, así el precio guardado coincide con el que se ve en
+    // la tarjeta y la suma siempre cierra.
+    precio = Math.round(precio || 0);
+    sku = sku || "";
 
-    // Check if product already exists
+    // Buscar si ya existe (por SKU si lo tiene, si no por nombre)
     var existing = -1;
     for (var i = 0; i < cart.length; i++) {
-      if (cart[i].nombre === nombre) { existing = i; break; }
+      var mismo = sku ? (cart[i].sku === sku) : (cart[i].nombre === nombre);
+      if (mismo) { existing = i; break; }
     }
 
     if (existing >= 0) {
       cart[existing].cantidad += cantidad;
       cart[existing].precio = precio || cart[existing].precio;
+      if (sku) cart[existing].sku = sku;
       saveCart(cart);
       showToast("Cantidad actualizada en el carrito (" + cart[existing].cantidad + ")", false);
       return;
     }
 
-    cart.push({ nombre: nombre, precio: precio, cantidad: cantidad });
+    cart.push({ nombre: nombre, precio: precio, cantidad: cantidad, sku: sku });
     saveCart(cart);
     showToast("Producto añadido ✓", true);
   }
@@ -96,7 +102,9 @@
     var cart = getCart();
     var total = 0;
     cart.forEach(function (item) {
-      total += (item.precio || 0) * (item.cantidad || 1);
+      // Redondeamos el unitario y recién ahí multiplicamos, así el total
+      // es exactamente la suma de los subtotales que ve el cliente.
+      total += Math.round(item.precio || 0) * (item.cantidad || 1);
     });
     return total;
   }
@@ -217,10 +225,12 @@
     }
 
     listEl.innerHTML = cart.map(function (item, i) {
-      var subtotal = Math.round((item.precio || 0) * (item.cantidad || 1));
-      var priceText = item.precio ? fmtP(item.precio) + (item.cantidad > 1 ? " × " + item.cantidad + " = " + fmtP(subtotal) : "") : "";
+      var unit = Math.round(item.precio || 0);
+      var subtotal = unit * (item.cantidad || 1);
+      var priceText = unit ? fmtP(unit) + (item.cantidad > 1 ? " × " + item.cantidad + " = " + fmtP(subtotal) : "") : "";
+      var skuTag = item.sku ? '<span style="color:#b0a9a0;font-size:11px;font-weight:600">SKU ' + escH(item.sku) + '</span> ' : '';
       return '<div class="lcw-item">' +
-        '<div class="lcw-item-info"><div class="lcw-item-name">' + escH(item.nombre) + '</div>' +
+        '<div class="lcw-item-info"><div class="lcw-item-name">' + skuTag + escH(item.nombre) + '</div>' +
         '<div class="lcw-item-price">' + priceText + '</div></div>' +
         '<div class="lcw-qty">' +
           '<button data-act="dec" data-i="' + i + '">−</button>' +
@@ -265,9 +275,19 @@
 
     var msg = "Hola, soy " + name + ". Quiero realizar el siguiente pedido:\n\n";
     cart.forEach(function (item) {
-      var line = item.nombre;
-      if (item.cantidad > 1) line += " ×" + item.cantidad;
-      if (item.precio) line += " — " + fmtP(Math.round(item.precio * item.cantidad));
+      var cant = item.cantidad || 1;
+      var unit = Math.round(item.precio || 0);
+
+      // Prefijo de cantidad: "6 unidades de " / "1 unidad de "
+      var prefijo = cant + (cant === 1 ? " unidad de " : " unidades de ");
+      // SKU si el producto lo tiene (los de la home no tienen y queda vacío)
+      var skuTxt = item.sku ? "SKU " + item.sku + " " : "";
+
+      var line = prefijo + skuTxt + item.nombre;
+
+      // Subtotal = unitario entero × cantidad → siempre entero
+      if (unit) line += " — " + fmtP(unit * cant);
+
       msg += "\u2022 " + line + "\n";
     });
     var total = getTotal();
