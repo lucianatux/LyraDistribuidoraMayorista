@@ -1,6 +1,6 @@
 // ============================================================
 //  lyra-cart-widget.js — Carrito unificado para todo el sitio
-//  
+//
 //  REEMPLAZA a cart.js — un solo archivo para todas las páginas.
 //  Incluir en cada página con:
 //    <script src="./lyra-cart-widget.js"></script>
@@ -31,14 +31,19 @@
           var precio = 0;
           var match = text.match(/\$[\d.,]+/);
           if (match) {
-            precio = parseFloat(match[0].replace("$", "").replace(/\./g, "").replace(",", ".")) || 0;
+            precio =
+              parseFloat(
+                match[0].replace("$", "").replace(/\./g, "").replace(",", "."),
+              ) || 0;
           }
           var nombre = text.replace(/\s*—\s*\$[\d.,]+/, "").trim();
           return { nombre: nombre, precio: precio, cantidad: 1, sku: "" };
         });
       }
       return data;
-    } catch (e) { return []; }
+    } catch (e) {
+      return [];
+    }
   }
 
   function saveCart(items) {
@@ -60,8 +65,11 @@
     // Buscar si ya existe (por SKU si lo tiene, si no por nombre)
     var existing = -1;
     for (var i = 0; i < cart.length; i++) {
-      var mismo = sku ? (cart[i].sku === sku) : (cart[i].nombre === nombre);
-      if (mismo) { existing = i; break; }
+      var mismo = sku ? cart[i].sku === sku : cart[i].nombre === nombre;
+      if (mismo) {
+        existing = i;
+        break;
+      }
     }
 
     if (existing >= 0) {
@@ -69,7 +77,10 @@
       cart[existing].precio = precio || cart[existing].precio;
       if (sku) cart[existing].sku = sku;
       saveCart(cart);
-      showToast("Cantidad actualizada en el carrito (" + cart[existing].cantidad + ")", false);
+      showToast(
+        "Cantidad actualizada en el carrito (" + cart[existing].cantidad + ")",
+        false,
+      );
       return;
     }
 
@@ -112,7 +123,9 @@
   function getItemCount() {
     var cart = getCart();
     var count = 0;
-    cart.forEach(function (item) { count += item.cantidad || 1; });
+    cart.forEach(function (item) {
+      count += item.cantidad || 1;
+    });
     return count;
   }
 
@@ -125,8 +138,11 @@
 
     var toast = document.createElement("div");
     toast.id = "lyra-toast";
-    toast.style.cssText = "position:fixed;bottom:84px;right:24px;z-index:10001;" +
-      "background:" + (isNew ? "#2d5a27" : "#3d444c") + ";color:#fff;padding:10px 18px;" +
+    toast.style.cssText =
+      "position:fixed;bottom:84px;right:24px;z-index:10001;" +
+      "background:" +
+      (isNew ? "#2d5a27" : "#3d444c") +
+      ";color:#fff;padding:10px 18px;" +
       "border-radius:8px;font-family:system-ui,sans-serif;font-size:13px;font-weight:500;" +
       "box-shadow:0 4px 16px rgba(0,0,0,0.2);opacity:0;transform:translateY(8px);" +
       "transition:opacity 0.25s,transform 0.25s;pointer-events:none;max-width:280px";
@@ -140,7 +156,9 @@
     toastTimeout = setTimeout(function () {
       toast.style.opacity = "0";
       toast.style.transform = "translateY(8px)";
-      setTimeout(function () { toast.remove(); }, 300);
+      setTimeout(function () {
+        toast.remove();
+      }, 300);
     }, 2200);
   }
 
@@ -185,15 +203,15 @@
   container.innerHTML =
     '<button id="lyra-cw-btn" title="Ver carrito"><span style="pointer-events:none">🛒</span><span id="lyra-cw-badge">0</span></button>' +
     '<div id="lyra-cw-panel">' +
-      '<div class="lcw-hd"><h3>Carrito de compras</h3><button class="lcw-hd-x" id="lcw-close">\u2715</button></div>' +
-      '<div class="lcw-list" id="lcw-list"></div>' +
-      '<div class="lcw-ft" id="lcw-ft">' +
-        '<div class="lcw-total"><span class="lcw-total-label">Total estimado</span><span class="lcw-total-val" id="lcw-total">$0</span></div>' +
-        '<input class="lcw-name" id="lcw-name" type="text" placeholder="Tu nombre">' +
-        '<button class="lcw-send" id="lcw-send">Enviar pedido por WhatsApp</button>' +
-        '<button class="lcw-clear" id="lcw-clear">Vaciar carrito</button>' +
-      '</div>' +
-    '</div>';
+    '<div class="lcw-hd"><h3>Carrito de compras</h3><button class="lcw-hd-x" id="lcw-close">\u2715</button></div>' +
+    '<div class="lcw-list" id="lcw-list"></div>' +
+    '<div class="lcw-ft" id="lcw-ft">' +
+    '<div class="lcw-total"><span class="lcw-total-label">Total estimado</span><span class="lcw-total-val" id="lcw-total">$0</span></div>' +
+    '<input class="lcw-name" id="lcw-name" type="text" placeholder="Tu nombre">' +
+    '<button class="lcw-send" id="lcw-send">Enviar pedido por WhatsApp</button>' +
+    '<button class="lcw-clear" id="lcw-clear">Vaciar carrito</button>' +
+    "</div>" +
+    "</div>";
   document.body.appendChild(container);
 
   var btn = document.getElementById("lyra-cw-btn");
@@ -219,27 +237,54 @@
     var listEl = document.getElementById("lcw-list");
 
     if (cart.length === 0) {
-      listEl.innerHTML = '<div class="lcw-empty">Aún no agregaste productos al carrito</div>';
+      listEl.innerHTML =
+        '<div class="lcw-empty">Aún no agregaste productos al carrito</div>';
       document.getElementById("lcw-total").textContent = "$0";
       return;
     }
 
-    listEl.innerHTML = cart.map(function (item, i) {
-      var unit = Math.round(item.precio || 0);
-      var subtotal = unit * (item.cantidad || 1);
-      var priceText = unit ? fmtP(unit) + (item.cantidad > 1 ? " × " + item.cantidad + " = " + fmtP(subtotal) : "") : "";
-      var skuTag = item.sku ? '<span style="color:#b0a9a0;font-size:11px;font-weight:600">SKU ' + escH(item.sku) + '</span> ' : '';
-      return '<div class="lcw-item">' +
-        '<div class="lcw-item-info"><div class="lcw-item-name">' + skuTag + escH(item.nombre) + '</div>' +
-        '<div class="lcw-item-price">' + priceText + '</div></div>' +
-        '<div class="lcw-qty">' +
-          '<button data-act="dec" data-i="' + i + '">−</button>' +
-          '<span>' + (item.cantidad || 1) + '</span>' +
-          '<button data-act="inc" data-i="' + i + '">+</button>' +
-        '</div>' +
-        '<button class="lcw-del" data-act="del" data-i="' + i + '" title="Quitar">\u2715</button>' +
-      '</div>';
-    }).join("");
+    listEl.innerHTML = cart
+      .map(function (item, i) {
+        var unit = Math.round(item.precio || 0);
+        var subtotal = unit * (item.cantidad || 1);
+        var priceText = unit
+          ? fmtP(unit) +
+            (item.cantidad > 1
+              ? " × " + item.cantidad + " = " + fmtP(subtotal)
+              : "")
+          : "";
+        var skuTag = item.sku
+          ? '<span style="color:#b0a9a0;font-size:11px;font-weight:600">SKU ' +
+            escH(item.sku) +
+            "</span> "
+          : "";
+        return (
+          '<div class="lcw-item">' +
+          '<div class="lcw-item-info"><div class="lcw-item-name">' +
+          skuTag +
+          escH(item.nombre) +
+          "</div>" +
+          '<div class="lcw-item-price">' +
+          priceText +
+          "</div></div>" +
+          '<div class="lcw-qty">' +
+          '<button data-act="dec" data-i="' +
+          i +
+          '">−</button>' +
+          "<span>" +
+          (item.cantidad || 1) +
+          "</span>" +
+          '<button data-act="inc" data-i="' +
+          i +
+          '">+</button>' +
+          "</div>" +
+          '<button class="lcw-del" data-act="del" data-i="' +
+          i +
+          '" title="Quitar">\u2715</button>' +
+          "</div>"
+        );
+      })
+      .join("");
 
     document.getElementById("lcw-total").textContent = fmtP(getTotal());
 
@@ -267,33 +312,49 @@
       var input = document.getElementById("lcw-name");
       input.style.borderColor = "#e55";
       input.focus();
-      input.addEventListener("input", function () { input.style.borderColor = ""; }, { once: true });
+      input.addEventListener(
+        "input",
+        function () {
+          input.style.borderColor = "";
+        },
+        { once: true },
+      );
       return;
     }
     var cart = getCart();
     if (cart.length === 0) return;
 
-    var msg = "Hola, soy " + name + ". Quiero realizar el siguiente pedido:\n\n";
+    var msg =
+      "Hola, soy " + name + ". Quiero realizar el siguiente pedido:\n\n";
     cart.forEach(function (item) {
       var cant = item.cantidad || 1;
       var unit = Math.round(item.precio || 0);
+      var unidad = cant === 1 ? "unidad" : "unidades";
 
-      // Prefijo de cantidad: "6 unidades de " / "1 unidad de "
-      var prefijo = cant + (cant === 1 ? " unidad de " : " unidades de ");
-      // SKU si el producto lo tiene (los de la home no tienen y queda vacío)
-      var skuTxt = item.sku ? "SKU " + item.sku + " " : "";
-
-      var line = prefijo + skuTxt + item.nombre;
-
-      // Subtotal = unitario entero × cantidad → siempre entero
-      if (unit) line += " — " + fmtP(unit * cant);
-
-      msg += "\u2022 " + line + "\n";
+      // Renglón 1: cantidad
+      msg += "• " + cant + " " + unidad + " de\n";
+      // Renglón 2: SKU (solo si el producto lo tiene — los de la home no)
+      if (item.sku) msg += "Sku " + item.sku + "\n";
+      // Renglón 3: nombre
+      msg += item.nombre + "\n";
+      // Renglón 4: precio unitario × cantidad = subtotal
+      if (unit) {
+        if (cant > 1) {
+          msg +=
+            fmtP(unit) + " c/u x " + cant + " = " + fmtP(unit * cant) + "\n";
+        } else {
+          msg += fmtP(unit) + "\n";
+        }
+      }
+      msg += "\n"; // línea en blanco entre productos
     });
     var total = getTotal();
     if (total > 0) msg += "\nTotal estimado: " + fmtP(total);
 
-    window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+    window.open(
+      "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg),
+      "_blank",
+    );
     clearCart();
     panel.classList.remove("open");
   });
@@ -356,8 +417,13 @@
     remove: removeItem,
     getCount: getItemCount,
     getTotal: getTotal,
-    open: function () { renderPanel(); panel.classList.add("open"); },
-    close: function () { panel.classList.remove("open"); }
+    open: function () {
+      renderPanel();
+      panel.classList.add("open");
+    },
+    close: function () {
+      panel.classList.remove("open");
+    },
   };
 
   // ── Also expose addToCart for backward compatibility with catalogProducts.js ──
@@ -401,5 +467,4 @@
     var oldModal = document.getElementById("my-order");
     if (oldModal) oldModal.style.display = "none";
   }, 500);
-
 })();
