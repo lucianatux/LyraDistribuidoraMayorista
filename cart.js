@@ -89,7 +89,7 @@ function _updateMinimumBar() {
 
   const count = cartItems.length;
   if (count === 0) {
-    bar.innerHTML = `<span>Mínimo de compra: <strong>$60.000</strong></span>`;
+    bar.innerHTML = `<span>Mínimo de compra: <strong>$80.000</strong></span>`;
     bar.className = "minimum-bar minimum-empty";
     return;
   }
