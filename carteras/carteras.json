@@ -1,0 +1,301 @@
+{
+  "seccion": "Carteras y Afines",
+  "imgBase": "carteras-img/",
+  "secciones": [
+    {
+      "id": "carteras",
+      "titulo": "Carteras",
+      "productos": [
+        {
+          "nombre": "Anto Hebilla",
+          "desc": "Cartera hobo elegante con hebilla metálica decorativa.",
+          "img": "antohebilla1.png",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 18500
+        },
+        {
+          "nombre": "Pilar",
+          "desc": "Cartera compacta con solapa, boca con cierre y correa desmontable con mosquetón.",
+          "img": "pilar1.png",
+          "colores": [
+            "Negro",
+            "Tierra"
+          ],
+          "precio": 18500
+        },
+        {
+          "nombre": "Abril",
+          "desc": "Bolso tote amplio con tachas decorativas. Ideal para el día a día.",
+          "img": "abril1.png",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 19700
+        },
+        {
+          "nombre": "Bolso Totebag",
+          "desc": "Tote bag forrado en su interior. Ideal para la facu.",
+          "img": "totebag1.png",
+          "colores": [
+            "Camel maíz"
+          ],
+          "precio": 16300
+        },
+        {
+          "nombre": "Clara",
+          "desc": "Cartera compacta con asa superior y correa bandolera con tachas.",
+          "img": "clara1.jpg",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 18600
+        },
+        {
+          "nombre": "Paz",
+          "desc": "Bandolera con correa estampada \"LOVE\" y cierre doble.",
+          "img": "paz1.png",
+          "colores": [
+            "Negro",
+            "Nude"
+          ],
+          "precio": 18500
+        }
+      ]
+    },
+    {
+      "id": "mochilas",
+      "titulo": "Mochilas",
+      "productos": [
+        {
+          "nombre": "Mochila Lola",
+          "desc": "Mochila elegante con solapa y cierre giratorio metálico.",
+          "img": "lola1.png",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 22700
+        },
+        {
+          "nombre": "Mochila Matera Puff",
+          "desc": "Mochila acolchada ideal para el mate. Estilo puffer.",
+          "img": "mochimatera.jpg",
+          "colores": [
+            "Negro brillante",
+            "Negro opaco"
+          ],
+          "precio": 14800
+        }
+      ]
+    },
+    {
+      "id": "bandoleras",
+      "titulo": "Bandoleras y Bolsos",
+      "productos": [
+        {
+          "nombre": "Lucía",
+          "desc": "Mini bolso portacelular con correa camuflada.",
+          "img": "lucia1.png",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 16100
+        },
+        {
+          "nombre": "Pechera Dama",
+          "desc": "Pechera cruzada con múltiples compartimentos.",
+          "img": "pechera.jpg",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 17100
+        },
+        {
+          "nombre": "Bandolera Romi Puff",
+          "desc": "Bandolera acolchada puffer con asa y correa.",
+          "img": "bandoleraromipuff.jpg",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 11600
+        },
+        {
+          "nombre": "Bandolera Luz",
+          "desc": "Bandolera con correa ancha estampada de estrellas.",
+          "img": "bandoleraluz.jpg",
+          "colores": [
+            "Negro",
+            "Azul marino"
+          ],
+          "precio": 12900
+        },
+        {
+          "nombre": "Bolsito Bolichero",
+          "desc": "Mini bolso bucket con cadena. Ideal para salidas nocturnas.",
+          "img": "bolsitobolichero.jpg",
+          "colores": [
+            "Croco plata"
+          ],
+          "precio": 14900
+        }
+      ]
+    },
+    {
+      "id": "accesorios",
+      "titulo": "Accesorios",
+      "productos": [
+        {
+          "nombre": "Luna (Portacelular)",
+          "desc": "Carterita portacelular con correa bandolera.",
+          "img": "lunas.jpg",
+          "colores": [
+            "Negro trenzado",
+            "Plata",
+            "Nude",
+            "Camel"
+          ],
+          "precio": 12600
+        },
+        {
+          "nombre": "Sobres",
+          "desc": "Sobre de mano elegante para eventos y salidas.",
+          "img": "sobres.jpg",
+          "colores": [
+            "Oro suave",
+            "Plata suave"
+          ],
+          "precio": 8800
+        },
+        {
+          "nombre": "Billeteras",
+          "desc": "Billeteras con diseños variados y cierre metálico.",
+          "img": "billeteras.jpg",
+          "colores": [
+            "Cuadros rosa",
+            "Plata quebrada",
+            "Estrellitas tornasol"
+          ],
+          "precio": 5900
+        },
+        {
+          "nombre": "Set Yerbera + Azucarera",
+          "desc": "Set impermeable de yerbera y azucarera. Ideal para el mate.",
+          "img": "setchaulataplateado.jpg",
+          "colores": [
+            "Plateado",
+            "Rosa"
+          ],
+          "precio": 9900
+        },
+        {
+          "nombre": "Lunchera",
+          "desc": "Lunchera infantil con diseños divertidos.",
+          "img": "lunchera.jpg",
+          "colores": [
+            "Hello Kitty",
+            "Barbie"
+          ],
+          "precio": 7500,
+          "badge": "Infantil"
+        },
+        {
+          "nombre": "Cartucheras de Neoprene",
+          "desc": "Cartucheras sublimadas con diseños variados. Solicitá catálogo de diseños.",
+          "img": "cartucheras.jpg",
+          "variantesPrecio": [
+            {
+              "label": "Medianas",
+              "precio": 4800
+            },
+            {
+              "label": "Grandes",
+              "precio": 7500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hombre",
+      "titulo": "Línea Hombre",
+      "productos": [
+        {
+          "nombre": "Pechera",
+          "nombreCarrito": "Pechera Hombre",
+          "desc": "Pechera cruzada en simil cuero para hombre.",
+          "img": "pecherahombre.jpg",
+          "colores": [
+            "Negro"
+          ],
+          "precio": 17100
+        },
+        {
+          "nombre": "Tabaquera",
+          "desc": "Tabaquera marca Septiembre con compartimentos internos y cierre.",
+          "img": "tabaquera1.jpg",
+          "colores": [
+            "Negro",
+            "Madera nobuk"
+          ],
+          "precio": 10300
+        },
+        {
+          "nombre": "Yerbera Nobuk",
+          "desc": "Yerbero con portabombilla. Marca Septiembre.",
+          "img": "yerberasnobuk.jpg",
+          "colores": [
+            "Gris",
+            "Avellana"
+          ],
+          "precio": 7300
+        },
+        {
+          "nombre": "Tarjeteros",
+          "desc": "Tarjetero compacto marca Septiembre con detalle tejido.",
+          "img": "tarjeteros.jpg",
+          "colores": [
+            "Marrón"
+          ],
+          "precio": 5200
+        },
+        {
+          "nombre": "Riñonera Adulto",
+          "desc": "Riñonera deportiva. Disponible lisa y con escudos de clubes.",
+          "img": "riñonera1.jpg",
+          "colores": [
+            "Negra lisa",
+            "Talleres",
+            "Belgrano",
+            "Boca",
+            "River"
+          ],
+          "precio": 8600
+        },
+        {
+          "nombre": "Bolso Deportivo",
+          "desc": "Bolso tamaño botinera con escudos de clubes y AFA.",
+          "img": "bolsodeportivo.jpg",
+          "colores": [
+            "AFA",
+            "Talleres",
+            "Belgrano",
+            "Boca",
+            "River"
+          ],
+          "precio": 11800
+        },
+        {
+          "nombre": "Bandolera Unisex",
+          "desc": "Bandolera compacta unisex.",
+          "img": "bandoleraunisex.jpg",
+          "colores": [
+            "Gris tierra",
+            "Stitch"
+          ],
+          "precio": 7900
+        }
+      ]
+    }
+  ]
+}
