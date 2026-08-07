@@ -1,0 +1,48 @@
+{
+  "seccion": "Accesorios para el Pelo",
+  "imgBase": "hebillas-img/",
+  "secciones": [
+    {
+      "id": "hebillas",
+      "titulo": "Hebillas y Accesorios",
+      "productos": [
+        {
+          "nombre": "Hebillas clásicas de adulto",
+          "desc": "Pack de 20 unidades surtidas. $1.550 c/u.",
+          "img": "broches.jpg",
+          "precio": 31000
+        },
+        {
+          "nombre": "Hebillas infantiles",
+          "desc": "20 blísters surtidos. $830 el par.",
+          "img": "hebinfantiles.jpeg",
+          "precio": 16600
+        },
+        {
+          "nombre": "Vinchas infantiles",
+          "desc": "10 unidades surtidas. $1.790 c/u.",
+          "img": "vinchasinfantiles.jpg",
+          "precio": 17900
+        },
+        {
+          "nombre": "Vinchas de fiesta",
+          "desc": "5 unidades surtidas. $2.900 c/u.",
+          "img": "fiesta.jpg",
+          "precio": 14500
+        },
+        {
+          "nombre": "Moños de gasa grandes",
+          "desc": "10 unidades surtidas. $1.080 c/u.",
+          "img": "monosgas.jpeg",
+          "precio": 10800
+        },
+        {
+          "nombre": "Scrunchis",
+          "desc": "10 unidades surtidas. $1.080 c/u.",
+          "img": "scrunch.jpeg",
+          "precio": 10800
+        }
+      ]
+    }
+  ]
+}

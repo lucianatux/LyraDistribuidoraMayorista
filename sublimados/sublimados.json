@@ -1,0 +1,72 @@
+{
+  "seccion": "Productos Sublimados",
+  "imgBase": "sublimados-img/",
+  "secciones": [
+    {
+      "id": "sublimados",
+      "titulo": "Sublimados",
+      "productos": [
+        {
+          "nombre": "Cartucheras",
+          "desc": "Cartuchera de neoprene sublimada, resistente y liviana. 23cm x 12cm.",
+          "img": "cartucheras.jpg",
+          "precio": 4800,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: Bluey, Frozen, Racing…"
+          }
+        },
+        {
+          "nombre": "Portacosméticos",
+          "desc": "Neceser sublimado ideal para maquillaje y accesorios. 19cm x 13cm.",
+          "img": "portacosmeticos.jpeg",
+          "precio": 4800,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: mariposas, flores…"
+          }
+        },
+        {
+          "nombre": "Luncheras",
+          "desc": "Lunchera sublimada con diseños divertidos. 18cm x 23cm.",
+          "img": "luncheras.jpg",
+          "precio": 6800,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: dinosaurios, princesas…"
+          }
+        },
+        {
+          "nombre": "Riñoneras infantiles",
+          "desc": "Riñonera infantil sublimada, cómoda y ajustable.",
+          "img": "rinoneras.jpeg",
+          "precio": 5900,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: superhéroes, autos…"
+          }
+        },
+        {
+          "nombre": "Bandoleras infantiles",
+          "desc": "Bandolera infantil sublimada con varios compartimentos. 21cm x 14cm x 7cm.",
+          "img": "bandoleras.jpeg",
+          "precio": 7800,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: unicornios, fútbol…"
+          }
+        },
+        {
+          "nombre": "Bolsillo para el auto",
+          "desc": "Organizador sublimado para colgar en el respaldo del auto. 21cm x 23cm.",
+          "img": "bolsilloauto.jpg",
+          "precio": 5200,
+          "textoLibre": {
+            "label": "Diseño a elección",
+            "placeholder": "Ej: paisaje, mándala…"
+          }
+        }
+      ]
+    }
+  ]
+}

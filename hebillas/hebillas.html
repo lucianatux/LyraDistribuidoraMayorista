@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catálogo de Carteras | Distribuidora Lyra</title>
+    <title>Accesorios para el Pelo | Distribuidora Lyra</title>
     <link rel="shortcut icon" href="../lyr4.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -23,7 +23,7 @@
             onerror="this.style.display = 'none'"
           />
           <span class="logo-text">LYRA</span>
-          <span class="header-subtitle">Catálogo de Carteras y Accesorios</span>
+          <span class="header-subtitle">Accesorios para el Pelo</span>
         </a>
         <div class="header-right">
           <a class="back-link" href="../index.html">← Volver</a>
@@ -36,14 +36,10 @@
 
     <!-- FILTERS -->
     <div class="filters-bar">
-      <h2>Nuestros modelos</h2>
+      <h2>Accesorios para el Pelo</h2>
       <div class="filter-pills">
         <button class="filter-pill active" data-filter="all">Todos</button>
-        <button class="filter-pill" data-filter="carteras">Carteras</button>
-        <button class="filter-pill" data-filter="mochilas">Mochilas</button>
-        <button class="filter-pill" data-filter="bandoleras">Bandoleras</button>
-        <button class="filter-pill" data-filter="accesorios">Accesorios</button>
-        <button class="filter-pill" data-filter="hombre">Línea Hombre</button>
+        <button class="filter-pill" data-filter="hebillas">Hebillas y Accesorios</button>
       </div>
     </div>
 
@@ -66,7 +62,7 @@
     <!-- Motor compartido: lee carteras.json y dibuja las tarjetas -->
     <script src="../catalogo.js"></script>
     <script>
-      Catalogo.init({ json: "carteras.json" });
+      Catalogo.init({ json: "hebillas.json" });
     </script>
   </body>
 </html>

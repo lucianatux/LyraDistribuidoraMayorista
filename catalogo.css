@@ -402,3 +402,28 @@ header {
   right: 1.5rem;
   z-index: 9999;
 }
+
+/* ── Texto libre opcional (ej. "Diseño a elección") ──────────
+   Control nuevo, estilado igual que .variant-select para
+   mantener coherencia visual con el resto de la tarjeta. */
+.free-text-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+}
+.free-text-input {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  background: var(--bg-main);
+}
+.free-text-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
