@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <title>Lyra Distribuidora Mayorista | Córdoba</title>
     <link rel="shortcut icon" href="lyr4.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
-      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
-      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
     />
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -29,307 +29,133 @@
       gtag("js", new Date());
       gtag("config", "G-LK3VW8R612");
     </script>
-    <title>Lyra Distribuidora</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
   </head>
+
   <body>
-    <!----------------------MENU---------------------->
-    <div id="menu">
-      <a class="item-menu" href="#home">
-        <img class="rubro-icon" src="./assets/house.png" alt="" />
-        <p class="rubro-title">Inicio</p>
-        <p class="rubro-title-small">Inicio</p>
-      </a>
-      <a class="item-menu" href="#promos">
-        <img class="rubro-icon" src="./assets/promo.png" alt="" />
-        <p class="rubro-title">Promociones</p>
-        <p class="rubro-title-small">Promos</p>
-      </a>
-      <a class="item-menu" href="#libreria">
-        <img class="rubro-icon" src="./assets/libreria.png" alt="" />
-        <p class="rubro-title">Librería y Juguetería</p>
-        <p class="rubro-title-small">Librería</p>
-      </a>
-      <a class="item-menu" href="#hebillas">
-        <img class="rubro-icon" src="./assets/pelo.png" alt="" />
-        <p class="rubro-title">Accesorios para el pelo</p>
-        <p class="rubro-title-small">Hebillas</p>
-      </a>
-      <a class="item-menu" href="#tinturas">
-        <img class="rubro-icon" src="./assets/tinturas.png" alt="" />
-        <p class="rubro-title">Tinturas y tratamientos</p>
-        <p class="rubro-title-small">Tinturas</p>
-      </a>
-      <a class="item-menu" href="#carteras">
-        <img class="rubro-icon" src="./assets/carteras.png" alt="" />
-        <p class="rubro-title">Carteras y afines</p>
-        <p class="rubro-title-small">Carteras</p>
-      </a>
-      <a class="item-menu" href="#sublimados">
-        <img class="rubro-icon" src="./assets/sublim.png" alt="" />
-        <p class="rubro-title">Sublimados</p>
-        <p class="rubro-title-small">Sublimados</p>
-      </a>
-      <a class="item-menu" href="https://wa.me/543512309375" target="_blank">
-        <img class="rubro-icon whats" src="./assets/whatsapp.png" alt="" />
-        <p class="rubro-title">Chat de whatsapp</p>
-      </a>
-    </div>
-
-    <div id="content">
-      <!----------------------HOME---------------------->
-      <section class="menu-section" id="home">
-        <div class="div-lyra">
-          <img class="logo invert" src="lyr2.png" alt="" id="logo" />
-          <div id="lyramayorista">
-            <span class="lyra">LYRA </span>
-            <p id="mayorista">Distribuidora mayorista</p>
+    <div class="page">
+      <!-- ==================== HERO ==================== -->
+      <section class="hero">
+        <div class="brand-band">
+          <div class="brand-lockup">
+            <img src="lyr2.png" alt="Lyra" onerror="this.style.display='none'" />
+            <span class="brand-name">LYRA</span>
+            <span class="brand-sub">Distribuidora mayorista</span>
           </div>
-          <div></div>
+          <a
+            class="brand-wa"
+            href="https://wa.me/543512309375"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
         </div>
+        <div class="collage-strip" aria-hidden="true"></div>
+      </section>
 
-        <div class="div-collage">
-          <img class="collage" src="./assets/collage2026.png" alt="" />
-          <img class="mirror" src="./assets/collage2026.png" alt="" />
-          <img class="collage2" src="./assets/collage2026.png" alt="" />
-          <img class="mirror2" src="./assets/collage2026.png" alt="" />
-          <!--<img class="collage" src="./assets/col3.png" alt="" />
-          <img class="mirror" src="./assets/col3.png" alt="" />
-          <img class="collage2" src="./assets/col3.png" alt="" />
-          <img class="mirror2" src="./assets/col3.png" alt="" />-->
-        </div>
+      <!-- ==================== NAV (dorada, responsive) ==================== -->
+      <header class="topnav">
+        <nav class="rubros" aria-label="Rubros">
+          <a class="rubro" href="/promos/">
+            <img src="./assets/promo.png" alt="" />
+            <span class="lbl">Promociones</span><span class="lbl-sm">Promos</span>
+          </a>
+          <a class="rubro" href="/libreria/">
+            <img src="./assets/libreria.png" alt="" />
+            <span class="lbl">Librería</span><span class="lbl-sm">Librería</span>
+          </a>
+          <a class="rubro" href="/jugueteria/">
+            <img src="./assets/jugueteria.png" alt="" />
+            <span class="lbl">Juguetería</span><span class="lbl-sm">Juguetes</span>
+          </a>
+          <a class="rubro" href="/hebillas/">
+            <img src="./assets/pelo.png" alt="" />
+            <span class="lbl">Accesorios pelo</span><span class="lbl-sm">Pelo</span>
+          </a>
+          <a class="rubro" href="/tinturas/">
+            <img src="./assets/tinturas.png" alt="" />
+            <span class="lbl">Tinturas</span><span class="lbl-sm">Tinturas</span>
+          </a>
+          <a class="rubro" href="/carteras/">
+            <img src="./assets/carteras.png" alt="" />
+            <span class="lbl">Carteras</span><span class="lbl-sm">Carteras</span>
+          </a>
+          <a class="rubro" href="/sublimados/">
+            <img src="./assets/sublim.png" alt="" />
+            <span class="lbl">Sublimados</span><span class="lbl-sm">Sublim.</span>
+          </a>
+        </nav>
+      </header>
 
-        <p class="slogan">Un universo de productos para tu negocio</p>
+      <p class="slogan">Un universo de productos para tu negocio</p>
 
-        <div class="icons-div" id="icons-div">
-          <div>
-            <a href="#promos"><img src="./assets/promo2.png" alt="" /></a>
+      <!-- ==================== CÓMO COMPRAR ==================== -->
+      <section class="howto">
+        <h2 class="section-title">Cómo comprar</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>Elegí el rubro</h3>
+            <p>Entrá al catálogo desde el menú y buscá tus productos.</p>
           </div>
-          <div>
-            <a href="#libreria"><img src="./assets/libreria2.png" alt="" /></a>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>Agregá al carrito</h3>
+            <p>Sumá lo que necesites con la cantidad que quieras.</p>
           </div>
-          <div>
-            <a href="#hebillas"><img src="./assets/pelo2.png" alt="" /></a>
-          </div>
-          <div>
-            <a href="#tinturas"><img src="./assets/tinturas2.png" alt="" /></a>
-          </div>
-          <div>
-            <a href="#carteras"><img src="./assets/carteras2.png" alt="" /></a>
-          </div>
-          <div>
-            <a href="#sublimados"><img src="./assets/sublim2.png" alt="" /></a>
+          <div class="step">
+            <div class="step-num"><i class="bi bi-whatsapp"></i></div>
+            <h3>Enviá tu pedido</h3>
+            <p>Confirmá por WhatsApp y coordinamos el envío.</p>
           </div>
         </div>
-        <div id="text-display"></div>
+      </section>
 
-        <!-- Modal del carrito -->
-        <div id="my-order">
-          <button type="button" id="close-form" class="close-btn">×</button>
-          <form id="order-form">
-            <div class="header-form">
-              <h5><span class="cart-icon">🛒</span> Carrito de compras</h5>
-              <button id="send-button" type="button" class="btn text-dark">
-                Enviar vía <i class="bi bi-whatsapp"></i>
-              </button>
-            </div>
-
-            <p class="form-elem">
-              Selecciona en nuestra página web los productos requeridos y
-              envíanos tu pedido.<br />
-              Muchas Gracias ♡ Distribuidora Lyra. Córdoba Capital
-            </p>
-
-            <div class="form-elem">
-              <label for="name">Nombre</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                name="name"
-                placeholder="Tu nombre"
-                required
-              />
-            </div>
-
-            <div id="message-order-list"></div>
-
-            <!-- Barra de mínimo de compra -->
-            <div id="minimum-bar" class="minimum-bar minimum-empty">
-              Mínimo de compra: <strong>$80.000</strong>
-            </div>
-
-            <div class="form-elem form-control" id="all-products-i-want"></div>
-
-            <div class="form-elem">
-              <textarea
-                class="form-control"
-                name="message"
-                id="message"
-                rows="4"
-                placeholder="Escribe aquí los comentarios que consideres necesarios"
-              ></textarea>
-            </div>
-          </form>
-        </div>
-
+      <!-- ==================== ENVÍO / MÍNIMO ==================== -->
+      <section class="delivery-wrap">
         <div class="delivery">
           <img
-            id="briseida"
-            class="car invert"
+            class="car"
             src="./assets/car1.png"
             alt=""
+            onerror="this.style.display='none'"
           />
           <p>
-            Te ahorramos tiempo y esfuerzo <br />
-            con nuestro servicio de envío a domicilio.<br />
+            Te ahorramos tiempo y esfuerzo con nuestro servicio de envío a
+            domicilio.
           </p>
-          <p>MÍNIMO DE COMPRA $80.000</p>
+          <p class="min">Mínimo de compra $80.000</p>
         </div>
       </section>
 
-      <!----------------------PROMOS---------------------->
-      <section class="menu-section" id="promos">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          PROMOCIONES
-          <img class="rubro-icon" src="./assets/promo.png" alt="" />
-        </h3>
-        <!-- Los productos se insertan acá por catalog.js -->
-        <div class="carousel-mount"></div>
-      </section>
-
-      <!----------------------LIBRERÍA---------------------->
-      <section class="menu-section" id="libreria">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          LIBRERÍA Y JUGUETERÍA
-          <img class="rubro-icon" src="./assets/libreria.png" alt="" />
-        </h3>
-        <div class="carousel-mount"></div>
-        <!-- Los catálogos se insertan acá por catalog.js -->
-        <div class="extras-mount"></div>
-      </section>
-
-      <!----------------------HEBILLAS---------------------->
-      <section class="menu-section" id="hebillas">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          HEBILLAS | ACCESORIOS PARA EL PELO
-          <img class="rubro-icon" src="./assets/pelo.png" alt="" />
-        </h3>
-        <div class="carousel-mount"></div>
-      </section>
-
-      <!----------------------TINTURAS---------------------->
-      <section class="menu-section" id="tinturas">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          TINTURAS Y TRATAMIENTOS
-          <img class="rubro-icon" src="./assets/tinturas.png" alt="" />
-        </h3>
-        <!-- Carta de tonos: generada por catalog.js -->
-        <div class="extras-mount"></div>
-        <div class="carousel-mount"></div>
-      </section>
-
-      <!----------------------CARTERAS---------------------->
-      <section class="menu-section" id="carteras">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          CARTERAS Y AFINES
-          <img class="rubro-icon" src="./assets/carteras.png" alt="" />
-        </h3>
-
-        <div class="catalogo-web-block">
-          <div class="catalogo-web-inner">
-            <div class="catalogo-web-text">
-              <h4>Explorá nuestro catálogo de carteras</h4>
-              <p>
-                Carteras, mochilas, bandoleras, accesorios y línea hombre.<br />
-                Stock disponible · Precios por mayor ·
-                <strong>Pedí directo desde el catálogo.</strong>
-              </p>
-              <a href="/carteras/" class="catalogo-web-btn">
-                Ver catálogo completo →
-              </a>
-            </div>
-            <div class="catalogo-web-preview">
-              <div class="preview-cards">
-                <div class="preview-card">
-                  <div class="preview-icon">👜</div>
-                  <span>Carteras</span>
-                </div>
-                <div class="preview-card">
-                  <div class="preview-icon">🎒</div>
-                  <span>Mochilas</span>
-                </div>
-                <div class="preview-card">
-                  <div class="preview-icon">👝</div>
-                  <span>Bandoleras</span>
-                </div>
-                <div class="preview-card">
-                  <div class="preview-icon">👔</div>
-                  <span>Hombre</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!----------------------SUBLIMADOS---------------------->
-      <section class="menu-section" id="sublimados">
-        <hr class="m-5" />
-        <h3 class="text-center m-5">
-          PRODUCTOS SUBLIMADOS
-          <img class="rubro-icon" src="./assets/sublim.png" alt="" />
-        </h3>
-        <div class="carousel-mount"></div>
-        <!-- PDF catálogo sublimados: generado por catalog.js -->
-        <div class="extras-mount"></div>
-      </section>
-
-      <!----------------------FOOTER---------------------->
+      <!-- ==================== FOOTER ==================== -->
       <footer>
-        <div class="footer-div">
-          <div>
-            <img class="logo invert" src="lyr2.png" alt="" />
-            <p class="fs-5 m-2"><span class="lyra">LYRA </span>Distribuidora</p>
-          </div>
-          <div>
-            <p>&copy; 2026 Lyra. Todos los derechos reservados.</p>
-            <p>Córdoba Capital, Argentina</p>
-            <div id="iconos">
-              <a href="https://wa.me/543512309375" target="_blank">
-                <i class="bi bi-whatsapp"></i>
-              </a>
-              <a
-                href="https://www.instagram.com/lyra_distribuidora/"
-                target="_blank"
-              >
-                <i class="bi bi-instagram"></i>
-              </a>
-              <a
-                href="https://www.facebook.com/profile.php?id=100064069295797"
-                target="_blank"
-              >
-                <i class="bi bi-facebook"></i>
-              </a>
-            </div>
-          </div>
+        <div class="footer-brand"><span>LYRA</span> Distribuidora</div>
+        <div class="socials">
+          <a href="https://wa.me/543512309375" target="_blank" rel="noopener"
+            ><i class="bi bi-whatsapp"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/lyra_distribuidora/"
+            target="_blank"
+            rel="noopener"
+            ><i class="bi bi-instagram"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100064069295797"
+            target="_blank"
+            rel="noopener"
+            ><i class="bi bi-facebook"></i
+          ></a>
         </div>
+        <p class="fine">© 2026 Lyra · Córdoba Capital, Argentina</p>
       </footer>
     </div>
-    <!-- /content -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- type="module" habilita ES6 imports nativos -->
-    <script type="module" src="script.js"></script>
+    <!-- Carrito unificado (botón flotante) -->
     <script src="./lyra-cart-widget.js"></script>
   </body>
 </html>
