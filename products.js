@@ -20,7 +20,7 @@ export const CATEGORIAS = {
       // Podés sumar más catálogos web agregando objetos a este array.
       catalogoWeb: [
         {
-          url: "./libreria/libreria.html",
+          url: "./libreria/",
           titulo: "Catálogo completo de Librería",
           descripcion:
             "Explorá nuestro catálogo online de librería. Buscá por nombre, filtrá por precio y agregá directo al carrito.",
@@ -33,7 +33,7 @@ export const CATEGORIAS = {
           ],
         },
         {
-          url: "./jugueteria/jugueteria.html",
+          url: "./jugueteria/",
           titulo: "Catálogo completo de Juguetería",
           descripcion:
             "Juegos, muñecas, autos, rompecabezas, cotillón y mucho más. Precios por mayor, pedí directo desde el catálogo.",
