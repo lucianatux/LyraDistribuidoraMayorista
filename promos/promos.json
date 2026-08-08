@@ -1,0 +1,72 @@
+{
+  "seccion": "Promociones",
+  "imgBase": "promos-img/",
+  "secciones": [
+    {
+      "id": "promos",
+      "titulo": "Promociones",
+      "productos": [
+        {
+          "nombre": "PROMO CARTULINAS",
+          "desc": "100 cartulinas · 20 colores a elección · 5 unidades por color.",
+          "img": "cartu.jpeg",
+          "precio": 46900
+        },
+        {
+          "nombre": "PROMO BOLSAS",
+          "desc": "70 bolsas · 5 de cada tamaño y estilo + 20 de cotillón.",
+          "img": "bolsas.jpeg",
+          "precio": 35900
+        },
+        {
+          "nombre": "PROMO LIBRITOS PARA COLOREAR",
+          "desc": "50 libritos surtidos para colorear.",
+          "img": "libritos.jpg",
+          "precio": 18390
+        },
+        {
+          "nombre": "PROMO PAPEL AFICHE",
+          "desc": "50 papeles afiche de color · 5 colores a elección · 10 unidades por color.",
+          "img": "papelafiche.jpg",
+          "precio": 38900
+        },
+        {
+          "nombre": "PROMO PAPEL DE REGALO",
+          "desc": "50 papeles de regalo surtidos.",
+          "img": "papelderegalo.jpg",
+          "precio": 39900
+        },
+        {
+          "nombre": "PROMO PAPEL CREPÉ",
+          "desc": "50 unidades · 5 colores · 10 unidades por color.",
+          "img": "crepe2.jpg",
+          "precio": 32900
+        },
+        {
+          "nombre": "PROMO ACCESORIOS PELO",
+          "desc": "10 vinchas infantiles · 10 scrunchis · 10 moños de gasa.",
+          "img": "vinchas.jpeg",
+          "precio": 36900
+        },
+        {
+          "nombre": "PROMO ACCESORIOS PELO 2",
+          "desc": "30 hebillas infantiles · 30 hebillas de adulto.",
+          "img": "hebillas3.jpg",
+          "precio": 66900
+        },
+        {
+          "nombre": "PROMO CARTUCHERAS",
+          "desc": "10 cartucheras de neoprene sublimadas · diseños a elección.",
+          "img": "cartus.jpg",
+          "precio": 55600
+        },
+        {
+          "nombre": "PROMO TINTURAS",
+          "desc": "20 kits EstereoColor · 10 Funky surtidas.",
+          "img": "kit.jpg",
+          "precio": 66300
+        }
+      ]
+    }
+  ]
+}
