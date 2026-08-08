@@ -1,0 +1,76 @@
+{
+  "seccion": "Tinturas y Tratamientos",
+  "imgBase": "tinturas-img/",
+  "secciones": [
+    {
+      "id": "tinturas",
+      "titulo": "Tinturas y Tratamientos",
+      "productos": [
+        {
+          "nombre": "Kit EstereoColor",
+          "desc": "Tintura + oxidante + guantes + post-coloración.",
+          "img": "kit.jpg",
+          "precio": 2990,
+          "textoLibre": {
+            "label": "Tono deseado",
+            "placeholder": "Ej: 6.0, 7.3, negro…"
+          }
+        },
+        {
+          "nombre": "Sachet EstereoColor",
+          "desc": "Tintura + oxidante.",
+          "img": "sachet.jpg",
+          "colores": [
+            "tono 93",
+            "tono 562"
+          ],
+          "precio": 2020
+        },
+        {
+          "nombre": "Funky color",
+          "desc": "Tintura semipermanente. Dura 12 lavados.",
+          "img": "funky4.jpg",
+          "precio": 2020,
+          "textoLibre": {
+            "label": "Color deseado",
+            "placeholder": "Ej: rojo, azul, violeta…"
+          }
+        },
+        {
+          "nombre": "Funky neón",
+          "desc": "Tintura semipermanente.",
+          "img": "funkyneon.jpg",
+          "colores": [
+            "amarillo neón",
+            "fucsia neón",
+            "verde neón",
+            "naranja neón"
+          ],
+          "precio": 2020
+        },
+        {
+          "nombre": "Shock capilar",
+          "desc": "47 gr. Tratamientos disponibles: argán, keratina, macadamia, coco, bótox, colágeno, blindaje, minuto express, rubios luminosos, carbón detox, oro 24k, silver y co-wash.",
+          "img": "shock.jpg",
+          "precio": 1990,
+          "textoLibre": {
+            "label": "Tratamiento deseado",
+            "placeholder": "Ej: keratina, bótox…"
+          }
+        },
+        {
+          "nombre": "Óleo capilar",
+          "desc": "Óleo capilar nutritivo.",
+          "img": "oleo.jpg",
+          "colores": [
+            "argán",
+            "macadamia",
+            "coco",
+            "almendras"
+          ],
+          "precio": 7100
+        }
+      ]
+    }
+  ]
+}

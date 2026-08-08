@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos Sublimados | Distribuidora Lyra</title>
+    <title>Tinturas y Tratamientos | Distribuidora Lyra</title>
     <link rel="shortcut icon" href="../lyr4.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -23,7 +23,7 @@
             onerror="this.style.display = 'none'"
           />
           <span class="logo-text">LYRA</span>
-          <span class="header-subtitle">Productos Sublimados</span>
+          <span class="header-subtitle">Tinturas y Tratamientos</span>
         </a>
         <div class="header-right">
           <a class="back-link" href="../index.html">← Volver</a>
@@ -33,13 +33,15 @@
         </div>
       </div>
     </header>
-
+    <!-- INDEX.HTML DENTRO DE LA CARPETA TINTURAS -->
     <!-- FILTERS -->
     <div class="filters-bar">
-      <h2>Productos Sublimados</h2>
+      <h2>Tinturas y Tratamientos</h2>
       <div class="filter-pills">
         <button class="filter-pill active" data-filter="all">Todos</button>
-        <button class="filter-pill" data-filter="sublimados">Sublimados</button>
+        <button class="filter-pill" data-filter="tinturas">
+          Tinturas y Tratamientos
+        </button>
       </div>
     </div>
 
@@ -62,7 +64,7 @@
     <!-- Motor compartido: lee carteras.json y dibuja las tarjetas -->
     <script src="../catalogo.js"></script>
     <script>
-      Catalogo.init({ json: "sublimados.json" });
+      Catalogo.init({ json: "tinturas.json" });
     </script>
   </body>
 </html>
