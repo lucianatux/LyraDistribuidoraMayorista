@@ -43,7 +43,7 @@ img {
    ============================================================ */
 .brand-band {
   background: var(--second-color);
-  color: #fff;
+  color: #eef;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -76,7 +76,7 @@ img {
   align-items: center;
   gap: 8px;
   background: #2cab5b;
-  color: #fff;
+  color: #eef;
   font-family: "Instrument Sans", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -303,7 +303,7 @@ img {
 }
 .info-panel {
   background: var(--second-color);
-  color: #fff;
+  color: #eef;
   border-radius: 16px;
   padding: 22px 30px;
   display: flex;
@@ -319,7 +319,7 @@ img {
 }
 .info-item i {
   font-size: 30px;
-  color: #fff;
+  color: #eef;
 }
 .info-item .it-title {
   font-family: "Instrument Sans", sans-serif;
@@ -382,7 +382,7 @@ footer {
 .footer-brand {
   font-family: "Aclonica", sans-serif;
   font-size: 20px;
-  color: #fff;
+  color: #eef;
   margin-bottom: 6px;
 }
 .footer-brand span {
@@ -398,7 +398,7 @@ footer {
   display: inline-block;
 }
 .socials a:hover {
-  color: #fff;
+  color: #eef;
 }
 footer .fine {
   font-size: 13px;
@@ -427,9 +427,10 @@ footer .fine {
     gap: 2px;
     padding: 8px 2px;
     font-size: 12px;
-    border-radius: 50%;
+    border-radius: 10px;
     text-align: center;
-    background: rgba(10, 10, 10, 0.126); /* antes: transparent */
+    margin: 0 8px;
+    background: rgba(10, 10, 10, 0.126);
   }
   .rubro:hover {
     transform: none;
@@ -445,9 +446,20 @@ footer .fine {
     background: var(--first-color-hover);
   }
   .brand-band {
+    flex-direction: column;
     justify-content: center;
-    padding: 12px 14px;
+    gap: 10px;
+    padding: 18px 14px;
   }
+  .brand-name {
+    font-size: 30px; /* estaba 24px, lo agrandamos de nuevo */
+  }
+  .brand-sub {
+    font-size: 15px; /* estaba 14px pero se veía chico por el layout */
+    width: 100%;
+    text-align: center;
+  }
+
   .brand-lockup {
     justify-content: center;
   }
@@ -460,9 +472,6 @@ footer .fine {
   .page {
     margin-left: var(--nav-w);
   }
-  .brand-name {
-    font-size: 24px;
-  }
   .collage-strip {
     height: 120px;
   }
@@ -471,6 +480,15 @@ footer .fine {
   }
   .collage-strip img {
     width: 50%;
+  }
+  .brand-wa {
+    font-size: 13px;
+    padding: 6px 16px 6px 6px;
+  }
+  .brand-wa i {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
   }
 }
 
@@ -498,9 +516,5 @@ footer .fine {
 @media (max-width: 420px) {
   .rubro {
     font-size: 12px;
-  }
-  .brand-sub {
-    width: 100%;
-    text-align: center;
   }
 }

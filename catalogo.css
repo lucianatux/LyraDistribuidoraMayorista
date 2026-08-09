@@ -7,23 +7,22 @@
    ============================================================ */
 
 :root {
-  --bg-main: #faf7f2;
-  --bg-card: #ffffff;
-  --bg-hero: #1a1a1a;
-  --text-primary: #1a1a1a;
-  --text-secondary: #6b6560;
-  --text-light: #9b9590;
-  --accent: #c4956a;
-  --accent-hover: #b0845d;
-  --accent-soft: #ede4da;
-  --border: #e8e2da;
+  --bg-main: #f5f5f2;
+  --bg-card: #eeffff;
+  --bg-hero: #3f464f;
+  --text-primary: #22303a;
+  --text-secondary: #6b7680;
+  --text-light: #9aa2a9;
+  --accent: #75aadb;
+  --accent-hover: #608bc7;
+  --accent-soft: #e8f1fa;
+  --border: #dfe6e6;
   --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.06);
   --shadow-md: 0 8px 30px rgba(26, 26, 26, 0.08);
   --shadow-lg: 0 20px 60px rgba(26, 26, 26, 0.12);
   --radius: 12px;
   --font-body: "DM Sans", -apple-system, sans-serif;
 }
-
 *,
 *::before,
 *::after {
@@ -47,7 +46,7 @@ body {
 /* === HEADER (same as /libreria/) === */
 header {
   background: var(--bg-hero);
-  color: #fff;
+  color: #eef;
   padding: 0 24px;
   position: sticky;
   top: 0;
@@ -67,7 +66,7 @@ header {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #fff;
+  color: #eef;
 }
 .logo-img {
   width: 36px;
@@ -77,7 +76,7 @@ header {
 .logo-text {
   font-family: "Aclonica", sans-serif;
   font-size: 22px;
-  color: #fff;
+  color: #eef;
   letter-spacing: 0.5px;
 }
 .header-subtitle {
@@ -103,14 +102,14 @@ header {
   transition: color 0.15s;
 }
 .header-right a:hover {
-  color: #fff;
+  color: #eef;
 }
 .back-link {
   font-size: 12px;
 }
 .wa-btn {
   background: #25d366;
-  color: #fff !important;
+  color: #eef !important;
   padding: 6px 14px;
   border-radius: 6px;
   font-weight: 600;
@@ -160,7 +159,7 @@ header {
 .filter-pill.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: #eef;
 }
 
 /* === GRID === */
@@ -247,7 +246,7 @@ header {
   top: 0.75rem;
   left: 0.75rem;
   background: var(--accent);
-  color: #fff;
+  color: #eef;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -336,7 +335,7 @@ header {
   border-radius: 8px;
   border: none;
   background: var(--text-primary);
-  color: #fff;
+  color: #eef;
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
@@ -375,7 +374,7 @@ header {
 .site-footer .footer-brand {
   font-family: "Instrument Sans", var(--font-body);
   font-size: 1.2rem;
-  color: #fff;
+  color: #eef;
   margin-bottom: 0.5rem;
 }
 
