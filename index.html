@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
     />
 
     <!-- Google tag (gtag.js) -->
@@ -31,7 +31,6 @@
     </script>
 
     <link rel="stylesheet" href="styles.css" />
-
   </head>
 
   <body>
@@ -40,9 +39,13 @@
       <section class="hero">
         <div class="brand-band">
           <div class="brand-lockup">
-            <img src="lyr2.png" alt="Lyra" onerror="this.style.display='none'" />
+            <img
+              src="lyr2.png"
+              alt="Lyra"
+              onerror="this.style.display = 'none'"
+            />
             <span class="brand-name">LYRA</span>
-            <span class="brand-sub">Distribuidora mayorista</span>
+            <span class="brand-sub">Distribuidora Mayorista</span>
           </div>
           <a
             class="brand-wa"
@@ -53,7 +56,12 @@
             <i class="bi bi-whatsapp"></i> WhatsApp
           </a>
         </div>
-        <div class="collage-strip" aria-hidden="true"></div>
+        <div class="collage-strip" aria-hidden="true">
+          <img src="./assets/collage2026.png" alt="" />
+          <img src="./assets/collage2026.png" alt="" class="mir" />
+          <img src="./assets/collage2026.png" alt="" class="c2" />
+          <img src="./assets/collage2026.png" alt="" class="mir c2" />
+        </div>
       </section>
 
       <!-- ==================== NAV (dorada, responsive) ==================== -->
@@ -61,31 +69,38 @@
         <nav class="rubros" aria-label="Rubros">
           <a class="rubro" href="/promos/">
             <img src="./assets/promo.png" alt="" />
-            <span class="lbl">Promociones</span><span class="lbl-sm">Promos</span>
+            <span class="lbl">Promociones</span
+            ><span class="lbl-sm">Promos</span>
           </a>
           <a class="rubro" href="/libreria/">
             <img src="./assets/libreria.png" alt="" />
-            <span class="lbl">Librería</span><span class="lbl-sm">Librería</span>
+            <span class="lbl">Librería</span
+            ><span class="lbl-sm">Librería</span>
           </a>
           <a class="rubro" href="/jugueteria/">
             <img src="./assets/jugueteria.png" alt="" />
-            <span class="lbl">Juguetería</span><span class="lbl-sm">Juguetes</span>
+            <span class="lbl">Juguetería</span
+            ><span class="lbl-sm">Juguetes</span>
           </a>
           <a class="rubro" href="/hebillas/">
             <img src="./assets/pelo.png" alt="" />
-            <span class="lbl">Accesorios pelo</span><span class="lbl-sm">Pelo</span>
+            <span class="lbl">Accesorios pelo</span
+            ><span class="lbl-sm">Pelo</span>
           </a>
           <a class="rubro" href="/tinturas/">
             <img src="./assets/tinturas.png" alt="" />
-            <span class="lbl">Tinturas</span><span class="lbl-sm">Tinturas</span>
+            <span class="lbl">Tinturas</span
+            ><span class="lbl-sm">Tinturas</span>
           </a>
           <a class="rubro" href="/carteras/">
             <img src="./assets/carteras.png" alt="" />
-            <span class="lbl">Carteras</span><span class="lbl-sm">Carteras</span>
+            <span class="lbl">Carteras</span
+            ><span class="lbl-sm">Carteras</span>
           </a>
           <a class="rubro" href="/sublimados/">
             <img src="./assets/sublim.png" alt="" />
-            <span class="lbl">Sublimados</span><span class="lbl-sm">Sublim.</span>
+            <span class="lbl">Sublimados</span
+            ><span class="lbl-sm">Sublim.</span>
           </a>
         </nav>
       </header>
@@ -98,36 +113,83 @@
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
+            <div class="step-icon"><i class="bi bi-search"></i></div>
             <h3>Elegí el rubro</h3>
             <p>Entrá al catálogo desde el menú y buscá tus productos.</p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
+            <div class="step-icon"><i class="bi bi-cart"></i></div>
             <h3>Agregá al carrito</h3>
             <p>Sumá lo que necesites con la cantidad que quieras.</p>
           </div>
           <div class="step">
-            <div class="step-num"><i class="bi bi-whatsapp"></i></div>
+            <div class="step-num">3</div>
+            <div class="step-icon"><i class="bi bi-whatsapp"></i></div>
             <h3>Enviá tu pedido</h3>
             <p>Confirmá por WhatsApp y coordinamos el envío.</p>
           </div>
         </div>
       </section>
 
-      <!-- ==================== ENVÍO / MÍNIMO ==================== -->
-      <section class="delivery-wrap">
-        <div class="delivery">
-          <img
-            class="car"
-            src="./assets/car1.png"
-            alt=""
-            onerror="this.style.display='none'"
-          />
-          <p>
-            Te ahorramos tiempo y esfuerzo con nuestro servicio de envío a
-            domicilio.
-          </p>
-          <p class="min">Mínimo de compra $80.000</p>
+      <!-- ==================== PANEL ENVÍO / MÍNIMO / RETIRO ==================== -->
+      <section class="info-panel-wrap">
+        <div class="info-panel">
+          <div class="info-item">
+            <i class="bi bi-truck"></i>
+            <div>
+              <div class="it-title">Envío a domicilio</div>
+              <div class="it-sub">Coordinamos la entrega</div>
+            </div>
+          </div>
+          <div class="info-sep" aria-hidden="true"></div>
+          <div class="info-item">
+            <i class="bi bi-bag-check"></i>
+            <div>
+              <div class="it-title">Mínimo de compra</div>
+              <div class="it-sub">$80.000</div>
+            </div>
+          </div>
+          <div class="info-sep" aria-hidden="true"></div>
+          <div class="info-item">
+            <i class="bi bi-geo-alt"></i>
+            <div>
+              <div class="it-title">Córdoba Capital</div>
+              <div class="it-sub">Consultá zonas y costos</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BENEFICIOS (copy a revisar) ==================== -->
+      <section class="trust">
+        <div class="trust-item">
+          <i class="bi bi-tags"></i>
+          <div>
+            <h4>Precios mayoristas</h4>
+            <p>Los mejores precios para tu negocio.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-patch-check"></i>
+          <div>
+            <h4>Productos de calidad</h4>
+            <p>Trabajamos con marcas reconocidas.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-headset"></i>
+          <div>
+            <h4>Atención personalizada</h4>
+            <p>Te ayudamos con lo que necesites.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <i class="bi bi-whatsapp"></i>
+          <div>
+            <h4>Pedí por WhatsApp</h4>
+            <p>Rápido, directo y sin vueltas.</p>
+          </div>
         </div>
       </section>
 

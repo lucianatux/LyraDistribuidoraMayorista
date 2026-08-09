@@ -1,16 +1,19 @@
 /* ============================================================
    styles.css — Estilos de la HOME de Lyra
    (los catálogos usan catalogo.css; esta hoja es solo la home)
+   Paleta: second-color + dorado + crema.
    ============================================================ */
 
 :root {
-  --gold: #f0b913;
-  --gold-hover: #dba800;
-  --slate: #3d444c;
-  --slate-2: #4a525a;
-  --ink: #1a1815;
-  --line: #e7e2d8;
-  --nav-w: 62px; /* ancho de la sidebar en celular */
+  --second-color: #3f464f; /*ex navy*/
+  --heading: #12497d;
+  --first-color: #75aadb; /* ex gold*/
+  --first-color-hover: #608bc7; /*ex gold-hover*/
+  --cream: #f5f5f2;
+  --line: #dfe6e6;
+  --card: #c1cedf;
+  --muted: #6b7680; /* texto de descripciones */
+  --nav-w: 82px; /* ancho de la sidebar en celular */
 }
 
 * {
@@ -21,10 +24,8 @@
 
 body {
   font-family: "DM Sans", system-ui, Arial, sans-serif;
-  color: var(--ink);
-  background: #eae9e2;
-  /*background: #ffffff url("./assets/fondocolor.png") center / cover fixed
-    no-repeat;*/
+  color: var(--heading);
+  background: var(--cream);
   line-height: 1.6;
 }
 
@@ -38,76 +39,16 @@ img {
 }
 
 /* ============================================================
-   NAV — barra dorada.
-   Escritorio (>868px): barra fina arriba, horizontal.
-   Celular (<=868px): sidebar delgada a la izquierda.
-   ============================================================ */
-.topnav {
-  background: var(--gold);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.rubros {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
-  gap: 2px;
-  padding: 6px 8px;
-  max-width: 1240px;
-  margin: 0 auto;
-}
-.rubro {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  font-family: "Instrument Sans", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink);
-  border-radius: 6px;
-  white-space: nowrap;
-  transition: background 0.15s;
-}
-.rubro img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-}
-.rubro:hover {
-  background: var(--line);
-}
-.rubro:focus-visible {
-  outline: 2px solid var(--slate);
-  outline-offset: -2px;
-}
-.rubro.is-active {
-  font-weight: 500;
-  border-radius: 0;
-  box-shadow: inset 0 -3px 0 var(--slate);
-}
-.lbl-sm {
-  display: none;
-}
-
-/* Contenido: en celular deja lugar a la sidebar */
-.page {
-  margin-left: 0;
-}
-
-/* ============================================================
-   HERO
+   HERO (container LYRA)
    ============================================================ */
 .brand-band {
-  background: var(--slate);
+  background: var(--second-color);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px 20px;
-  padding: 14px 22px;
+  padding: 16px 26px;
   flex-wrap: wrap;
 }
 .brand-lockup {
@@ -121,23 +62,6 @@ img {
   height: auto;
   filter: invert(1);
 }
-.brand-wa {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #25d366;
-  color: #0b3d1e;
-  font-family: "Instrument Sans", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 8px;
-  white-space: nowrap;
-  transition: background 0.15s;
-}
-.brand-wa:hover {
-  background: #20bd5a;
-}
 .brand-name {
   font-family: "Aclonica", sans-serif;
   font-size: 30px;
@@ -147,122 +71,310 @@ img {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.72);
 }
-
-.collage-strip {
-  height: 84px;
-  background: url("./assets/collage2026.png") center / cover repeat-x;
-  opacity: 0.4;
+.brand-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2cab5b;
+  color: #fff;
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 7px 18px 7px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.brand-wa i {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ededed;
+  color: #24994f;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.brand-wa:hover {
+  background: #248a49;
+  transform: translateY(-1px);
+}
+.brand-wa:focus {
+  outline: none;
 }
 
+/* ============================================================
+   COLLAGE
+   ============================================================ */
+
+.collage-strip {
+  display: flex;
+  height: 120px;
+  overflow: hidden;
+  opacity: 0.8;
+  filter: brightness(0.85);
+}
+.collage-strip img {
+  width: 25%;
+  height: 100%;
+  object-fit: cover; /* recorta, no deforma */
+}
+.collage-strip .mir {
+  transform: scaleX(-1);
+}
+
+/* ============================================================
+   NAV — barra dorada.
+   Escritorio (>868px): barra fina arriba, horizontal.
+   Celular (<=868px): sidebar delgada a la izquierda.
+   ============================================================ */
+.topnav {
+  background: var(--first-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.rubros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.rubro {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  font-family: "Instrument Sans", sans-serif;
+  font-size: 14px;
+  color: var(--cream);
+  background: rgba(10, 10, 10, 0.215);
+  border-radius: 9px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+.rubro img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  filter: invert(1);
+}
+.rubro:hover {
+  background: var(--second-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 13px rgba(23, 48, 63, 0.2);
+}
+.rubro:focus-visible {
+  outline: 2px solid var(--second-color);
+  outline-offset: -2px;
+}
+.rubro.is-active {
+  border-radius: 0;
+  box-shadow: inset 0 -3px 0 var(--second-color);
+}
+.lbl-sm {
+  display: none;
+}
+
+/* Contenido: en celular deja lugar a la sidebar */
+.page {
+  margin-left: 0;
+}
+
+/* ============================================================
+   SLOGAN
+   ============================================================ */
 .slogan {
   font-family: "Instrument Sans", sans-serif;
-  font-size: clamp(1.3rem, 3.5vw, 2rem);
-  font-weight: 500;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 700;
   text-align: center;
-  color: var(--ink);
-  padding: 34px 20px 10px;
+  color: var(--heading);
+  padding: 40px 20px 0;
+}
+.slogan::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--first-color);
+  margin: 16px auto 0;
 }
 
 /* ============================================================
    CÓMO COMPRAR
    ============================================================ */
 .section-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 500;
-  text-align: center;
-  color: var(--slate);
-  margin-bottom: 18px;
+  color: var(--heading);
+  margin-bottom: 22px;
+}
+.section-title::before,
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: var(--line);
 }
 .howto {
-  max-width: 900px;
-  margin: 24px auto 0;
+  max-width: 940px;
+  margin: 34px auto 0;
   padding: 0 20px;
 }
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 .step {
-  background: var(--slate);
-  color: var(--line);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px 16px;
+  border-radius: 14px;
+  padding: 24px 18px;
   text-align: center;
+  box-shadow: 0 10px 28px rgba(23, 48, 63, 0.1);
 }
 .step-num {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--gold);
-  color: var(--ink);
+  background: var(--first-color);
+  color: var(--second-color);
   font-family: "Instrument Sans", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 12px;
+  margin: 0 auto;
+}
+.step-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #eef1f2;
+  color: var(--second-color);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px auto 16px;
 }
 .step h3 {
   font-family: "Instrument Sans", sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading);
   margin-bottom: 4px;
 }
 .step p {
   font-size: 13px;
-  color: var(--line);
+  color: var(--muted);
 }
-.step .bi-whatsapp {
+.step-icon .bi-whatsapp {
   color: #25d366;
 }
 
 /* ============================================================
-   ENVÍO / MÍNIMO
+   PANEL ENVÍO / MÍNIMO / RETIRO
    ============================================================ */
-.delivery-wrap {
-  display: flex;
-  justify-content: center;
-  padding: 34px 20px 44px;
+.info-panel-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 36px 20px 10px;
 }
-.delivery {
-  background: var(--slate);
+.info-panel {
+  background: var(--second-color);
   color: #fff;
-  border-radius: 14px;
-  padding: 24px 28px;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
+  border-radius: 16px;
+  padding: 22px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px 44px;
 }
-.delivery .car {
-  width: 64px;
-  margin: 0 auto 8px;
-  filter: invert(1);
-  transition: transform 0.6s ease-in-out;
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-.delivery:hover .car {
-  transform: translateX(24px);
+.info-item i {
+  font-size: 30px;
+  color: #fff;
 }
-.delivery p {
-  font-size: 15px;
-}
-.delivery .min {
+.info-item .it-title {
   font-family: "Instrument Sans", sans-serif;
   font-weight: 600;
-  font-size: 18px;
-  color: var(--gold);
-  margin-top: 10px;
+  font-size: 15px;
+}
+.info-item .it-sub {
+  font-size: 13px;
+  color: var(--first-color);
+}
+.info-sep {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ============================================================
+   BENEFICIOS
+   ============================================================ */
+.trust {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px 54px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+.trust-item i {
+  font-size: 26px;
+  color: var(--second-color);
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+.trust-item h4 {
+  font-family: "Instrument Sans", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--heading);
+  margin-bottom: 2px;
+}
+.trust-item p {
+  font-size: 12.5px;
+  color: var(--muted);
 }
 
 /* ============================================================
    FOOTER
    ============================================================ */
 footer {
-  background: var(--slate);
+  background: var(--second-color);
   color: rgba(255, 255, 255, 0.75);
   text-align: center;
   padding: 34px 20px;
@@ -274,14 +386,14 @@ footer {
   margin-bottom: 6px;
 }
 .footer-brand span {
-  color: var(--gold);
+  color: var(--first-color);
 }
 .socials {
   margin: 10px 0;
 }
 .socials a {
   font-size: 24px;
-  color: var(--gold);
+  color: var(--first-color);
   margin: 0 8px;
   display: inline-block;
 }
@@ -307,24 +419,30 @@ footer .fine {
   .rubros {
     flex-direction: column;
     flex-wrap: nowrap;
-    gap: 0;
-    padding: 6px 0;
+    gap: 10px;
+    padding: 8px 0;
   }
   .rubro {
     flex-direction: column;
     gap: 2px;
     padding: 8px 2px;
-    font-size: 9px;
-    border-radius: 0;
+    font-size: 12px;
+    border-radius: 50%;
     text-align: center;
+    background: rgba(10, 10, 10, 0.126); /* antes: transparent */
+  }
+  .rubro:hover {
+    transform: none;
+    box-shadow: none;
+    background: var(--first-color-hover);
   }
   .rubro img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
   .rubro.is-active {
-    box-shadow: inset 3px 0 0 var(--slate);
-    background: var(--gold-hover);
+    box-shadow: inset 3px 0 0 var(--second-color);
+    background: var(--first-color-hover);
   }
   .brand-band {
     justify-content: center;
@@ -346,22 +464,43 @@ footer .fine {
     font-size: 24px;
   }
   .collage-strip {
-    height: 60px;
+    height: 120px;
+  }
+  .collage-strip .c2 {
+    display: none; /* oculta la 3ª y 4ª → quedan 2 */
+  }
+  .collage-strip img {
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .info-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .info-sep {
+    display: none;
+  }
+  .section-title::before,
+  .section-title::after {
+    width: 32px;
+  }
+  .collage-strip .mir {
+    display: none; /* oculta la 2ª → queda 1 */
+  }
+  .collage-strip img {
+    width: 100%;
   }
 }
 
 @media (max-width: 420px) {
   .rubro {
-    font-size: 8px;
+    font-size: 12px;
   }
   .brand-sub {
     width: 100%;
     text-align: center;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .delivery .car {
-    transition: none;
   }
 }
