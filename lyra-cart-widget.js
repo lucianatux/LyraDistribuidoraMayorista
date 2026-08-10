@@ -355,7 +355,6 @@
       "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg),
       "_blank",
     );
-    clearCart();
     panel.classList.remove("open");
   });
 
