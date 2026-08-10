@@ -163,8 +163,7 @@
           '" data-price="' +
           precioInicial +
           '" onclick="addToCart(this)">' +
-          CART_SVG +
-          " Agregar" +
+          " Agregar al 🛒" +
           "</button>" +
           "</div>" +
           "</div>" +
@@ -214,7 +213,7 @@
   // Vuelve el botón al estado "Agregar" (si se cambió algo tras haber agregado)
   function resetAddButton(btn) {
     btn.classList.remove("added");
-    btn.innerHTML = CART_SVG + " Agregar";
+    btn.innerHTML = " Agregar al 🛒";
   }
 
   // === SELECTOR DE COLOR (mismo precio) ===
@@ -270,7 +269,7 @@
     btn.innerHTML = CHECK_SVG + " Agregado";
     setTimeout(function () {
       btn.classList.remove("added");
-      btn.innerHTML = CART_SVG + " Agregar";
+      btn.innerHTML = " Agregar al 🛒";
     }, 1500);
   }
 

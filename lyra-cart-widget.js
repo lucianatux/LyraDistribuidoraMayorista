@@ -192,7 +192,7 @@
     ".lcw-total-label{color:#888}" +
     ".lcw-total-val{font-size:20px;font-weight:700;color:#1a1815}" +
     ".lcw-name{width:100%;padding:8px 12px;border:1px solid #eef;border-radius:6px;font-family:inherit;font-size:13px;outline:none;margin-bottom:8px;box-sizing:border-box}.lcw-name:focus{border-color:#f0b913}" +
-    ".lcw-send{width:100%;padding:10px;background:#25d366;color:#eef;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background 0.15s}.lcw-send:hover{background:#20bd5a}" +
+    ".lcw-send{width:100%;padding:10px;background:#1baa4a;color:#eef;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background 0.15s}.lcw-send:hover{background:#20bd5a}" +
     ".lcw-clear{display:block;width:100%;background:none;border:none;color:#bbb;font-size:12px;cursor:pointer;padding:6px 0;text-align:center;margin-top:4px}.lcw-clear:hover{color:#e55}" +
     "@media(max-width:500px){#lyra-cw-panel{right:8px;left:8px;width:auto;bottom:86px}#lyra-cw{right:16px;bottom:16px}}";
   document.head.appendChild(style);
