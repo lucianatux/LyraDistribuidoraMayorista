@@ -166,7 +166,7 @@
   var style = document.createElement("style");
   style.textContent =
     "#lyra-cw{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Instrument Sans','DM Sans',system-ui,sans-serif}" +
-    "#lyra-cw-btn{width:54px;height:54px;border-radius:50%;background:#3d444c;color:#eef;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.22);position:relative;transition:transform 0.15s,background 0.15s}" +
+    "#lyra-cw-btn{width:54px;height:54px;border-radius:50%;background:#3d444c;color:#eef;border:none;cursor:pointer;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0px 0px 10px rgb(91, 190, 244);position:relative;transition:transform 0.15s,background 0.15s}" +
     "#lyra-cw-btn:hover{transform:scale(1.08);background:#4a525a}" +
     "#lyra-cw-badge{position:absolute;top:-4px;right:-4px;background:#f0b913;color:#1a1815;font-size:11px;font-weight:700;min-width:22px;height:22px;border-radius:11px;display:none;align-items:center;justify-content:center;padding:0 5px}" +
     "#lyra-cw-badge.on{display:flex}" +

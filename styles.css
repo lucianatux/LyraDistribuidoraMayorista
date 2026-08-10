@@ -280,14 +280,14 @@ img {
 }
 .step h3 {
   font-family: "Instrument Sans", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--heading);
   margin-bottom: 4px;
 }
 .step p {
-  font-size: 13px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--second-color);
 }
 .step-icon .bi-whatsapp {
   color: #1baa4a;
@@ -324,10 +324,10 @@ img {
 .info-item .it-title {
   font-family: "Instrument Sans", sans-serif;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
 }
 .info-item .it-sub {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--first-color);
 }
 .info-sep {
