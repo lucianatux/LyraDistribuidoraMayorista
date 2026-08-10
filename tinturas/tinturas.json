@@ -13,18 +13,8 @@
           "precio": 2990,
           "textoLibre": {
             "label": "Tono deseado",
-            "placeholder": "Ej: 6.0, 7.3, negro…"
+            "placeholder": "Ej: 3, 10.1, negro…"
           }
-        },
-        {
-          "nombre": "Sachet EstereoColor",
-          "desc": "Tintura + oxidante.",
-          "img": "sachet.jpg",
-          "colores": [
-            "tono 93",
-            "tono 562"
-          ],
-          "precio": 2020
         },
         {
           "nombre": "Funky color",
@@ -49,17 +39,17 @@
           "precio": 2020
         },
         {
-          "nombre": "Shock capilar",
+          "nombre": "Shock capilar Caja x10u",
           "desc": "47 gr. Tratamientos disponibles: argán, keratina, macadamia, coco, bótox, colágeno, blindaje, minuto express, rubios luminosos, carbón detox, oro 24k, silver y co-wash.",
           "img": "shock.jpg",
-          "precio": 1990,
+          "precio": 19900,
           "textoLibre": {
             "label": "Tratamiento deseado",
             "placeholder": "Ej: keratina, bótox…"
           }
         },
         {
-          "nombre": "Óleo capilar",
+          "nombre": "Óleo capilar Caja x40u",
           "desc": "Óleo capilar nutritivo.",
           "img": "oleo.jpg",
           "colores": [
@@ -68,7 +58,7 @@
             "coco",
             "almendras"
           ],
-          "precio": 7100
+          "precio": 28400
         }
       ]
     }
