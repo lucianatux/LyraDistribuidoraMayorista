@@ -1,0 +1,173 @@
+{
+  "_instrucciones": "Este archivo es INDEPENDIENTE de carteras.json — acá van solo los productos de fábrica (no están en tu depósito). Reemplazá los productos de 'ejemplo' de abajo por los tuyos. Cada producto necesita: nombre, desc, img (nombre del archivo, tiene que estar dentro de la carpeta carteras-fabrica-img/), colores (array de opciones) y precio. Podés armar tantas secciones/categorías como necesites — el filtro de arriba se genera solo a partir de los 'id' y 'titulo' de cada sección, no hace falta tocar el HTML.",
+
+  "seccion": "Catálogo de Fábrica",
+  "imgBase": "carteras-fabrica-img/",
+
+  "secciones": [
+    {
+      "id": "carteras",
+      "titulo": "Carteras y Bolsos",
+      "productos": [
+        {
+          "nombre": "Alfonsina",
+          "desc": "Simil nobuck",
+          "img": "alfonsina.jpg",
+          "colores": ["Negro", "Chocolate", "Camel"],
+          "precio": 26200
+        },
+        {
+          "nombre": "María",
+          "desc": "Interior con compartimento. Manija regulable para adaptar a tu medida.",
+          "img": "maria.jpg",
+          "colores": ["Negro", "Chocolate", "Camel", "Guinda"],
+          "precio": 26200
+        },
+        {
+          "nombre": "Mora",
+          "desc": "Simil cuero /nobuck con detalle de argolla en frente",
+          "img": "mora.jpg",
+          "colores": ["Negro", "Chocolate", "Guinda", "Suela"],
+          "precio": 26200
+        },
+        {
+          "nombre": "Lara",
+          "desc": "Simil nobuck. Manija regulable con hebillas",
+          "img": "lara.jpg",
+          "colores": ["Guinda"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Anto Gamuza",
+          "desc": "Simil nobuck",
+          "img": "anto.jpg",
+          "colores": ["Suela", "Verde oliva", "Chocolate"],
+          "precio": 21300
+        },
+        {
+          "nombre": "Anto Gamuza con tachas",
+          "desc": "Simil nobuck",
+          "img": "antocontachas.jpg",
+          "colores": ["Suela", "Verde oliva", "Chocolate"],
+          "precio": 21300
+        },
+        {
+          "nombre": "Bruna",
+          "desc": "Amplio bolsillo frontal con cierre plástico reforzado. Manija con mosquetón. Boca con cierre reforzado y tira para ajustar.",
+          "img": "bruna.jpg",
+          "colores": ["Negro"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Renata",
+          "desc": "Boca con cierre reforzado y mosquetón. Bolsillos frontales. Manijas cortas y una manija en cinta fantasía desmontable y con mosquetón",
+          "img": "renata.jpg",
+          "colores": ["Negro"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Xara",
+          "desc": "Simil nobuck",
+          "img": "xara.jpg",
+          "colores": ["Guinda"],
+          "precio": 19700
+        },
+        {
+          "nombre": "Minibag Zoe",
+          "desc": "Simil cuero",
+          "img": "zoe.jpg",
+          "colores": ["Chocolate"],
+          "precio": 15700
+        },
+        {
+          "nombre": "Bolso puffer",
+          "desc": "Bolso puffer con manijas alta tenacidad. Broche de metal.",
+          "img": "bolsopuffer.jpg",
+          "colores": ["Negro", "Verde oliva", "Plateado"],
+          "precio": 20000
+        }
+      ]
+    },
+    {
+      "id": "morrales",
+      "titulo": "Morrales",
+      "productos": [
+        {
+          "nombre": "Vera",
+          "desc": "",
+          "img": "vera.jpg",
+          "colores": ["Negro"],
+          "precio": 19700
+        },
+        {
+          "nombre": "Leti",
+          "desc": "",
+          "img": "leti.jpg",
+          "colores": ["Tomate"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Coti",
+          "desc": "Cierre de metal. Bolsillo en frente. Bolsillo trasero con cierre reforzado.",
+          "img": "coti.jpg",
+          "colores": ["Negro"],
+          "precio": 20700
+        },
+        {
+          "nombre": "Sofi",
+          "desc": "3 divisiones. Cinta regulable con mosquetón.",
+          "img": "sofi.jpg",
+          "colores": ["Negro"],
+          "precio": 20000
+        }
+      ]
+    },
+    {
+      "id": "mochilas",
+      "titulo": "Mochilas",
+      "productos": [
+        {
+          "nombre": "Juli",
+          "desc": "Mochila bolso simil cuero.",
+          "img": "juli.jpg",
+          "colores": ["Negro"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Alis",
+          "desc": "Mochila simil cuero. Manijas de cinta alta tenacidad. Íntegramente forrada.",
+          "img": "alis.jpg",
+          "colores": ["Negro"],
+          "precio": 20000
+        },
+        {
+          "nombre": "Virginia",
+          "desc": "Mochila simil cuero con bolsillos laterales y bolsillo en frente. Cinta mochilera alta tenacidad. ",
+          "img": "virginia.jpg",
+          "colores": ["Negro"],
+          "precio": 23000
+        }
+      ]
+    },
+    {
+      "id": "accesorios",
+      "titulo": "Accesorios",
+      "productos": [
+        {
+          "nombre": "Portacosmético Primavera",
+          "desc": "portacosmético simil cuero, colorido",
+          "img": "portacosmeticospring.jpg",
+          "colores": ["Celeste", "Verde", "Fucsia", "Rojo", "Rosa"],
+          "precio": 20000
+        },
+         {
+          "nombre": "Cintos",
+          "desc": "",
+          "img": "cintos.jpg",
+          "colores": ["Negro", "Chocolate", "Suela"],
+          "precio": 20000
+        }
+      ]
+    }
+  ]
+}

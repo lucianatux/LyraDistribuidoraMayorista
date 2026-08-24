@@ -27,6 +27,7 @@
         </a>
         <div class="header-right">
           <a class="back-link" href="../index.html">← Volver</a>
+          <a class="fabrica-link" href="#fabrica-section">🏭 Catálogo de fábrica</a>
           <a class="wa-btn" href="https://wa.me/543512309375" target="_blank"
             >WhatsApp</a
           >
@@ -37,7 +38,7 @@
     <!-- FILTERS -->
     <div class="filters-bar">
       <h2>Nuestros modelos</h2>
-      <div class="filter-pills">
+      <div class="filter-pills" id="carteras-filters">
         <button class="filter-pill active" data-filter="all">Todos</button>
         <button class="filter-pill" data-filter="carteras">Carteras</button>
         <button class="filter-pill" data-filter="mochilas">Mochilas</button>
@@ -50,6 +51,41 @@
 
     <!-- CATALOG (se genera solo desde el array PRODUCTOS de abajo) -->
     <main class="catalog-grid" id="catalog"></main>
+
+    <!-- ============================================================
+         CATÁLOGO DE FÁBRICA — productos que no están en depósito.
+         JSON separado (carteras-fabrica.json). Para agregar/editar
+         productos de este catálogo, se edita SOLO ese archivo.
+         ============================================================ -->
+    <section class="fabrica-section" id="fabrica-section">
+      <div class="fabrica-banner">
+        <div class="fabrica-banner-inner">
+          <div class="fabrica-banner-title">
+            <span class="emoji">🏭</span> Catálogo de fábrica
+          </div>
+          <p class="fabrica-banner-text">
+            Estos productos <strong>no están disponibles en stock inmediato</strong>.
+            La entrega demora de <strong>14 a 20 días</strong>, así que deben
+            pedirse con anticipación.
+          </p>
+          <div class="fabrica-chips">
+            <span class="fabrica-chip">🚚 Entrega: 14 a 20 días</span>
+            <span class="fabrica-chip">🔢 Compra mínima: 8 productos</span>
+            <span class="fabrica-chip">📅 Pedir con anticipación</span>
+          </div>
+          <div class="fabrica-counter" id="fabrica-counter">
+            Todavía no agregaste productos de este catálogo.
+          </div>
+        </div>
+      </div>
+
+      <div class="filters-bar">
+        <h2>Modelos de fábrica</h2>
+        <div class="filter-pills" id="fabrica-filters"></div>
+      </div>
+
+      <main class="catalog-grid" id="catalog-fabrica"></main>
+    </section>
 
     <!-- FOOTER -->
     <footer class="site-footer" id="contacto">
@@ -67,7 +103,96 @@
     <!-- Motor compartido: lee carteras.json y dibuja las tarjetas -->
     <script src="../catalogo.js"></script>
     <script>
-      Catalogo.init({ json: "carteras.json" });
+      // Catálogo normal — stock en depósito
+      Catalogo.init({
+        json: "carteras.json",
+        catalogId: "catalog",
+        filtersId: "carteras-filters",
+      });
+
+      // Catálogo de fábrica — pedido especial (mínimo 8, entrega 14-20 días)
+      Catalogo.init({
+        json: "carteras-fabrica.json",
+        catalogId: "catalog-fabrica",
+        filtersId: "fabrica-filters",
+        autoFilters: true,
+        defaultBadge: "Pedido especial",
+        cartTag: "🏭 ",
+      });
+    </script>
+
+    <!-- Contador de mínimo (8 productos) del catálogo de fábrica.
+         Es solo informativo: NO bloquea el envío del pedido, avisa
+         mientras la clienta va agregando productos. Cuenta los ítems
+         del carrito cuyo nombre empieza con el cartTag "🏭 ". -->
+    <script>
+      (function () {
+        var CART_KEY = "lyra_products";
+        var TAG = "🏭 ";
+        var MIN = 8;
+        var counterEl;
+
+        function countFabrica() {
+          try {
+            var cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+            var count = 0;
+            cart.forEach(function (item) {
+              if (item.nombre && item.nombre.indexOf(TAG) === 0) {
+                count += item.cantidad || 1;
+              }
+            });
+            return count;
+          } catch (e) {
+            return 0;
+          }
+        }
+
+        function renderCounter() {
+          if (!counterEl) return;
+          var n = countFabrica();
+          if (n === 0) {
+            counterEl.className = "fabrica-counter";
+            counterEl.innerHTML =
+              "Todavía no agregaste productos de este catálogo.";
+          } else if (n < MIN) {
+            counterEl.className = "fabrica-counter";
+            counterEl.innerHTML =
+              "Llevás <strong>" +
+              n +
+              " de " +
+              MIN +
+              "</strong> productos mínimos · faltan " +
+              (MIN - n) +
+              " más.";
+          } else {
+            counterEl.className = "fabrica-counter ok";
+            counterEl.innerHTML =
+              "✓ Llevás <strong>" +
+              n +
+              "</strong> productos — ¡ya alcanzaste el mínimo!";
+          }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+          counterEl = document.getElementById("fabrica-counter");
+          renderCounter();
+          setInterval(renderCounter, 800);
+        });
+      })();
+    </script>
+    <!-- El link de "Catálogo de fábrica" salta directo, sin scroll suave
+         (igual que la navegación del sitio principal). El resto de los
+         anchors de la página sigue con scroll suave normal. -->
+    <script>
+      document
+        .querySelectorAll('a[href="#fabrica-section"]')
+        .forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = document.getElementById("fabrica-section");
+            if (target) target.scrollIntoView({ behavior: "instant", block: "start" });
+          });
+        });
     </script>
   </body>
 </html>

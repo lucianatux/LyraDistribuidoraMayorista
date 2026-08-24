@@ -12,6 +12,25 @@
      <script>Catalogo.init({ json: "carteras.json" });</script>
 
    El JSON define su propia carpeta de imágenes en "imgBase".
+
+   Dos catálogos en la MISMA página (ej. carteras + catálogo de
+   fábrica dentro de /carteras/index.html): cada uno necesita su
+   propio <main id="..."> y su propio contenedor de filtros con id,
+   para que no se pisen entre sí:
+
+     <main class="catalog-grid" id="catalog"></main>
+     <main class="catalog-grid" id="catalog-fabrica"></main>
+     <script>
+       Catalogo.init({ json: "carteras.json", catalogId: "catalog", filtersId: "carteras-filters" });
+       Catalogo.init({
+         json: "carteras-fabrica.json",
+         catalogId: "catalog-fabrica",
+         filtersId: "fabrica-filters",
+         autoFilters: true,        // genera los pills solos a partir del JSON
+         defaultBadge: "Pedido especial",
+         cartTag: "🏭 "            // se antepone al nombre en el carrito/WhatsApp
+       });
+     </script>
    ============================================================ */
 (function () {
   "use strict";
@@ -35,8 +54,14 @@
   }
 
   // === RENDER: arma las tarjetas desde las secciones del JSON ===
-  function render(secciones, imgBase) {
-    var catalog = document.getElementById("catalog");
+  //  catalogId → id del <main> donde se dibuja (default "catalog")
+  //  cardOpts.defaultBadge → texto de badge para productos sin badge propio
+  //  cardOpts.cartTag → texto que se antepone al nombre en el carrito
+  //                     (ej. "🏭 " para distinguir pedidos de fábrica)
+  function render(secciones, imgBase, catalogId, cardOpts) {
+    cardOpts = cardOpts || {};
+    var tag = cardOpts.cartTag || "";
+    var catalog = document.getElementById(catalogId || "catalog");
     if (!catalog) return;
     var html = "";
 
@@ -56,8 +81,9 @@
 
       items.forEach(function (p, i) {
         var delay = (0.05 + i * 0.05).toFixed(2);
-        var badge = p.badge
-          ? '<span class="card-badge">' + esc(p.badge) + "</span>"
+        var badgeText = p.badge || cardOpts.defaultBadge || "";
+        var badge = badgeText
+          ? '<span class="card-badge">' + esc(badgeText) + "</span>"
           : "";
 
         // Precio base + selector (según tipo de producto)
@@ -72,7 +98,7 @@
           colores = p.variantesPrecio.map(function (v) {
             return v.label;
           });
-          nombreCarrito = p.nombre + " - " + p.variantesPrecio[0].label;
+          nombreCarrito = tag + p.nombre + " - " + p.variantesPrecio[0].label;
           selectHtml =
             '<select class="variant-select" onchange="updateVariantPrice(this)">' +
             p.variantesPrecio
@@ -95,7 +121,8 @@
           precioInicial = p.precio;
           colores = p.colores || [];
           var base = p.nombreCarrito || p.nombre;
-          nombreCarrito = colores.length > 1 ? base + " - " + colores[0] : base;
+          nombreCarrito =
+            tag + (colores.length > 1 ? base + " - " + colores[0] : base);
           if (colores.length > 1) {
             selectHtml =
               '<select class="variant-select" onchange="updateVariant(this)">' +
@@ -130,6 +157,8 @@
         html +=
           '<article class="product-card" data-category="' +
           sec.id +
+          '" data-cart-tag="' +
+          esc(tag) +
           '" style="animation-delay: ' +
           delay +
           's">' +
@@ -163,7 +192,8 @@
           '" data-price="' +
           precioInicial +
           '" onclick="addToCart(this)">' +
-          " Agregar al 🛒" +
+          CART_SVG +
+          " Agregar" +
           "</button>" +
           "</div>" +
           "</div>" +
@@ -175,34 +205,66 @@
   }
 
   // === FILTROS (lee las pills que están en el HTML) ===
-  function initFilters() {
-    document.querySelectorAll(".filter-pill").forEach(function (pill) {
+  //  filtersId → id del contenedor de pills a escuchar (si no se pasa,
+  //              usa todo el documento — comportamiento de siempre,
+  //              válido cuando hay un solo catálogo en la página).
+  //  catalogId → id del <main> cuyas tarjetas hay que filtrar.
+  function initFilters(catalogId, filtersId) {
+    var scopeEl = filtersId ? document.getElementById(filtersId) : document;
+    if (!scopeEl) return;
+    var catalog = document.getElementById(catalogId || "catalog");
+    if (!catalog) return;
+
+    scopeEl.querySelectorAll(".filter-pill").forEach(function (pill) {
       pill.addEventListener("click", function () {
-        document.querySelectorAll(".filter-pill").forEach(function (p) {
+        scopeEl.querySelectorAll(".filter-pill").forEach(function (p) {
           p.classList.remove("active");
         });
         pill.classList.add("active");
         var filter = pill.dataset.filter;
-        document.querySelectorAll(".product-card").forEach(function (card) {
+        catalog.querySelectorAll(".product-card").forEach(function (card) {
           card.dataset.hidden =
             filter !== "all" && card.dataset.category !== filter
               ? "true"
               : "false";
         });
-        document.querySelectorAll(".section-header").forEach(function (header) {
-          var section = header.dataset.section;
-          header.style.display =
-            filter !== "all" && section !== filter ? "none" : "";
-        });
+        catalog
+          .querySelectorAll(".section-header")
+          .forEach(function (header) {
+            var section = header.dataset.section;
+            header.style.display =
+              filter !== "all" && section !== filter ? "none" : "";
+          });
       });
     });
+  }
+
+  // === Genera los pills de filtro solos, a partir de las secciones ===
+  //  del JSON (para catálogos nuevos donde no queremos escribir a mano
+  //  cada botón — ej. el catálogo de fábrica).
+  function buildFilterPills(secciones, filtersId) {
+    if (!filtersId) return;
+    var container = document.getElementById(filtersId);
+    if (!container) return;
+    var html = '<button class="filter-pill active" data-filter="all">Todos</button>';
+    secciones.forEach(function (sec) {
+      if (!(sec.productos || []).length) return;
+      html +=
+        '<button class="filter-pill" data-filter="' +
+        esc(sec.id) +
+        '">' +
+        esc(sec.titulo) +
+        "</button>";
+    });
+    container.innerHTML = html;
   }
 
   // === Arma el nombre para el carrito según el estado de la tarjeta ===
   // Combina: nombre base + opción del desplegable (si hay) + texto libre (si hay).
   // Así el desplegable y el texto libre conviven sin pisarse.
   function composeName(card) {
-    var parts = [card.querySelector(".card-name").textContent];
+    var tag = card.dataset.cartTag || "";
+    var parts = [tag + card.querySelector(".card-name").textContent];
     var sel = card.querySelector(".variant-select");
     if (sel) parts.push(sel.value);
     var free = card.querySelector(".free-text-input");
@@ -213,7 +275,7 @@
   // Vuelve el botón al estado "Agregar" (si se cambió algo tras haber agregado)
   function resetAddButton(btn) {
     btn.classList.remove("added");
-    btn.innerHTML = " Agregar al 🛒";
+    btn.innerHTML = CART_SVG + " Agregar";
   }
 
   // === SELECTOR DE COLOR (mismo precio) ===
@@ -269,14 +331,22 @@
     btn.innerHTML = CHECK_SVG + " Agregado";
     setTimeout(function () {
       btn.classList.remove("added");
-      btn.innerHTML = " Agregar al 🛒";
+      btn.innerHTML = CART_SVG + " Agregar";
     }, 1500);
   }
 
   // === INIT: descarga el JSON y dibuja ===
+  //  opts.json         → ruta al JSON (requerido)
+  //  opts.catalogId    → id del <main> destino (default "catalog")
+  //  opts.filtersId    → id del contenedor de pills a usar/generar
+  //  opts.autoFilters  → true = arma los pills solo, desde el JSON
+  //  opts.defaultBadge → badge por defecto para productos sin badge propio
+  //  opts.cartTag      → texto a anteponer en el nombre del carrito
   function init(opts) {
     opts = opts || {};
     var jsonUrl = opts.json;
+    var catalogId = opts.catalogId || "catalog";
+    var filtersId = opts.filtersId || null;
     if (!jsonUrl) {
       console.error("[catalogo] Falta la opción 'json' con la ruta del archivo.");
       return;
@@ -288,12 +358,17 @@
       })
       .then(function (data) {
         var imgBase = data.imgBase || "";
-        render(data.secciones || [], imgBase);
-        initFilters();
+        var secciones = data.secciones || [];
+        render(secciones, imgBase, catalogId, {
+          defaultBadge: opts.defaultBadge,
+          cartTag: opts.cartTag,
+        });
+        if (opts.autoFilters) buildFilterPills(secciones, filtersId);
+        initFilters(catalogId, filtersId);
       })
       .catch(function (err) {
         console.error("[catalogo] Error:", err);
-        var catalog = document.getElementById("catalog");
+        var catalog = document.getElementById(catalogId);
         if (catalog) {
           catalog.innerHTML =
             '<p style="text-align:center;padding:2rem;color:#a00">' +

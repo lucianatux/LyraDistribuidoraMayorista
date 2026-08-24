@@ -7,26 +7,23 @@
    ============================================================ */
 
 :root {
-  --heading: #12497d;
-  --first-color: #75aadb;
-  --first-color-hover: #608bc7;
-  --second-color: #3f464f;
-  --bg-main: #f5f5f2;
-  --bg-card: #eeffff;
-  --bg-hero: #3f464f;
-  --text-primary: #22303a;
-  --text-secondary: #6b7680;
-  --text-light: #9aa2a9;
-  --accent: #75aadb;
-  --accent-hover: #608bc7;
-  --accent-soft: #e8f1fa;
-  --border: #dfe6e6;
+  --bg-main: #faf7f2;
+  --bg-card: #ffffff;
+  --bg-hero: #1a1a1a;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6560;
+  --text-light: #9b9590;
+  --accent: #c4956a;
+  --accent-hover: #b0845d;
+  --accent-soft: #ede4da;
+  --border: #e8e2da;
   --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.06);
   --shadow-md: 0 8px 30px rgba(26, 26, 26, 0.08);
   --shadow-lg: 0 20px 60px rgba(26, 26, 26, 0.12);
   --radius: 12px;
   --font-body: "DM Sans", -apple-system, sans-serif;
 }
+
 *,
 *::before,
 *::after {
@@ -50,7 +47,7 @@ body {
 /* === HEADER (same as /libreria/) === */
 header {
   background: var(--bg-hero);
-  color: #eef;
+  color: #fff;
   padding: 0 24px;
   position: sticky;
   top: 0;
@@ -70,7 +67,7 @@ header {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #eef;
+  color: #fff;
 }
 .logo-img {
   width: 36px;
@@ -80,7 +77,7 @@ header {
 .logo-text {
   font-family: "Aclonica", sans-serif;
   font-size: 22px;
-  color: #eef;
+  color: #fff;
   letter-spacing: 0.5px;
 }
 .header-subtitle {
@@ -106,14 +103,14 @@ header {
   transition: color 0.15s;
 }
 .header-right a:hover {
-  color: #eef;
+  color: #fff;
 }
 .back-link {
   font-size: 12px;
 }
 .wa-btn {
-  background: #2cab5b;
-  color: #eef !important;
+  background: #25d366;
+  color: #fff !important;
   padding: 6px 14px;
   border-radius: 6px;
   font-weight: 600;
@@ -163,7 +160,7 @@ header {
 .filter-pill.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: #eef;
+  color: #fff;
 }
 
 /* === GRID === */
@@ -250,7 +247,7 @@ header {
   top: 0.75rem;
   left: 0.75rem;
   background: var(--accent);
-  color: #eef;
+  color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -338,8 +335,8 @@ header {
   padding: 0.55rem 1.1rem;
   border-radius: 8px;
   border: none;
-  background: var(--heading);
-  color: var(--bg-card);
+  background: var(--text-primary);
+  color: #fff;
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 600;
@@ -349,7 +346,7 @@ header {
     transform 0.15s;
 }
 .btn-add:hover {
-  background: var(--bg-hero);
+  background: var(--accent);
 }
 .btn-add:active {
   transform: scale(0.96);
@@ -378,7 +375,7 @@ header {
 .site-footer .footer-brand {
   font-family: "Instrument Sans", var(--font-body);
   font-size: 1.2rem;
-  color: #eef;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
@@ -431,96 +428,100 @@ header {
   border-color: var(--accent);
 }
 
+/* ============================================================
+   CATÁLOGO DE FÁBRICA — sección aparte dentro de /carteras/
+   ============================================================ */
 
-/* ── Bloque visor de PDF (carta de tinturas / catálogo sublimados) ── */
-.pdf-block {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1.5rem clamp(1rem, 4vw, 3rem) 2.5rem;
-  text-align: center;
-}
-.pdf-title {
-  font-family: "Instrument Sans", var(--font-body);
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-.pdf-desc {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  max-width: 600px;
-  margin: 0 auto 1.2rem;
-}
-.pdf-viewer {
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-md);
-  background: #f0ebe5;
-}
-.pdf-viewer iframe {
-  width: 100%;
-  height: 60vh;
-  min-height: 380px;
-  border: none;
-  display: block;
-}
-.pdf-viewer.pdf-tall iframe {
-  height: 80vh;
-  min-height: 500px;
-}
-.pdf-actions {
-  display: flex;
-  gap: 0.75rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 1rem;
-}
-.pdf-btn {
-  padding: 0.6rem 1.3rem;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
-}
-.pdf-btn:hover {
+/* Acceso rápido desde el header (siempre visible, sticky) */
+.fabrica-link {
   background: var(--accent);
-  border-color: var(--accent);
+  color: #1a1a1a !important;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.fabrica-link:hover {
+  background: #d4a67a;
+}
+
+.fabrica-section {
+  margin-top: 3rem;
+  border-top: 3px solid var(--text-primary);
+  padding-top: 2.5rem;
+  scroll-margin-top: 70px; /* que el ancla no quede tapada por el header sticky */
+}
+
+.fabrica-banner {
+  max-width: 1400px;
+  margin: 0 auto 1rem;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+}
+.fabrica-banner-inner {
+  background: linear-gradient(135deg, #2a2420 0%, #1a1a1a 100%);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.fabrica-banner-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: "Instrument Sans", var(--font-body);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.fabrica-banner-title .emoji {
+  font-size: 1.35rem;
+}
+.fabrica-banner-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1rem;
+  max-width: 720px;
+}
+.fabrica-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.fabrica-chip {
+  background: rgba(196, 149, 106, 0.18);
+  border: 1px solid var(--accent);
+  color: #f0dcc4;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.9rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.fabrica-counter {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+.fabrica-counter strong {
   color: #fff;
 }
-/* ── Preview de PDF en móvil ── */
-.pdf-preview-mobile {
-  display: none; /* oculto en desktop */
+.fabrica-counter.ok {
+  color: #8fd4a8;
 }
-@media (max-width: 768px) {
-  .pdf-viewer { display: none; }      /* el iframe no anda en celular */
-  .pdf-preview-mobile {
-    display: block;
-    max-width: 480px;
-    margin: 0 auto;
-    text-decoration: none;
-  }
-  .pdf-preview-mobile img {
-    width: 100%;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-md);
-    display: block;
-  }
-  .pdf-preview-hint {
-    display: block;
-    margin-top: 0.6rem;
-    text-align: center;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
-  }
+.fabrica-counter.ok strong {
+  color: #8fd4a8;
+}
 
-  .pdf-desc-desktop { display: none; }
+@media (max-width: 600px) {
+  .fabrica-banner-inner {
+    padding: 1.4rem;
+  }
+  .header-right .fabrica-link {
+    display: none; /* en mobile queda el link dentro de la propia sección */
+  }
 }

@@ -11,35 +11,35 @@
           "desc": "Cartera hobo elegante con hebilla metálica decorativa.",
           "img": "antohebilla1.png",
           "colores": ["Negro"],
-          "precio": 18500
+          "precio": 21300
         },
         {
           "nombre": "Pilar",
           "desc": "Cartera compacta con solapa, boca con cierre y correa desmontable con mosquetón.",
           "img": "pilar1.png",
           "colores": ["Negro", "Tierra"],
-          "precio": 18500
+          "precio": 17400
         },
         {
           "nombre": "Abril",
           "desc": "Bolso tote amplio con tachas decorativas. Ideal para el día a día.",
           "img": "abril1.png",
           "colores": ["Negro"],
-          "precio": 19700
+          "precio": 22300
         },
         {
           "nombre": "Bolso Totebag",
           "desc": "Tote bag forrado en su interior. Ideal para la facu.",
           "img": "totebag1.png",
           "colores": ["Camel maíz"],
-          "precio": 16300
+          "precio": 22300
         },
         {
           "nombre": "Clara",
           "desc": "Cartera compacta con asa superior y correa bandolera con tachas.",
           "img": "clara1.jpg",
           "colores": ["Negro"],
-          "precio": 18600
+          "precio": 18500
         },
         {
           "nombre": "Paz",
@@ -59,14 +59,14 @@
           "desc": "Mochila elegante con solapa y cierre giratorio metálico.",
           "img": "lola1.png",
           "colores": ["Negro"],
-          "precio": 22700
+          "precio": 24000
         },
         {
           "nombre": "Mochila Matera Puff",
           "desc": "Mochila acolchada ideal para el mate. Estilo puffer.",
           "img": "mochimatera.jpg",
           "colores": ["Negro brillante", "Negro opaco"],
-          "precio": 14800
+          "precio": 15800
         }
       ]
     },
@@ -222,7 +222,7 @@
           "desc": "Pechera cruzada en simil cuero para hombre.",
           "img": "pecherahombre.jpg",
           "colores": ["Negro"],
-          "precio": 17100
+          "precio": 18000
         },
         {
           "nombre": "Tabaquera",
