@@ -35,7 +35,7 @@
           "desc": "Simil nobuck. Manija regulable con hebillas",
           "img": "lara.jpg",
           "colores": ["Guinda"],
-          "precio": 20000
+          "precio": 19000
         },
         {
           "nombre": "Anto Gamuza",
@@ -56,14 +56,14 @@
           "desc": "Amplio bolsillo frontal con cierre plástico reforzado. Manija con mosquetón. Boca con cierre reforzado y tira para ajustar.",
           "img": "bruna.jpg",
           "colores": ["Negro"],
-          "precio": 20000
+          "precio": 27300
         },
         {
           "nombre": "Renata",
           "desc": "Boca con cierre reforzado y mosquetón. Bolsillos frontales. Manijas cortas y una manija en cinta fantasía desmontable y con mosquetón",
           "img": "renata.jpg",
           "colores": ["Negro"],
-          "precio": 20000
+          "precio": 24600
         },
         {
           "nombre": "Xara",
@@ -84,7 +84,7 @@
           "desc": "Bolso puffer con manijas alta tenacidad. Broche de metal.",
           "img": "bolsopuffer.jpg",
           "colores": ["Negro", "Verde oliva", "Plateado"],
-          "precio": 20000
+          "precio": 27200
         }
       ]
     },
@@ -104,7 +104,7 @@
           "desc": "",
           "img": "leti.jpg",
           "colores": ["Tomate"],
-          "precio": 20000
+          "precio": 16400
         },
         {
           "nombre": "Coti",
@@ -118,7 +118,7 @@
           "desc": "3 divisiones. Cinta regulable con mosquetón.",
           "img": "sofi.jpg",
           "colores": ["Negro"],
-          "precio": 20000
+          "precio": 19000
         }
       ]
     },
@@ -131,14 +131,14 @@
           "desc": "Mochila bolso simil cuero.",
           "img": "juli.jpg",
           "colores": ["Negro"],
-          "precio": 20000
+          "precio": 23900
         },
         {
           "nombre": "Alis",
           "desc": "Mochila simil cuero. Manijas de cinta alta tenacidad. Íntegramente forrada.",
           "img": "alis.jpg",
           "colores": ["Negro"],
-          "precio": 20000
+          "precio": 21000
         },
         {
           "nombre": "Virginia",
@@ -158,14 +158,14 @@
           "desc": "portacosmético simil cuero, colorido",
           "img": "portacosmeticospring.jpg",
           "colores": ["Celeste", "Verde", "Fucsia", "Rojo", "Rosa"],
-          "precio": 20000
+          "precio": 3000
         },
          {
           "nombre": "Cintos",
           "desc": "",
           "img": "cintos.jpg",
           "colores": ["Negro", "Chocolate", "Suela"],
-          "precio": 20000
+          "precio": 14000
         }
       ]
     }
